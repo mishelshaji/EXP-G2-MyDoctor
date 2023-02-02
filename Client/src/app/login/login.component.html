@@ -1,0 +1,21 @@
+
+<div class="row container-fluid">
+    <div class="col-10 col-lg-5 flex InfoDiv">
+        <img src="./assets/images/Loginpage-clipart.png" alt="" id="Loginpage-clipart">
+        <h3>Start on the path of healing...</h3>
+        <p>Entrust your health to us, we will care for you</p>
+        <h4>24*7 Available</h4>
+    </div>
+    <div class="col-10 col-lg-1"></div>
+    <div class="col-10 col-lg-5 LoginDiv flex">
+        <img src="./assets/images/logo2.png" alt="" id="logo2">
+        <h3>User Login</h3>
+        <form class="flex">
+            <input type="text" placeholder="E-mail" name="email" [(ngModel)]="email">
+            <input type="text" placeholder="Password">
+            <h5><a href="#">Forgot your Password</a></h5>
+            <button routerLink="patient">Login</button>
+        </form>
+        <h5>Not Registered Yet? <span><a href="#">SignUp</a></span></h5>
+    </div>
+</div>

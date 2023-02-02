@@ -1,0 +1,33 @@
+
+*{
+    font-family: sans-serif;
+}
+nav{
+    background-color: white;
+    height: 60px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+nav div {
+    display: flex;
+}
+nav div img{
+    width: 60px;
+}
+nav div div{
+    display: unset;
+}
+nav div div h2{
+    margin: 1px 3px;
+    color: #E64A7A;
+    font-size: x-large;
+    font-weight: 900;
+}
+nav div div p{
+    margin: 1px 3px;
+    font-size: small;
+}
+.Nav-Text{
+    margin-left: 5px;
+}
