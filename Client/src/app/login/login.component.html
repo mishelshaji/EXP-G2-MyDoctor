@@ -1,4 +1,3 @@
-
 <div class="row container-fluid">
     <div class="col-10 col-lg-5 flex infodiv">
         <img src="./assets/images/Loginpage-clipart.png" alt="" id="Loginpage-clipart">
@@ -11,8 +10,10 @@
         <img src="./assets/images/logo2.png" alt="" id="logo2">
         <h3>User Login</h3>
         <form class="flex">
-            <input type="email" placeholder="E-mail" name="email" #email="ngModel" [(ngModel)]="modal.email" minlength="6" required>
-            <input type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="modal.password" required>
+            <input type="email" placeholder="E-mail" name="email" #email="ngModel" [(ngModel)]="modal.email"
+                minlength="6" required>
+            <input type="password" placeholder="Password" name="password" #password="ngModel"
+                [(ngModel)]="modal.password" required>
             <h5><a href="#">Forgot your Password</a></h5>
             <button routerLink="patient" [disabled]="email.invalid && password.invalid">Login</button>
         </form>

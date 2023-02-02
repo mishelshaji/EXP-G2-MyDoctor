@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  modal ={ 
-    email:'',
-    password:''
-  }    
+  modal = {
+    email: '',
+    password: ''
+  }
 }
