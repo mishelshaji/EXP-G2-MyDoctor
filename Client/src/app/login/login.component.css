@@ -6,19 +6,19 @@
 #Loginpage-clipart{
     width: 400px;
 }
-.InfoDiv h3{
+.infodiv h3{
     color: white;
     font-weight: 700;
 }
-.InfoDiv p{
+.infodiv p{
     color: white;
     font-weight: 400;
 }
-.InfoDiv h4{
+.infodiv h4{
     color: white;
 }
 
-.LoginDiv{
+.logindiv{
     height: 500px;
     width: 540px;
     background-color: white;
@@ -49,9 +49,9 @@ form button{
     color: white;
     margin-bottom: 25px;
 }
-.LoginDiv h5{
+.logindiv h5{
     font-size: 15px;
 }
-.LoginDiv h5 span a{
+.logindiv h5 span a{
     color: #E5497A;
 }

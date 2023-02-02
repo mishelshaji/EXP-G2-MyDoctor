@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
-  {path:'patient',loadChildren:()=> import('./patient/patient-routing.module').then(m => m.PatientRoutingModule)}
+  { path: '', component: LoginComponent },
+  { path: 'patient', loadChildren: ()=> import('./patient/patient-routing.module').then(m => m.PatientRoutingModule) }
 ];
 
 @NgModule({

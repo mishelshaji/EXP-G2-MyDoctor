@@ -1,20 +1,20 @@
 
 <div class="row container-fluid">
-    <div class="col-10 col-lg-5 flex InfoDiv">
+    <div class="col-10 col-lg-5 flex infodiv">
         <img src="./assets/images/Loginpage-clipart.png" alt="" id="Loginpage-clipart">
         <h3>Start on the path of healing...</h3>
         <p>Entrust your health to us, we will care for you</p>
         <h4>24*7 Available</h4>
     </div>
     <div class="col-10 col-lg-1"></div>
-    <div class="col-10 col-lg-5 LoginDiv flex">
+    <div class="col-10 col-lg-5 logindiv flex">
         <img src="./assets/images/logo2.png" alt="" id="logo2">
         <h3>User Login</h3>
         <form class="flex">
-            <input type="text" placeholder="E-mail" name="email" [(ngModel)]="email">
-            <input type="text" placeholder="Password">
+            <input type="email" placeholder="E-mail" name="email" #email="ngModel" [(ngModel)]="modal.email" minlength="6" required>
+            <input type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="modal.password" required>
             <h5><a href="#">Forgot your Password</a></h5>
-            <button routerLink="patient">Login</button>
+            <button routerLink="patient" [disabled]="email.invalid && password.invalid">Login</button>
         </form>
         <h5>Not Registered Yet? <span><a href="#">SignUp</a></span></h5>
     </div>
