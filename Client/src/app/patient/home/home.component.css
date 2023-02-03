@@ -1,32 +1,28 @@
-.flex-column {
-    flex-direction: column;
-}
-
-.searchdepartment {
+.search-dept {
     width: 100%;
     min-height: 90vh;
-    background: url("../../../assets/images/Find_A_Doctor_HERO_stethascope.jpg");
+    background: url("../../../assets/images/searchbackground.jpg");
     background-size: cover;
     background-position: -200px;
 }
 
-.searchdepartment h2 {
+.search-dept h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #E6497A;
     padding-top: 100px;
 }
 
-.searchdepartment p {
+.search-dept p {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
 }
 
-.searchdepartmentcontents {
+.search-contents {
     flex-direction: column;
     margin-left: 40px;
 }
 
-.searcharea {
+.search-area {
     align-items: center;
     border: 1.5px solid #00C294;
     width: 550px;
