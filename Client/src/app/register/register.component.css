@@ -40,7 +40,7 @@ section div select {
     margin: 10px 0 0 0;
 }
 
-form button {
+.signup-btn {
     width: 150px;
     margin: 15px;
     color: white;
@@ -51,7 +51,23 @@ form button {
     padding: 7px 15px;
 }
 
-form button:hover {
+.signup-btn:hover {
     background-color: #87ffe3;
     color: #ff75ae;
+}
+
+label[for="email"] {
+    margin-right: 80px;
+}
+
+label[for="password"] {
+    margin-right: 55px;
+}
+
+label[for="role"] {
+    margin-right: 95px;
+}
+
+label[for="specilization"] {
+    margin-right: 40px;
 }

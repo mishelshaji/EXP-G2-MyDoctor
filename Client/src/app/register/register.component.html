@@ -8,32 +8,27 @@
         <h2>User Registration</h2>
         <form class="flex">
             <div class="inputdiv">
-                <label for="firstname">First Name :
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="firstname" class="me-lg-5">First Name :</label>
                 <input type="text" name="firstname" placeholder="Enter first name" id="firstname">
             </div>
             <div class="inputdiv">
-                <label for="lastname">Last Name :
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="lastname" class="me-lg-5">Last Name :</label>
                 <input type="text" name="lastname" placeholder="Enter last name" id="lastname">
             </div>
             <div class="inputdiv">
-                <label for="email">E-mail :
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="email">E-mail :</label>
                 <input type="email" class="" name="email" placeholder="Enter E-mail address" id="email">
             </div>
             <div class="inputdiv">
-                <label for="password">Password :
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="password">Password :</label>
                 <input type="password" name="password" placeholder="Enter password" id="password">
             </div>
             <div class="inputdiv">
-                <label for="cpassword">Confirm Password : </label>&nbsp;
+                <label for="cpassword">Confirm Password : </label>
                 <input type="password" name="cpassword" placeholder="Re-enter password" id="cpassword">
             </div>
             <div class="inputdiv">
-                <label for="role">Role :
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="role">Role :</label>
                 <select name="role" placeholder="Enter role" id="role">
                     <option value="1" default>Patient</option>
                     <option value="2">Doctor</option>
@@ -41,11 +36,14 @@
                 </select>
             </div>
             <div class="inputdiv">
-                <label for="specilization">Specilization :
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="text" name="specilization" placeholder="Enter specilization" id="specilization">
+                <label for="specilization">Specilization :</label>
+                <select name="role" placeholder="Enter role" id="role">
+                    <option value="0" default>No item selected</option>
+                    <option *ngFor="let item of specilization">{{item.spec}}</option>
+
+                </select>
             </div>
-            <button type="submit">Sign Up</button>
+            <button class="signup-btn" type="submit">Sign Up</button>
         </form>
     </div>
 </section>

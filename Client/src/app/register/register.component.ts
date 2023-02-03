@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
+  specilization = [
+    {
+      id: 1,
+      spec: 'Eyes'
+    },
+    {
+      id: 2,
+      spec: 'Cardio'
+    },
+    {
+      id: 3,
+      spec: 'Physician'
+    }
+  ]
 }
