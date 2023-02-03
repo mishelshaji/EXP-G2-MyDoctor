@@ -1,14 +1,10 @@
-.flex {
-    display: flex;
-}
-
 .flex-column {
     flex-direction: column;
 }
 
 .searchdepartment {
     width: 100%;
-    min-height: 89.98vh;
+    min-height: 90vh;
     background: url("../../../assets/images/Find_A_Doctor_HERO_stethascope.jpg");
     background-size: cover;
     background-position: -200px;
@@ -64,4 +60,12 @@
     margin-left: 10px;
     font-size: 12px;
     color: rgb(141, 141, 141);
+}
+@media screen and (max-width:800px) {
+    .searchdepartmentcontents {
+        text-align: center;
+    }
+    .searcharea {
+        width: 100%;
+    }
 }
