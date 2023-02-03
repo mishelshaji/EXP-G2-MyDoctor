@@ -5,8 +5,8 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'register', component: RegisterComponent},
-  { path: 'patient', loadChildren: ()=> import('./patient/patient-routing.module').then(m => m.PatientRoutingModule) }
+  { path: 'register', component: RegisterComponent },
+  { path: 'patient', loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule) },
 ];
 
 @NgModule({
