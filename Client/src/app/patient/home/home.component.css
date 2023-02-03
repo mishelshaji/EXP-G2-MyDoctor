@@ -1,8 +1,7 @@
-
 .search-dept {
     width: 100%;
     min-height: 90vh;
-    background: url("../../../assets/images/searchbackground.png");
+    background: url("../../../assets/images/searchbackground.jpg");
     background-size: cover;
     background-position: -200px;
 }
@@ -63,9 +62,8 @@
     .searchdepartmentcontents {
         text-align: center;
     }
-
+    
     .searcharea {
         width: 100%;
     }
 }
-
