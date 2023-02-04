@@ -37,3 +37,35 @@ nav div div p {
 .Nav-Text {
     margin-left: 5px;
 }
+
+ nav div .nav-content {
+    margin:10px 0px 0px 650px;
+    font-size: 20px;
+    display: flex;
+} 
+.nav-content>h6>a {
+    color: rgb(223, 5, 140);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 15px;
+} 
+.login {
+    background-color: rgb(219, 227, 234);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    nav{
+        height: unset;
+    }
+    nav div img {
+        width: 60px;
+        height: 60px;
+    }
+    nav div .nav-content {  
+        margin:10px 0 0px 150px;
+        flex-direction: column;
+    } 
+}
