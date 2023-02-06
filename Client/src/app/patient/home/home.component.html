@@ -9,11 +9,23 @@
             <div class="d-flex">
                 <div class="search-area d-flex">
                     <img src="../../../assets/svg/search.svg" alt="search-icon">
-                    <input type="search" name="search" id="search" class="w-50" placeholder="Search department">
+                    <input type="search" name="search" id="search" class="w-95" placeholder="Search department">
                 </div>
                 <button type="submit" id="button">Search</button>
             </div>
             <p id="hint">Eg: Dentistry, Paediatrics etc.</p>
+        </div>
+    </div>
+    <div class="result-dept">
+        <br>
+        <h2 class="text-center">Search Results</h2>
+        <div class="row px-4 w-100">
+            <div class="result-item col-10 col-lg-4 ms-2 me-2 ms-lg-5 mb-4 mt-4 me-lg-5" *ngFor="let item of doctors">
+                <img src={{item.photo}} alt="" id="doctor-img">
+                <p id="doc-name">Dr. {{item.name}}</p>
+                <p id="doc-dept">{{item.department}}</p>
+                <button id="view-doctor">View Doctor</button>
+            </div>
         </div>
     </div>
 </div>
