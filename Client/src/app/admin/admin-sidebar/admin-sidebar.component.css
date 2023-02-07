@@ -1,0 +1,23 @@
+#bgdiv {
+    height: 120vh;
+}
+
+#logoimg {
+    width: 50px;
+    height: 50px;
+}
+
+.logodiv p {
+    font-size: 11px;
+}
+
+button {
+    margin: 10px 2px;
+    transition: 0.5s linear alternate;
+}
+
+@media screen and (max-width: 768px) {
+    #bgdiv {
+        height: 215vh;
+    }
+}

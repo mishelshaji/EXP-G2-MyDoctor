@@ -1,0 +1,56 @@
+<section>
+    <div class="container-fluid bg-dark" id="bgdiv">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 w-100">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <div class="d-flex logodiv">
+                        <img src="../../../assets/images/logo.png" alt="" id="logoimg">
+                        <div class="d-none d-lg-inline">
+                            <h2>MyDoctor</h2>
+                            <p>Start on the path of healing</p>
+                        </div>
+                    </div>
+                    <h3 class="fs-5 d-none d-sm-inline">Menu</h3>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100"
+                        id="menu">
+                        <li class="w-100">
+                            <button class="nav-link px-0 align-middle text-success bg-light w-100"
+                                (click)="clicked($event)" [routerLink]="['dashboard']" id="dashboard">
+                                <fa-icon class="fs-4" [icon]="faDashboard"></fa-icon>
+                                <span class="d-none d-lg-inline">Dashboard</span>
+                            </button>
+                        </li>
+                        <li class="w-100">
+                            <button class="nav-link px-0 align-middle text-success" (click)="clicked($event)"
+                                [routerLink]="['patientsection']" id="patients">
+                                <fa-icon class="fs-4" [icon]="faPatient"></fa-icon>
+                                <span class="d-none d-lg-inline">Patients</span>
+                            </button>
+                        </li>
+                        <li class="w-100">
+                            <button class="nav-link px-0 align-middle text-success" (click)="clicked($event)"
+                                [routerLink]="['doctorsection']" id="doctors">
+                                <fa-icon class="fs-4" [icon]="faDoctor"></fa-icon>
+                                <span class="d-none d-lg-inline">Doctors</span>
+                            </button>
+                        </li>
+                        <li class="w-100">
+                            <button class="nav-link px-0 align-middle text-success" (click)="clicked($event)"
+                                [routerLink]="['departmentsection']" id="departments">
+                                <fa-icon class="fs-4" [icon]="faDepartment"></fa-icon>
+                                <span class="d-none d-lg-inline">Departments</span>
+                            </button>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="pb-4">
+                        <p class="d-flex align-items-center text-white text-decoration-none" aria-expanded="false">
+                            <fa-icon class="fs-3" [icon]="faAdmin"></fa-icon>
+                            <span class="d-none d-sm-inline mx-3">Administrator</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
