@@ -16,7 +16,13 @@ button {
     transition: 0.5s linear alternate;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
+    #bgdiv {
+        height: 185vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
     #bgdiv {
         height: 215vh;
     }

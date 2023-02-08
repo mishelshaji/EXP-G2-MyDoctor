@@ -39,7 +39,7 @@ nav div div p {
 }
 
 nav div .nav-content {
-    margin: 10px 0px 0px 650px;
+    margin: 10px 0px 0px 600px;
     font-size: 20px;
     display: flex;
 }
@@ -58,7 +58,7 @@ nav div .nav-content {
     border-radius: 5px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
     nav {
         height: unset;
     }
@@ -69,7 +69,14 @@ nav div .nav-content {
     }
 
     nav div .nav-content {
-        margin: 10px 0 0px 150px;
+        margin: 10px 0 0px 400px;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav div .nav-content {
+        margin: 10px 0 0px 130px;
         flex-direction: column;
     }
 }

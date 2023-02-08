@@ -34,7 +34,6 @@ export class AdminSidebarComponent {
       }
 
     }
-    console.log(targett);
     others.forEach(element => {
       element?.classList.remove('bg-light');
       element?.classList.remove('w-100');
