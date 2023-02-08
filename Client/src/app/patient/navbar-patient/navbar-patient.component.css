@@ -8,6 +8,8 @@ nav {
     padding: 5px;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0.5);
 }
 
 nav div {
@@ -44,7 +46,7 @@ nav div .nav-content {
     display: flex;
 }
 
-.nav-content>h6>a {
+#nav-links {
     color: rgb(223, 5, 140);
     text-decoration: none;
     font-size: 15px;
@@ -52,10 +54,18 @@ nav div .nav-content {
     margin-right: 15px;
 }
 
-.login {
-    background-color: rgb(219, 227, 234);
+.logout {
+    background-color: #E64A7A;
+    text-decoration: none;
     padding: 8px;
     border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 1px 2px 3px black;
+}
+.logout:hover{
+    background-color: rgb(180, 180, 180);
+    color: black;
 }
 
 @media screen and (max-width: 968px) {

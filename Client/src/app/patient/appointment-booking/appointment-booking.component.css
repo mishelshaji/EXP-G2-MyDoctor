@@ -1,10 +1,66 @@
 .fullscreen {
     background-color: rgb(255, 255, 255);
-    width: 99.8%;
-    margin: 1px;
-    height: 90vh;
+    width: 100%;
+    margin: 0px;
+    min-height: 90vh;
 }
 
 .doctor-info {
     box-shadow: 0px 2px 15px;
+}
+
+.datepicker {
+    background-color: rgb(213, 213, 213);
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.datepicker:hover {
+    background-color: #E64A7A;
+}
+
+.datepicker:active {
+    background-color: rgb(170, 170, 170);
+}
+
+.datepicker-area {
+    height: 20%;
+}
+
+.next-button {
+    background-color: white;
+}
+
+.time-slots-area {
+    width: 90%;
+    margin-left: 7em;
+}
+
+.time-slot {
+    font-size: 0.7em;
+    border: none;
+    border-radius: 5px;
+}
+
+.time-slot:hover,
+.time-slot:focus {
+    background-color: #E64A7A;
+}
+
+.appointment-book {
+    width: 22%;
+    margin: 2em;
+    margin-left: 19em;
+    padding: 0.6em;
+    border-radius: 20px;
+    border: none;
+    background-color: #00C294;
+    color: white;
+    font-weight: 600;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0.5);
+}
+.appointment-book:hover{
+    transform: scale(1.05);
 }
