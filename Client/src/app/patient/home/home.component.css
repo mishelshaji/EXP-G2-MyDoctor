@@ -33,6 +33,7 @@
 #search {
     border: none;
     padding-left: 10px;
+    width: 95%;
 }
 
 #search:focus {
@@ -57,7 +58,7 @@
 }
 
 .result-dept {
-    background: linear-gradient(108.23deg, rgba(180, 229, 218) 6.41%, rgba(99, 218, 189, 0.3) 22.08%, rgba(255, 255, 255, 0.3) 40.5%, rgba(246, 253, 248, 0.299921) 61.69%, rgba(224, 247, 229, 0.299713) 81.03%, rgba(86, 210, 113, 0.298438) 94.85%), url("../../../assets/images/resultpage.png");
+    background: url("../../../assets/images/resultpage.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
