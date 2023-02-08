@@ -7,13 +7,15 @@ import { PatientLayoutComponent } from './patient-layout/patient-layout.componen
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     NavbarPatientComponent,
-    PatientLayoutComponent
+    PatientLayoutComponent,
+    AppointmentBookingComponent
   ],
   imports: [
     CommonModule,
