@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,
