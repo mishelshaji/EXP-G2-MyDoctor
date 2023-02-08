@@ -7,8 +7,8 @@ import { PatientLayoutComponent } from './patient-layout/patient-layout.componen
 const routes: Routes = [
   {
     path: '', component: PatientLayoutComponent, children: [
-      {path: 'home', component: HomeComponent},
-      {path: 'appointmentbooking', component: AppointmentBookingComponent}
+      { path: 'home', component: HomeComponent },
+      { path: 'appointment-booking', component: AppointmentBookingComponent }
     ]
   }
 ];
