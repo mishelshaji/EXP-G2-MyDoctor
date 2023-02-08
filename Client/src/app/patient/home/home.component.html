@@ -26,7 +26,7 @@
                 <img src={{item.photo}} alt="" id="doctor-img">
                 <p id="doc-name">Dr. {{item.name}}</p>
                 <p id="doc-dept">{{item.department}}</p>
-                <button id="view-doctor">View Doctor</button>
+                <button id="view-doctor" [routerLink]="['/admin']">View Doctor</button>
             </div>
         </div>
     </div>
