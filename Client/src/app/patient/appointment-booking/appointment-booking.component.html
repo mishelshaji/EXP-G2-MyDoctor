@@ -1,10 +1,53 @@
 <div class="container-fluid fullscreen row">
-    <div class="col-lg-3 h-75 doctor-info">
-        code here
+    <div class="col-lg-3 doctor-info d-flex flex-column align-items-center">
+        <h4>Doctor Details</h4><img src="./assets/images/doctor1png.png" alt="">
+        <h5>Dr.Raj Kumar</h5>
+        <p>Dentistry</p><br>
+        <p>Email Address:</p>
+        <p>someone@gmail.com</p><br>
+        <p>Contact Number</p>
+        <p>9074XXXXXX</p>
     </div>
     <div class="col-lg-8">
+        <br>
         <h2 class="text-center">Appointment Booking Page</h2>
         <br>
         <p class="text-center">Select appropriate date and time for the appointment</p>
+        <br><br>
+        <div class="datepicker-area d-flex w-75 mx-auto">
+            <button class="next-button border-0 h-25"><fa-icon class="fs-3" [icon]="faLeftArrow"></fa-icon></button>
+            <div class="d-flex w-100 justify-content-center">
+                <button class="datepicker w-25 h-50 ms-1">Feb 9</button>
+                <button class="datepicker w-25 h-50 ms-1">Feb 10</button>
+                <button class="datepicker w-25 h-50 ms-1">Feb 11</button>
+                <button class="datepicker w-25 h-50 ms-1">Feb 12</button>
+            </div>
+            <button class="next-button border-0 h-25"><fa-icon class="fs-3" [icon]="faRightArrow"></fa-icon></button>
+        </div>
+        <div class="mx-auto w-75">
+            <form>
+                <label class="radio-inline">
+                    <input class="ms-2 me-1" type="radio" name="opt-time" checked>Morning (9AM to 1PM)
+                </label>
+                <label class="radio-inline">
+                    <input class="ms-2 me-1" type="radio" name="opt-time">Afternoon (2PM to 4PM)
+                </label>
+                <label class="radio-inline">
+                    <input class="ms-2 me-1" type="radio" name="opt-time">Evening (4.30PM to 6PM)
+                </label>
+            </form>
+        </div>
+        <br>
+        <div class="time-slots-area row row-cols-4">
+            <button class="time-slot col-lg-3 p-1 m-1">9:00 AM to 9:30AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1">9:30 AM to 10:00AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1">10:00 AM to 10:30AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1">10:30 AM to 11:00AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1">11:00 AM to 11:30AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1">11:30 AM to 12:00PM</button>
+            <button class="time-slot col-lg-3 p-1 m-1">12:00 PM to 12:30PM</button>
+            <button class="time-slot col-lg-3 p-1 m-1">12:30 PM to 1:00PM</button>
+        </div>
+        <button type="submit" class="appointment-book">Book Appointment</button>
     </div>
 </div>

@@ -8,18 +8,24 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
+import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     HomeComponent,
     NavbarPatientComponent,
     PatientLayoutComponent,
-    AppointmentBookingComponent
+    AppointmentBookingComponent,
+    AppointmentHistoryComponent
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    FontAwesomeModule
   ]
 })
 export class PatientModule { }
