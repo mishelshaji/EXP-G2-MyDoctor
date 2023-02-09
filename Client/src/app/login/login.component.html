@@ -1,4 +1,5 @@
-<div class="row container-fluid">
+<app-navbar></app-navbar>
+<div class="row container-fluid mb-4">
     <div class="col-10 col-lg-5 flex infodiv">
         <img src="./assets/images/Loginpage-clipart.png" alt="" id="Loginpage-clipart">
         <h3>Start on the path of healing...</h3>
@@ -14,9 +15,9 @@
                 minlength="6" required>
             <input type="password" placeholder="Password" name="password" #password="ngModel"
                 [(ngModel)]="modal.password" required>
-            <h5><a href="#">Forgot your Password</a></h5>
-            <button routerLink="patient" [disabled]="email.invalid && password.invalid">Login</button>
+            <h5><a href="#">Forgot your Password?</a></h5>
+            <button [routerLink]="['patient/home']" [disabled]="email.invalid && password.invalid">Login</button>
         </form>
-        <h5>Not Registered Yet? <span><a href="#">SignUp</a></span></h5>
+        <h5>Not Registered Yet? <span><a routerLink="register">SignUp</a></span></h5>
     </div>
 </div>
