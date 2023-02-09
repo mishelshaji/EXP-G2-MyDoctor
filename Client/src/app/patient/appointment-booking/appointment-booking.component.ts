@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faCircleArrowLeft, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,5 +9,5 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppointmentBookingComponent {
   faRightArrow = faCircleArrowRight;
-
+  faLeftArrow = faCircleArrowLeft
 }

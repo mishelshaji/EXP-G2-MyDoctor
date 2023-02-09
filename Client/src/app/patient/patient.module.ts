@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppointmentBookingComponent } from './appointment-booking/appointment-b
   imports: [
     CommonModule,
     PatientRoutingModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ]
 })
 export class PatientModule { }
