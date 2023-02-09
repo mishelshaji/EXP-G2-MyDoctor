@@ -52,8 +52,6 @@
 
 .appointment-book {
     width: 22%;
-    margin: 2em;
-    margin-left: 19em;
     padding: 0.6em;
     border-radius: 20px;
     border: none;
@@ -61,6 +59,8 @@
     color: white;
     font-weight: 600;
     box-shadow: 2px 2px 5px rgb(0, 0, 0.5);
+    margin: 2em;
+    margin-left: 18em;
 }
 
 .appointment-book:hover {
@@ -89,4 +89,22 @@ h4 {
 
 p {
     margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px)
+{
+    .doctor{
+        height: 60%;
+    }
+    .fullscreen{
+        min-height: 210vh;
+    }
+    .time-slots-area{
+        margin-left: 3.5em;
+    }
+    .appointment-book{
+        margin-left: 8em;
+        width: 40%;
+        padding: 0.4em;
+    }
 }
