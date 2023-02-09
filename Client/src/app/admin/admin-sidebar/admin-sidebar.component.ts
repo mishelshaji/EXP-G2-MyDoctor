@@ -22,17 +22,13 @@ export class AdminSidebarComponent {
       document.getElementById('departments')
     ]
     if (targett.tagName != "BUTTON") {
-      console.log('in')
       var targett = targett.parentElement as HTMLElement;
       if (targett.tagName != "BUTTON") {
-        console.log('into');
         var targett = targett.parentElement as HTMLElement
         if (targett.tagName != "BUTTON") {
-          console.log('into');
           var targett = targett.parentElement as HTMLElement
         }
       }
-
     }
     others.forEach(element => {
       element?.classList.remove('bg-light');
