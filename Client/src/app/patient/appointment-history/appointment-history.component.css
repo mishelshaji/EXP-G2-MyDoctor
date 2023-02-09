@@ -1,0 +1,22 @@
+section {
+    padding: 0;
+}
+
+section div {
+    margin: 0;
+}
+
+#bgdiv {
+    height: 120vh;
+    background-color: white;
+}
+
+.bg-red {
+    background-color: #E64A7A;
+    color: white;
+}
+
+button {
+    margin: 10px 2px;
+    transition: 0.5s linear alternate;
+}
