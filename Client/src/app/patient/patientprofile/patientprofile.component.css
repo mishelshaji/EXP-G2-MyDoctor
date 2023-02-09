@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 input[type="text"],
@@ -67,6 +68,52 @@ textarea{
 
 }
 .submit{
-    padding-left: 200px; 
+    padding-left: 170px; 
+}
+
+.phone2{
+    width: 90px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;   
+    border-color:2px solid #000000;
+
+}
+
+.heading2{
+    font-size:x-large;
+    font-variant: small-caps;
+
+}
+
+.third-details{
+    
+    width: 70vw;
+    
+    
+}
+
+.Relationship{
+    
+    width: 60%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;   
+    border-color:2px solid #000000;
+
+}
+
+.Gender{
+    width: 60%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;   
+    border-color:2px solid #000000;
 }
 
