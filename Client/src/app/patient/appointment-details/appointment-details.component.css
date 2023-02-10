@@ -81,8 +81,6 @@ p {
     column-gap: 50px;
 }
 
-
-
 @media screen and (max-width: 768px) {
     .doctor {
         height: 60vh;
@@ -133,5 +131,4 @@ p {
     .completed {
         height: 30vh;
     }
-
 }

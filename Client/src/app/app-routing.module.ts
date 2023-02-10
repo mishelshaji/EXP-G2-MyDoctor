@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'patient', loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: 'otp-page', component:OtpPageComponent}
+  { path: 'otp', component: OtpPageComponent }
 ];
 
 @NgModule({
