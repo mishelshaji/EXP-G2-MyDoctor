@@ -54,6 +54,9 @@ nav div .nav-content {
     margin-right: 15px;
 }
 
+.nav-links:hover {
+    color:#f58aaa;
+}
 .logout {
     background-color: #E64A7A;
     padding: 8px;
