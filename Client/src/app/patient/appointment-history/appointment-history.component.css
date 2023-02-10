@@ -9,6 +9,7 @@ section div {
 #bgdiv {
     height: 120vh;
     background-color: white;
+    padding: 10px;
 }
 
 .bg-red {
@@ -17,6 +18,6 @@ section div {
 }
 
 button {
-    margin: 10px 2px;
+    margin: 10px 0px;
     transition: 0.5s linear alternate;
 }
