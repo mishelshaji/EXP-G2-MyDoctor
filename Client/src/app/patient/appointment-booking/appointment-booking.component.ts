@@ -9,4 +9,13 @@ import { faCircleArrowLeft, faCircleArrowRight } from '@fortawesome/free-solid-s
 export class AppointmentBookingComponent {
   faRightArrow = faCircleArrowRight;
   faLeftArrow = faCircleArrowLeft;
+  currentDate = new Date();
+  currentDay = this.currentDate.getDate();
+  currentMonth = this.currentDate.getMonth()+1;
+  timeSlot:number = 0;
+  DisplayTimeSlots(value:any)
+  {
+    this.timeSlot = value;
+  }
+
 }
