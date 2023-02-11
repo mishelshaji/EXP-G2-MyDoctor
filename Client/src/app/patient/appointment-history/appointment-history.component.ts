@@ -11,9 +11,11 @@ export class AppointmentHistoryComponent {
   upcomingAppointments: any = [];
   previousAppointments: any = [];
   cancelledAppointments: any = [];
+  
   constructor(private AppointmentsService: AppointmentsService) {
 
   }
+
   clicked(e: any) {
     var targett = e.target as HTMLElement;
     var others = [

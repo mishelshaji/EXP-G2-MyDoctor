@@ -209,15 +209,19 @@ export class AppointmentsService {
       status: true
     }
   ]
+
   constructor() {
 
   }
+
   getUpcomingAppointments() {
     return this.upcomingAppointments
   }
+
   getPreviousAppointments() {
     return this.previousAppointments
   }
+  
   getCancelledAppointments() {
     return this.cancelledAppointments
   }
