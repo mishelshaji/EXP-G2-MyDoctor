@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 input[type="text"],
@@ -32,7 +31,6 @@ input[type="submit"] {
 
 form {
     background-color: rgb(255, 255, 255);
-    position: absolute;
     margin-top: 20px;
     margin-bottom: 10px;
     padding: 0px 0 0px 50px;
