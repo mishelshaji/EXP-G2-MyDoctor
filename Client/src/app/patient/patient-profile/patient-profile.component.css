@@ -1,7 +1,9 @@
-.container {
+.main{
+    margin: 0;
+}
+.align {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 input[type="text"],
@@ -34,7 +36,6 @@ form {
     margin-top: 20px;
     margin-bottom: 10px;
     padding: 0px 0 0px 50px;
-    border-radius: 40px;
 }
 
 textarea {
@@ -50,10 +51,9 @@ textarea {
 .imagediv {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('../../../assets/images/doctor33.jpg');
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('../../../assets/images/doctor333.jpg');
     background-size: cover;
     border: 0;
-    border-radius: 0 40px 40px 0px;
 }
 
 .imagediv div {
@@ -87,7 +87,6 @@ textarea {
 }
 
 .third-details {
-
     width: 70vw;
 }
 
