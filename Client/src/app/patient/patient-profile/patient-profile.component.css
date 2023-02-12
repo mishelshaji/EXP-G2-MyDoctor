@@ -1,6 +1,7 @@
-.main{
+.main {
     margin: 0;
 }
+
 .align {
     display: flex;
     flex-direction: column;
