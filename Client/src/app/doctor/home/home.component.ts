@@ -12,7 +12,7 @@ export class HomeComponent {
 
   }
   ngOnInit() {
-    this.appointments = this.AppointmentService.getall();
+    this.appointments = this.AppointmentService.getCancelledAppointments();
   }
 
 }

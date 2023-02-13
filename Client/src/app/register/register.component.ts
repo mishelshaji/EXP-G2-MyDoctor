@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DepartmentsService } from '../services/departments.service';
 
 @Component({
   selector: 'app-register',
@@ -6,18 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  specilization = [
-    {
-      id: 1,
-      spec: 'Eyes'
-    },
-    {
-      id: 2,
-      spec: 'Cardio'
-    },
-    {
-      id: 3,
-      spec: 'Physician'
-    }
-  ]
+  public userRole: string;
+  public userSpec: string;
+  public departments: any = [];
+  modal = {
+    fname: '',
+    lname: '',
+    email: '',
+    password: '',
+    cpassword: '',
+  }
+
+  constructor(private DepartmentService: DepartmentsService) {
+
+  }
+
+  ngOnInit() {
+    this.departments = this.DepartmentService.getAll();
+  }
 }
