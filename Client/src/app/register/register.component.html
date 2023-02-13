@@ -7,30 +7,30 @@
     <div class="col-1"></div>
     <div class="col-10 col-lg-5 flex mt-4">
         <h2>User Registration</h2>
-        <form class="flex">
+        <form class="flex" #form="ngForm" (ngSubmit)="saveData()" >
             <div class="inputdiv">
                 <label for="firstname" class="me-lg-5">First Name :</label>
-                <input type="text" name="firstname" placeholder="Enter first name" id="firstname">
+                <input type="text" name="firstname" placeholder="Enter first name" id="firstname" #firstname="ngModel" [(ngModel)]="model.firstName">
             </div>
             <div class="inputdiv">
                 <label for="lastname" class="me-lg-5">Last Name :</label>
-                <input type="text" name="lastname" placeholder="Enter last name" id="lastname">
+                <input type="text" name="lastname" placeholder="Enter last name" id="lastname" #lastname="ngModel" [(ngModel)]="model.lastName">
             </div>
             <div class="inputdiv">
                 <label for="email">E-mail :</label>
-                <input type="email" class="" name="email" placeholder="Enter E-mail address" id="email">
+                <input type="email" class="" name="email" placeholder="Enter E-mail address" id="email" #email="ngModel" [(ngModel)]="model.email">
             </div>
             <div class="inputdiv">
                 <label for="password">Password :</label>
-                <input type="password" name="password" placeholder="Enter password" id="password">
+                <input type="password" name="password" placeholder="Enter password" id="password" #password="ngModel" [(ngModel)]="model.password">
             </div>
             <div class="inputdiv">
                 <label for="cpassword">Confirm Password : </label>
-                <input type="password" name="cpassword" placeholder="Re-enter password" id="cpassword">
+                <input type="password" name="cpassword" placeholder="Re-enter password" id="cpassword" #cpassword="ngModel" [(ngModel)]="model.cpassword">
             </div>
             <div class="inputdiv">
                 <label for="role">Role :</label>
-                <select name="role" placeholder="Enter role" id="role">
+                <select name="role" placeholder="Enter role" id="role" #role="ngModel" [(ngModel)]="model.role">
                     <option value="1" default>Patient</option>
                     <option value="2">Doctor</option>
                     <option value="3">Admin</option>
@@ -38,9 +38,9 @@
             </div>
             <div class="inputdiv">
                 <label for="specilization">Specilization :</label>
-                <select name="role" placeholder="Enter role" id="role">
+                <select name="role" placeholder="Enter role" id="role" #specilize="ngModel" [(ngModel)]="model.specilization">
                     <option value="0" default>No item selected</option>
-                    <option *ngFor="let item of specilization">{{item.spec}}</option>
+                    <option *ngFor="let item of Specilization">{{item.spec}}</option>
 
                 </select>
             </div>
