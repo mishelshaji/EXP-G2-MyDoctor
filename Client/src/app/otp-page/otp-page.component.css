@@ -1,0 +1,38 @@
+* {
+    font-family: sans-serif;
+}
+
+.main {
+    background-color: white;
+    height: 80vh;
+    box-shadow: 10px 5px 5px rgb(57, 57, 57);
+}
+
+input {
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: rgba(119, 119, 101, 0.386);
+    border: 0;
+}
+
+button {
+    background-color: #16C39A;
+    width: 120px;
+    height: 40px;
+    color: white;
+    margin: 30px 40px 30px 40px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 5px 5px 5px rgb(57, 57, 57);
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    height: 200px;
+}
