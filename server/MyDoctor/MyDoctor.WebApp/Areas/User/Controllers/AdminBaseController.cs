@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MyDoctor.WebApp.Areas.User.Controllers
 {
-    public class AccountsController : AdminBaseController
+    [Area("User")]
+    [Route("api/[area]/[controller]")]
+    [ApiController]
+    public class AdminBaseController : ControllerBase
     {
     }
 }

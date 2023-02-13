@@ -34,9 +34,8 @@ export class RegisterComponent {
   constructor(private service:RegisterationService) {
     
   }
+
   saveData(){
-    // this.service.getData(this.model).subscribe(res=>{
-    //   console.log(res);
-    // });
+   
   }
 }
