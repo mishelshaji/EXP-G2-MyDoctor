@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RegisterationService } from '../services/registeration.service';
 
 @Component({
   selector: 'app-register',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  specilization = [
+  Specilization = [
     {
       id: 1,
       spec: 'Eyes'
@@ -20,4 +21,22 @@ export class RegisterComponent {
       spec: 'Physician'
     }
   ]
+  model = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password:'',
+    cpassword:'',
+    role:'',
+    specilization:''
+  }
+ 
+  constructor(private service:RegisterationService) {
+    
+  }
+  saveData(){
+    this.service.getData(this.model).subscribe(res=>{
+      console.log(res);
+    });
+  }
 }
