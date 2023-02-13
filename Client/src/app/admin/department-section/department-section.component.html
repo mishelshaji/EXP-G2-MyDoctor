@@ -1,1 +1,28 @@
-<p>department-section works!</p>
+<div class="holder">
+    <div class="row">
+        <div class="col-5 d-flex mt-3 ms-5">
+            <button class="edit">Edit/Delete</button>
+            <button class="add">Add</button>
+        </div>
+    </div>
+    <div class="department-details px-2 px-lg-5 py-5 col-9">
+        <h1>Add New Department</h1>
+        <form class="flex">
+            <div class="inputdiv py-3">
+                <label for="department name" class="me-lg-5">Department Name :</label>
+                <div>
+                    <input type="text" name="department" id="department">
+                </div>
+            </div>
+            <div class="inputdiv py-2">
+                <label for="department" class="me-lg-5">Department Description :</label>
+                <div class="detail">
+                    <textarea name="department-description" id="department-description" cols="30" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="submit justify-content-between row">
+            <button type="submit" class="submit rounded me-5 ms-5">Submit</button>
+        </div>
+    </div>
+</div>
