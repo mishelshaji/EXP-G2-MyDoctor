@@ -1,0 +1,57 @@
+<div class="container-fluid main">
+    <form class="row">
+        <div class="col-lg-8">
+            <h1 class="heading-1 d-flex">Enter details:</h1>
+            <div class="row">
+                <div class="first-details justify-content-between row col-10 col-lg-6">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                    <label for="Gender">Gender:</label>
+                    <select class="gender justify-content-between row" required>
+                        <option value="Select a Gender">Select a Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>s
+                    </select>
+                </div>
+                <div class="second-details justify-content-between row col-10 col-lg-6">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="address">Current Address:</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="third-details justify-content-between col-10">
+                    <div class="align">
+                        <h2 class="heading-2">Emergency Details</h2>
+                        <label for="phone">Emergency Phone Number:</label>
+                        <input type="tel" id="phone-2" name="phone-2" required>
+                        <label for="Relationship">Relationship:</label>
+                        <select class="relationship justify-content-between">
+                            <option value="Select a Relationship">Select a Relationship</option>
+                            <option value="Father">Father</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Husband">Husband</option>
+                            <option value="Wife">Wife</option>
+                        </select>
+                        <br>
+                        <label for=" Blood group">Blood group:</label>
+                        <input type="text" id="Blood-group" name="Blood-group" placeholder="eg: O+ve" required>
+                    </div>
+                </div>
+            </div>
+            <div class="submit" id="submit">
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+        <div class="col-lg-4 img-container d-none d-lg-inline">
+        </div>
+    </form>
+</div>

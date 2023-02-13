@@ -1,0 +1,112 @@
+.main {
+    margin: 0;
+}
+
+.align {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;
+    border-color: 2px solid #000000;
+}
+
+input[type="submit"] {
+    width: fit-content;
+    background-color: #000100;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    align-content: center;
+}
+
+form {
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 0px 0 0px 50px;
+}
+
+textarea {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;
+    border-color: 2px solid #000100;
+}
+
+.img-container {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('../../../assets/images/doctor333.jpg');
+    background-size: cover;
+    border: 0;
+}
+
+.img-container div {
+    width: 100%;
+}
+
+.heading-1 {
+    font-size: x-large;
+    font-display: initial;
+    padding-bottom: 10px;
+    font-variant: small-caps;
+}
+
+.submit {
+    padding-left: 170px;
+}
+
+.phone-2 {
+    width: 90px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;
+    border-color: 2px solid #000000;
+}
+
+.heading-2 {
+    font-size: x-large;
+    font-variant: small-caps;
+}
+
+.third-details {
+    width: 70vw;
+}
+
+.relationship {
+    width: 60%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;
+    border-color: 2px solid #000000;
+}
+
+.gender {
+    width: 60%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;
+    border-color: 2px solid #000000;
+}

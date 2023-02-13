@@ -5,6 +5,7 @@ import { AppointmentDetailsComponent } from './appointment-details/appointment-d
 import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component';
 import { HomeComponent } from './home/home.component';
 import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'appointment-booking', component: AppointmentBookingComponent },
       { path: 'appointment-history', component: AppointmentHistoryComponent},
+      { path: 'patient-profile', component: PatientProfileComponent},
       { path: 'appointment-details', component: AppointmentDetailsComponent}
     ]
   }
