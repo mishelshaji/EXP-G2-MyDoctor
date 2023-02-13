@@ -1,7 +1,7 @@
 .holder {
   width: 100%;
   height: 100%;
-  background: url(../../../assets/images/BgTemp.jpg);
+  background: url(../../../assets/images/bgtemp2.jpg);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -20,13 +20,13 @@ input[type="text"] {
   font-size: 16px;
   border-radius: 5px 0 0 5px;
   margin-top: 15px;
-  border-color: rgb(56, 130, 120);
+  border-color: aqua;
 }
 
 button[type="submit"] {
   font-size: 16px;
   border: none;
-  background-color:  rgb(56, 130, 120);
+  background-color:  aqua;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   margin-top: 15px;
@@ -49,14 +49,8 @@ button[type="submit"]:hover {
   align-items: center;
 }
 
-.patient-info {
-  /* margin-left: 20%; */
-
-}
-
 h1 {
   font-size: 20px;
-  /* margin-left: 20%; */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 1px;
 
@@ -78,7 +72,7 @@ h1 {
 button {
   font-size: 16px;
   border: none;
-  background-color: rgb(56, 130, 120);
+  background-color: aqua;
   border-radius: 10px;
   cursor: pointer;
   width: fit-content;
@@ -94,3 +88,4 @@ button:hover {
   margin: 0 10px ;
   padding: 5px 15px;
 }
+
