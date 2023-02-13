@@ -35,8 +35,8 @@ export class RegisterComponent {
     
   }
   saveData(){
-    this.service.getData(this.model).subscribe(res=>{
-      console.log(res);
-    });
+    // this.service.getData(this.model).subscribe(res=>{
+    //   console.log(res);
+    // });
   }
 }
