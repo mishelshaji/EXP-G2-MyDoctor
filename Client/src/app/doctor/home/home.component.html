@@ -1,1 +1,36 @@
-<p>home works!</p>
+<div class="w-100 d-flex flex-column">
+    <div class="first">
+        <div class="text-area w-50 mt-5 ms-5">
+            <h2 class="text-center w-75 ms-5">Welcome, Doctor!</h2>
+            <br><br><br>
+            <p class="text-center w-75 ms-5">Providing you with a single intuitive system that lets you take total
+                control of your
+                online presence.</p>
+            <br><br>
+            <p class="text-center w-75 ms-5">Medicines cure diseases, but only doctors can cure patients.</p>
+        </div>
+    </div>
+    <div class="second">
+        <h2 class="mt-5 ms-5">Today's Appointments</h2>
+        <table class="table ps-3 ms-5 w-50">
+            <thead>
+              <tr class="row bg-dark text-light rounded">
+                <th scope="col" class=" d-none d-lg-inline col-lg-1">Id</th>
+                <th scope="col" class="col-4 col-lg-2">Date</th>
+                <th scope="col" class="d-none d-lg-inline col-lg-2">Time</th>
+                <th scope="col" class="col-4">Patient's Name</th>
+                <th scope="col" class="col-1 col-lg-3">View details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of appointments" class="row bg-light rounded">
+                <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.id}}</th>
+                <td class="col-5 col-lg-2">{{item.date}}</td>
+                <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
+                <td class="col-4">{{item.patient}}</td>
+                <td class="col-1 col-lg-3"><button class="btn btn-warning">View details</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

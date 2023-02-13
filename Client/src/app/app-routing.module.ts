@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'patient', loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: 'doctor', loadChildren: () => import('./doctor/doctor.module').then(m=>DoctorModule)}
+  { path: 'doctor', loadChildren: () => import('./doctor/doctor.module').then(m=>DoctorModule)},
   { path: 'otp', component: OtpPageComponent }
 ];
 

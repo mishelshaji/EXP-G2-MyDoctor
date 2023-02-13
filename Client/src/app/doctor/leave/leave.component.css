@@ -1,0 +1,26 @@
+.full-page {
+    background-color: white;
+}
+
+.full-page h2 {
+    font-size: x-large;
+}
+
+label {
+    font-size: medium;
+}
+select{
+    min-width: 5%;
+    padding: 0.4em;
+}
+button {
+    width: 10%;
+    padding: 0.5em;
+    border-radius: 20px;
+    border: none;
+    background-color: #00C294;
+    color: white;
+    font-weight: 600;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0.5);
+
+}
