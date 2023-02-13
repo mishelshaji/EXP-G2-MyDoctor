@@ -8,13 +8,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import { DoctorLayoutComponent } from './doctor-layout/doctor-layout.component';
 import { NavbarDoctorComponent } from './navbar-doctor/navbar-doctor.component';
+import { LeaveComponent } from './leave/leave.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     DoctorLayoutComponent,
-    NavbarDoctorComponent
+    NavbarDoctorComponent,
+    LeaveComponent
   ],
   imports: [
     CommonModule,

@@ -18,9 +18,11 @@ export class DepartmentsService {
       name: 'Cardiology'
     },
   ]
+
   constructor() {
 
   }
+  
   getAll() {
     return this.departments;
   }
