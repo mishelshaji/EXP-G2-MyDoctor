@@ -12,6 +12,7 @@ import { AppointmentHistoryComponent } from './appointment-history/appointment-h
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PatientProfileComponent } from './patient-profile/patient-profile.compo
     PatientLayoutComponent,
     AppointmentBookingComponent,
     AppointmentHistoryComponent,
-    PatientProfileComponent
+    PatientProfileComponent,
+    AppointmentDetailsComponent
   ],
   imports: [
     CommonModule,
