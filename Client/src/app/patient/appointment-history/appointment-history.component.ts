@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppointmentsService } from 'src/app/services/appointments.service'; 
+import { AppointmentsService } from 'src/app/services/appointments.service';
 
 @Component({
   selector: 'app-appointment-history',
@@ -8,10 +8,14 @@ import { AppointmentsService } from 'src/app/services/appointments.service';
 })
 export class AppointmentHistoryComponent {
 
-  appointments:any = [];
-  constructor(private AppointmentsService: AppointmentsService){
+  upcomingAppointments: any = [];
+  previousAppointments: any = [];
+  cancelledAppointments: any = [];
+  
+  constructor(private AppointmentsService: AppointmentsService) {
 
   }
+
   clicked(e: any) {
     var targett = e.target as HTMLElement;
     var others = [
@@ -44,7 +48,10 @@ export class AppointmentHistoryComponent {
       }
     })
   }
-  ngOnInit(){
-    this.appointments = this.AppointmentsService.getall();
+
+  ngOnInit() {
+    this.upcomingAppointments = this.AppointmentsService.getUpcomingAppointments();
+    this.previousAppointments = this.AppointmentsService.getPreviousAppointments();
+    this.cancelledAppointments = this.AppointmentsService.getCancelledAppointments();
   }
 }

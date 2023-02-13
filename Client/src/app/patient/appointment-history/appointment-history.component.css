@@ -7,8 +7,9 @@ section div {
 }
 
 #bgdiv {
-    height: 120vh;
+    height: 100%;
     background-color: white;
+    padding: 10px;
 }
 
 .bg-red {
@@ -17,6 +18,12 @@ section div {
 }
 
 button {
-    margin: 10px 2px;
+    margin: 10px 0px;
     transition: 0.5s linear alternate;
+}
+.appointment-heading{
+    margin: 20px 2px;
+    color: white;
+    font-family: 'kanit',sans-serif;
+    text-shadow: 1px 1px#E64A7A;
 }
