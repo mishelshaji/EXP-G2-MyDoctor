@@ -49,7 +49,7 @@ textarea {
     border-color: 2px solid #000100;
 }
 
-.imagediv {
+.img-container {
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('../../../assets/images/doctor333.jpg');
@@ -57,11 +57,11 @@ textarea {
     border: 0;
 }
 
-.imagediv div {
+.img-container div {
     width: 100%;
 }
 
-.heading {
+.heading-1 {
     font-size: x-large;
     font-display: initial;
     padding-bottom: 10px;
@@ -72,7 +72,7 @@ textarea {
     padding-left: 170px;
 }
 
-.phone2 {
+.phone-2 {
     width: 90px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -82,7 +82,7 @@ textarea {
     border-color: 2px solid #000000;
 }
 
-.heading2 {
+.heading-2 {
     font-size: x-large;
     font-variant: small-caps;
 }
@@ -91,7 +91,7 @@ textarea {
     width: 70vw;
 }
 
-.Relationship {
+.relationship {
     width: 60%;
     padding: 14px 20px;
     margin: 8px 0;
@@ -101,7 +101,7 @@ textarea {
     border-color: 2px solid #000000;
 }
 
-.Gender {
+.gender {
     width: 60%;
     padding: 14px 20px;
     margin: 8px 0;
