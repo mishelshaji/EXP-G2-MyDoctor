@@ -8,16 +8,24 @@ namespace MyDoctor.WebApp.Areas.User.Controllers
 {
     public class AccountsController : AdminBaseController
     {
-        private readonly ApplicationUserService service;
+        private readonly ApplicationUserService _service;
 
         public AccountsController(ApplicationUserService Service)
         {
-            service = Service;
+            _service = Service;
         }
+
         [HttpPost]
         public async Task<IActionResult> PostData(RegisterDto dto)
         {
-            var res = await service.PostData(dto);
+            var res = await _service.PostData(dto);
+            return Ok(res);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByEmail(LoginDto dto)
+        {
+            var res = await _service.GetDataByEmail(dto);
             return Ok(res);
         }
     }

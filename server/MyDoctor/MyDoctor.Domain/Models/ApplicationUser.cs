@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Domain.Models
 {
-    public class ApplicationUser
+    public class ApplicationUser: IdentityUser
     {
-        public string Id { get; set; }
+       public string FirstName { get; set; }
+       public string LastName { get; set; }
+        public string specilization { get; set; }
     }
 }
