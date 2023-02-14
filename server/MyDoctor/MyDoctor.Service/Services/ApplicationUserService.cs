@@ -33,7 +33,7 @@ namespace MyDoctor.Service.Services
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Email = dto.Email,
-                specilization = dto.Specalization,
+                Specilization = dto.Specalization,
                 UserName = Guid.NewGuid().ToString()
             };
             if (dto.Role == "Doctor" || dto.Role == "Patient")
