@@ -11,7 +11,8 @@ export class RegisterComponent {
   public userRole: string;
   public userSpec: string;
   public departments: any = [];
-  modal = {
+
+  model = {
     fname: '',
     lname: '',
     email: '',
@@ -25,8 +26,9 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
-    
-  saveData(){
+  }
+  
+  saveData() {
 
   }
 }

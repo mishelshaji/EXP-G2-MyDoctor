@@ -1,17 +1,18 @@
 <app-navbar></app-navbar>
 <section class="row container mt-4 ms-0 ms-lg-5 mb-4">
-    <div class="col-10 col-lg-5 flex">
+    <div class="col-10 col-lg-5 flex ps-5">
         <img src="./assets/images/registerpage_div.png" alt="">
         <p>Already a user? <span><a href="#">Login here</a></span></p>
     </div>
     <div class="col-1"></div>
     <div class="col-10 col-lg-5 flex mt-4">
         <h2>User Registration</h2>
-        <form class="flex" #form="ngForm" (ngSubmit)="saveData()>
+        <form class="flex" #form="ngForm" (ngSubmit)="saveData()">
             <div class="inputdiv">
                 <label for="firstname" class="me-lg-5">First Name :</label>
-                <input type="text" name="firstname" placeholder="Enter first name" id="firstname" #fname="ngModel"
-                    [(ngModel)]="modal.fname" required minlength="3" maxlength="25" pattern="[a-zA-Z][a-zA-Z ]+">
+                <input type="text" name="firstname" placeholder="Enter first name" class="form-control" id="firstname"
+                    #fname="ngModel" [(ngModel)]="model.fname" required minlength="3" maxlength="25"
+                    pattern="[a-zA-Z][a-zA-Z ]+">
                 <div class="text-danger" *ngIf="fname.invalid && fname.touched">
                     <div *ngIf="fname.errors?.['minlength']">First Name is too short.</div>
                     <div *ngIf="fname.errors?.['required']">First Name is required.</div>
@@ -21,8 +22,9 @@
             </div>
             <div class="inputdiv">
                 <label for="lastname" class="me-lg-5">Last Name :</label>
-                <input type="text" name="lastname" placeholder="Enter last name" id="lastname" #lname="ngModel"
-                    [(ngModel)]="modal.lname" required minlength="3" maxlength="25" pattern="[a-zA-Z][a-zA-Z ]+">
+                <input type="text" name="lastname" placeholder="Enter last name" class="form-control" id="lastname"
+                    #lname="ngModel" [(ngModel)]="model.lname" required minlength="3" maxlength="25"
+                    pattern="[a-zA-Z][a-zA-Z ]+">
                 <div class="text-danger" *ngIf="lname.invalid && lname.touched">
                     <div *ngIf="lname.errors?.['minlength']">Last Name is too short.</div>
                     <div *ngIf="lname.errors?.['required']">Last Name is required.</div>
@@ -32,8 +34,8 @@
             </div>
             <div class="inputdiv">
                 <label for="email">E-mail :</label>
-                <input type="email" name="email" placeholder="Enter E-mail address" id="email" #email="ngModel"
-                    [(ngModel)]="modal.email" required minlength="5" maxlength="70"
+                <input type="email" name="email" placeholder="Enter E-mail address" class="form-control" id="email"
+                    #email="ngModel" [(ngModel)]="model.email" required minlength="5" maxlength="70"
                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 <div class="text-danger" *ngIf="email.invalid && email.touched">
                     <div *ngIf="email.errors?.['minlength']">Email is too short.</div>
@@ -44,8 +46,8 @@
             </div>
             <div class="inputdiv">
                 <label for="password">Password :</label>
-                <input type="password" name="password" placeholder="Enter password" id="password" #password="ngModel"
-                    [(ngModel)]="modal.password" minlength="6" maxlength="25" required>
+                <input type="password" name="password" placeholder="Enter password" class="form-control" id="password"
+                    #password="ngModel" [(ngModel)]="model.password" minlength="6" maxlength="25" required>
                 <div class="text-danger" *ngIf="password.invalid && password.touched">
                     <div *ngIf="password.errors?.['minlength']">Password is too small.</div>
                     <div *ngIf="password.errors?.['maxlength']">Password is too long.</div>
@@ -54,16 +56,18 @@
             </div>
             <div class="inputdiv">
                 <label for="cpassword">Confirm Password : </label>
-                <input type="password" name="cpassword" placeholder="Re-enter password" id="cpassword"
-                    #cpassword="ngModel" [(ngModel)]="modal.cpassword" minlength="6" maxlength="25" required>
-                <div class="text-danger" *ngIf="cpassword.touched">
+                <input type="password" name="cpassword" placeholder="Re-enter password" class="form-control"
+                    id="cpassword" #cpassword="ngModel" [(ngModel)]="model.cpassword" minlength="6" maxlength="25"
+                    required>
+                <div class="text-danger" *ngIf="cpassword.invalid && cpassword.touched">
                     <div *ngIf="password.value!=cpassword.value">Re-entered password is wrong.</div>
                     <div *ngIf="cpassword.errors?.['required']">Confirm Password is required.</div>
                 </div>
             </div>
             <div class="inputdiv">
                 <label for="role">Role :</label>
-                <select name="role" placeholder="Enter role" #role="ngModel" [(ngModel)]="userRole" required>
+                <select name="role" placeholder="Enter role" class="form-control" #role="ngModel" [(ngModel)]="userRole"
+                    required>
                     <option value="1" default>Patient</option>
                     <option value="2">Doctor</option>
                 </select>
@@ -73,14 +77,14 @@
             </div>
             <div class="inputdiv" *ngIf="userRole=='2'">
                 <label for="specialization">Specialization :</label>
-                <select name="spec" id="spec" #spec="ngModel" [(ngModel)]="userSpec" required>
+                <select name="spec" class="form-control" id="spec" #spec="ngModel" [(ngModel)]="userSpec" required>
                     <option *ngFor="let item of departments">{{item.name}}</option>
                 </select>
                 <div class="text-danger" *ngIf="spec.touched">
                     <div *ngIf="spec.errors?.['required']">Specialization is required.</div>
                 </div>
             </div>
-            <button class="signup-btn" type="submit">Sign Up</button>
+            <button class="signup-btn" type="submit" [disabled]="form.invalid">Sign Up</button>
         </form>
     </div>
 </section>
