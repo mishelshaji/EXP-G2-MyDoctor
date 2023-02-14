@@ -26,8 +26,9 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
-    
-  saveData(){
+  }
+  
+  saveData() {
 
   }
 }
