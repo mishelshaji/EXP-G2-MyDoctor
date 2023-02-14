@@ -2,32 +2,32 @@
     <div class="mt-5 mb-3 doctor">
         <h4>Doctor Details</h4>
         <img src="./assets/images/doctor1png.png" alt="">
-        <h5>Dr.Raj Kumar</h5>
-        <p>Department</p>
+        <h5>{{model.name}}</h5>
+        <p>{{model.department}}</p>
         <br>
         <p>Email Address:</p>
-        <p>someone@gmail.com</p>
+        <p>{{model.email}}</p>
         <br>
         <p>Contact Number</p>
-        <p>9074XXXXXX</p>
+        <p>{{model.contact}}</p>
     </div>
     <div class="container d-flex flex-column align-items-center">
         <div class="details mb-3">
             <h2 class="text-center">Appointment Details</h2>
             <p>Appointment No:
-                <span class="content">123</span>
+                <span class="content">{{detail.appointmentno}}</span>
             </p>
             <p>Date:
-                <span class="content">11-02-2023</span>
+                <span class="content">{{detail.date}}</span>
             </p>
             <p>Time:
-                <span class="content">02:30 PM</span>
+                <span class="content">{{detail.time}}</span>
             </p>
             <p>Status:
-                <span class="content">Completed</span>
+                <span class="content">{{detail.status}}</span>
             </p>
             <p>Fee:
-                <span class="content">300</span>
+                <span class="content">{{detail.fee}}</span>
             </p>
             <button>Cancel Appointment</button>
         </div>
@@ -36,24 +36,24 @@
             <div class="prescription">
                 <div class="disease">
                     <p><span class="content1 text-center">Disease</span></p>
-                    <p>Influenza</p>
+                    <p>{{medication.disease}}</p>
                     <br>
                     <p><span class="content1 text-center">Elaboration</span></p>
-                    <p>Difficulty breathing</p>
-                    <p>Chest pain</p>
-                    <p>Seizures</p>
-                    <p>Dizziness</p>
+                    <p>{{medication.description1}}</p>
+                    <p>{{medication.description2}}</p>
+                    <p>{{medication.description3}}</p>
+                    <p>{{medication.description4}}</p>
                 </div>
                 <div class="medication text-center">
                     <p><span class="content1">Medication</span></p>
-                    <p>Expectorant - 1 tablet</p>
-                    <p>2 times per day (after food)</p>
+                    <p>{{medication.medicine1}}</p>
+                    <p>{{medication.prefer1}}</p>
                     <br>
-                    <p>Paracetamol-1 tablet</p>
-                    <p>2 times per day(after food)</p>
+                    <p>{{medication.medicine2}}</p>
+                    <p>{{medication.prefer2}}</p>
                     <br>
-                    <p>Vitamin C - 500g</p>
-                    <p>Once per day(after food)</p>
+                    <p>{{medication.medicine3}}</p>
+                    <p>{{medication.pefer3}}</p>
                 </div>
             </div>
         </div>
