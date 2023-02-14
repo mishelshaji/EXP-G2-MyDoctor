@@ -36,6 +36,7 @@ namespace MyDoctor.Service.Services
                 Specilization = dto.Specalization,
                 UserName = Guid.NewGuid().ToString()
             };
+
             if (dto.Role == "Doctor" || dto.Role == "Patient")
             {
                 var UserStatus = await _userManager.CreateAsync(user, dto.Password);
@@ -58,8 +59,7 @@ namespace MyDoctor.Service.Services
                 obj.Password = this.diccccc["password"];
                 return obj;
             }
-            return new LoginDto();
-            
+            return new LoginDto(); 
         }
     }
 }
