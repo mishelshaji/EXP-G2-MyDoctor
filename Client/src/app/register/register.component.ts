@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DepartmentsService } from '../services/departments.service';
 import { RegisterationService } from '../services/registeration.service';
 
 @Component({
@@ -7,27 +8,16 @@ import { RegisterationService } from '../services/registeration.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  Specilization = [
-    {
-      id: 1,
-      spec: 'Eyes'
-    },
-    {
-      id: 2,
-      spec: 'Cardio'
-    },
-    {
-      id: 3,
-      spec: 'Physician'
-    }
-  ]
+  public userRole: string;
+  public userSpec: string;
+  public departments: any = [];
+
   model = {
-    firstName: '',
-    lastName: '',
+    fname: '',
+    lname: '',
     email: '',
-    password:'',
-    role:'',
-    specilization:''
+    password: '',
+    cpassword: ''
   }
 
   constructor(private DepartmentService: DepartmentsService) {
@@ -37,5 +27,4 @@ export class RegisterComponent {
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
   }
-
 }

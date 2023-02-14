@@ -60,6 +60,10 @@ form button {
     margin-bottom: 25px;
 }
 
+form button:disabled {
+    background-color: #a6ffea;
+}
+
 .logindiv h5 {
     font-size: 15px;
 }
