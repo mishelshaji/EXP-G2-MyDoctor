@@ -1,22 +1,41 @@
 <div class="container-fluid main">
-    <form class="row">
+    <form class="row" #form="ngForm">
         <div class="col-lg-8">
             <h1 class="heading-1 d-flex">Enter details:</h1>
             <div class="row">
                 <div class="first-details justify-content-between row col-10 col-lg-6">
                     <label for="firstname">First Name:</label>
-                    <input type="text" id="firstname" name="firstname" required>
+                    <input type="text" id="firstname" name="firstname" #firstName="ngModel" required
+                        [(ngModel)]="model.firstName" minlength="3" maxlength="25" pattern="[a-zA-z]+">
+                    <div class="text-danger" *ngIf="firstName.invalid && firstName.touched">
+                        <div *ngIf="firstName.errors?.['minlength']">First name is too short</div>
+                        <div *ngIf="firstName.errors?.['maxlength']">Fist name is too long</div>
+                        <div *ngIf="firstName.errors?.['pattern']">Invalid Name</div>
+                        <div *ngIf="firstName.errors?.['required']">First Name is required</div>
+                    </div>
+
                     <label for="lastname">Last Name:</label>
-                    <input type="text" id="lastname" name="lastname" required>
+                    <input type="text" id="lastname" name="lastname" #lastName="ngModel" required
+                        [(ngModel)]="model.lastName" minlength="3" maxlength="25" pattern="[a-zA-z]+">
+                    <div class="text-danger" *ngIf="lastName.invalid && lastName.touched">
+                        <div *ngIf="lastName.errors?.['minlength']">Last name is too short</div>
+                        <div *ngIf="lastName.errors?.['maxlength']">Last name is too long</div>
+                        <div *ngIf="lastName.errors?.['pattern']">Invalid Name</div>
+                        <div *ngIf="lastName.errors?.['required']">Last Nmae is required</div>
+                    </div>
+
                     <label for="dob">Date of Birth:</label>
-                    <input type="date" id="dob" name="dob" required>
+                    <input type="date" id="dob" name="dob" #dob="ngModel" [(ngModel)]="model.dob" required>
+
                     <label for="Gender">Gender:</label>
-                    <select class="gender justify-content-between row" required>
-                        <option value="Select a Gender">Select a Gender</option>
+                    <select class="gender justify-content-between row" #gender="ngModel" 
+                    [(ngModel)]="model.gender" required>
+                        <option disabled>Select gender</option>
                         <option value="Male">Male</option>
-                        <option value="Female">Female</option>s
+                        <option value="Female">Female</option>
                     </select>
                 </div>
+                
                 <div class="second-details justify-content-between row col-10 col-lg-6">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
@@ -41,7 +60,6 @@
                             <option value="Husband">Husband</option>
                             <option value="Wife">Wife</option>
                         </select>
-                        <br>
                         <label for=" Blood group">Blood group:</label>
                         <input type="text" id="Blood-group" name="Blood-group" placeholder="eg: O+ve" required>
                     </div>
