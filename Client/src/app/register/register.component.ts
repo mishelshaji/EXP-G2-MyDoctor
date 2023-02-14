@@ -17,7 +17,7 @@ export class RegisterComponent {
     lname: '',
     email: '',
     password: '',
-    cpassword: '',
+    cpassword: ''
   }
 
   constructor(private DepartmentService: DepartmentsService) {
@@ -26,9 +26,5 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
-  }
-  
-  saveData() {
-
   }
 }
