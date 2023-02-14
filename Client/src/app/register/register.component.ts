@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DepartmentsService } from '../services/departments.service';
+import { RegisterationService } from '../services/registeration.service';
 
 @Component({
   selector: 'app-register',
@@ -24,5 +25,8 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
+    
+  saveData(){
+
   }
 }
