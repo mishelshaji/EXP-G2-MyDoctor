@@ -20,7 +20,7 @@ export class RegisterComponent {
     cpassword: '',
   }
 
-  constructor(private DepartmentService: DepartmentsService) {
+  constructor(private DepartmentService: DepartmentsService, private registerationService: RegisterationService) {
 
   }
 
@@ -29,6 +29,6 @@ export class RegisterComponent {
   }
   
   saveData() {
-
+    this.registerationService.registerUser(this.model)
   }
 }
