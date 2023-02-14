@@ -29,11 +29,6 @@ export class RegisterComponent {
     role:'',
     specilization:''
   }
-<<<<<<< Updated upstream
- 
-  constructor(private service:RegisterationService) {
-    
-=======
 
   constructor(private DepartmentService: DepartmentsService) {
 
@@ -41,11 +36,6 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
->>>>>>> Stashed changes
   }
-  saveData(){
-    this.service.getData(this.model).subscribe(res=>{
-      console.log(res);
-    });
-  }
+
 }
