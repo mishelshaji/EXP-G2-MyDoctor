@@ -11,7 +11,7 @@
         <img src="./assets/images/logo2.png" alt="" id="logo2">
         <h3>User Login</h3>
         <form class="flex">
-            <input type="email" placeholder="E-mail" name="email" #email="ngModel" [(ngModel)]="modal.email" required
+            <input type="email" placeholder="Enter your email address" name="email" #email="ngModel" [(ngModel)]="modal.email" required
                 minlength="5" maxlength="70" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             <div class="text-danger" *ngIf="email.invalid && email.touched">
                 <div *ngIf="email.errors?.['minlength']">Email is too short.</div>
@@ -19,15 +19,14 @@
                 <div *ngIf="email.errors?.['maxlength']">Email is too long.</div>
                 <div *ngIf="email.errors?.['pattern']">Email is invalid.</div>
             </div>
-            <input type="password" placeholder="Password" name="password" #password="ngModel"
+            <input type="password" placeholder="Enter your password" name="password" #password="ngModel"
                 [(ngModel)]="modal.password" minlength="6" maxlength="25" required>
             <div class="text-danger" *ngIf="password.invalid && password.touched">
-                <div *ngIf="password.errors?.['minlength']">Password is too small.</div>
-                <div *ngIf="password.errors?.['maxlength']">Password is too long.</div>
+                <div *ngIf="password.errors?.['minlength'] || password.errors?.['maxlength']">Password is wrong.</div>
                 <div *ngIf="password.errors?.['required']">Password is required.</div>
             </div>
             <h5><a href="#">Forgot your Password?</a></h5>
-            <button [routerLink]="['patient/home']" [disabled]="email.invalid && password.invalid">Login</button>
+            <button [routerLink]="['patient/home']" [disabled]="email.invalid || password.invalid">Login</button>
         </form>
         <h5>Not Registered Yet? <span><a routerLink="register">SignUp</a></span></h5>
     </div>

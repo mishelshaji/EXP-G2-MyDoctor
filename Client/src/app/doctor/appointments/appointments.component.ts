@@ -16,7 +16,7 @@ export class AppointmentsComponent {
 
   }
 
-  clicked(e: any) {
+  clicked(e: MouseEvent) {
     var targett = e.target as HTMLElement;
     var others = [
       document.getElementById('upcoming'),

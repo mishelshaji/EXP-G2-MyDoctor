@@ -53,21 +53,7 @@ section div select {
 
 .signup-btn:hover {
     background-color: #87ffe3;
-    color: #ff75ae;
 }
-
-label[for="email"] {
-    margin-right: 80px;
-}
-
-label[for="password"] {
-    margin-right: 55px;
-}
-
-label[for="role"] {
-    margin-right: 95px;
-}
-
-label[for="specialization"] {
-    margin-right: 40px;
+.signup-btn:disabled {
+    background-color: #b4f8e8;
 }

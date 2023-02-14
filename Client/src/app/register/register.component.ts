@@ -10,7 +10,8 @@ export class RegisterComponent {
   public userRole: string;
   public userSpec: string;
   public departments: any = [];
-  modal = {
+
+  model = {
     fname: '',
     lname: '',
     email: '',
