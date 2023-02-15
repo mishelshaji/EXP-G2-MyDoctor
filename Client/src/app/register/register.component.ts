@@ -15,7 +15,7 @@ export class RegisterComponent {
     lastName: '',
     email: '',
     password: '',
-    cpassword: '',
+    cPassword: '',
     role: '',
     Specialization: ''
   }
@@ -27,10 +27,10 @@ export class RegisterComponent {
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
   }
- 
+
   saveData() {
     this.registerationService.registerUser(this.model).subscribe({
-      next: (res)=>{
+      next: (res) => {
         console.log(res);
       }
     })

@@ -57,7 +57,7 @@
             <div class="inputdiv">
                 <label for="cpassword">Confirm Password : </label>
                 <input type="password" name="cpassword" placeholder="Re-enter password" class="form-control"
-                    id="cpassword" #cpassword="ngModel" [(ngModel)]="model.cpassword" minlength="6" maxlength="25"
+                    id="cpassword" #cpassword="ngModel" [(ngModel)]="model.cPassword" minlength="6" maxlength="25"
                     required>
                 <div class="text-danger" *ngIf="cpassword.touched">
                     <div *ngIf="password.value!=cpassword.value">Re-entered password is wrong.</div>
