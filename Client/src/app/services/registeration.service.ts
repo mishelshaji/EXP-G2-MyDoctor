@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegisterationService {
-  url:string = 'https://localhost:7238/api/User/Accounts'
+  url:string = 'https://localhost:7238/api/User/'
 
   constructor(private http: HttpClient) {
 
   }
 
   registerUser(model:any){
-    return this.http.post(this.url, model)
+    return this.http.post(this.url + "Accounts", model)
   }
 }
