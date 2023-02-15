@@ -12,7 +12,7 @@
                 <label for="firstname" class="me-lg-5">First Name :</label>
                 <input type="text" name="firstname" placeholder="Enter first name" class="form-control" id="firstname"
                     #fname="ngModel" [(ngModel)]="model.fname" required minlength="3" maxlength="25"
-                    pattern="[a-zA-Z][a-zA-Z ]+">
+                    pattern="[a-zA-Z]+">
                 <div class="text-danger" *ngIf="fname.invalid && fname.touched">
                     <div *ngIf="fname.errors?.['minlength']">First Name is too short.</div>
                     <div *ngIf="fname.errors?.['required']">First Name is required.</div>
@@ -24,7 +24,7 @@
                 <label for="lastname" class="me-lg-5">Last Name :</label>
                 <input type="text" name="lastname" placeholder="Enter last name" class="form-control" id="lastname"
                     #lname="ngModel" [(ngModel)]="model.lname" required minlength="3" maxlength="25"
-                    pattern="[a-zA-Z][a-zA-Z ]+">
+                    pattern="[a-zA-Z]+">
                 <div class="text-danger" *ngIf="lname.invalid && lname.touched">
                     <div *ngIf="lname.errors?.['minlength']">Last Name is too short.</div>
                     <div *ngIf="lname.errors?.['required']">Last Name is required.</div>
@@ -59,7 +59,7 @@
                 <input type="password" name="cpassword" placeholder="Re-enter password" class="form-control"
                     id="cpassword" #cpassword="ngModel" [(ngModel)]="model.cpassword" minlength="6" maxlength="25"
                     required>
-                <div class="text-danger" *ngIf="cpassword.invalid && cpassword.touched">
+                <div class="text-danger" *ngIf="cpassword.touched">
                     <div *ngIf="password.value!=cpassword.value">Re-entered password is wrong.</div>
                     <div *ngIf="cpassword.errors?.['required']">Confirm Password is required.</div>
                 </div>

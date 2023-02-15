@@ -20,11 +20,15 @@ export class RegisterComponent {
     cpassword: ''
   }
 
-  constructor(private DepartmentService: DepartmentsService) {
+  constructor(private DepartmentService: DepartmentsService, private registerationService: RegisterationService) {
 
   }
 
   ngOnInit() {
     this.departments = this.DepartmentService.getAll();
+  }
+ 
+  saveData() {
+    this.registerationService.registerUser(this.model)
   }
 }

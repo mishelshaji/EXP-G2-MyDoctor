@@ -10,28 +10,8 @@
     height:80%;
 }
 
-.datepicker {
-    background-color: rgb(213, 213, 213);
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-}
-
-.datepicker:hover {
-    background-color: #E64A7A;
-}
-
-.datepicker:active {
-    background-color: rgb(170, 170, 170);
-}
-
-.datepicker-area {
-    height: 20%;
-}
-
-.next-button {
-    background-color: white;
+.custom-datepicker{
+    margin-left: 32%;
 }
 
 .time-slots-area {

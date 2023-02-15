@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     FormsModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    NgbDatepickerModule
   ]
 })
 export class PatientModule { }

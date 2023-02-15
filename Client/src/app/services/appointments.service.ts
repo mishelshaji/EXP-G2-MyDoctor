@@ -213,6 +213,36 @@ export class AppointmentsService {
     }
   ]
 
+  doctorDetails = {
+    name: 'Dr.Raj Kumar',
+    department: 'Dentistry',
+    email: 'rajkumar@gmail.com',
+    phone: '8905XXXXXX'
+  }
+
+  appointmentDetails = {
+    appointmentno: '123',
+    date: '24-02-2023',
+    time: '2:30',
+    status: 'true',
+    fee: '300'
+  }
+
+  prescription = {
+    disease: 'Influenza',
+    description1: 'Difficulty breathing',
+    description2: 'Chest pain',
+    description3: 'Seizures',
+    description4: 'Dizziness',
+    medicine1: 'Expectorant - 1 tablet',
+    medicine2: 'Paracetamol-1 tablet',
+    medicine3: 'Vitamin C - 500g',
+    prefer1: '2 times per day (after food)',
+    prefer2: '2 times per day(after food)',
+    pefer3: 'Once per day(after food)'
+
+  }
+
   constructor() {
 
   }
@@ -224,7 +254,7 @@ export class AppointmentsService {
   getPreviousAppointments() {
     return this.previousAppointments
   }
-  
+
   getCancelledAppointments() {
     return this.cancelledAppointments
   }
