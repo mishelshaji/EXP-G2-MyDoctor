@@ -13,7 +13,11 @@ export class PatientProfileComponent {
     dob: '',
     gender: '',
     email: '',
-    number: ''
+    phone: '',
+    address:'',
+    phone2:'',
+    relationship:'',
+    bloodgroup:''
   }
 
   constructor(private patientServices: PatientService) {

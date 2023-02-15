@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppointmentDetailsComponent } from './appointment-details/appointment-d
     PatientRoutingModule,
     RouterModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ]
 })
 export class PatientModule { }

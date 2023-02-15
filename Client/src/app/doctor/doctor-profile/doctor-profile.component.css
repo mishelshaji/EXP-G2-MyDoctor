@@ -2,11 +2,6 @@
     margin: 0;
 }
 
-.align {
-    display: flex;
-    flex-direction: column;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="date"],
@@ -52,7 +47,7 @@ textarea {
 .img-container {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('../../../assets/images/doctor333.jpg');
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('../../../assets/images/doctor33.jpg');
     background-size: cover;
     border: 0;
 }
@@ -77,26 +72,7 @@ textarea {
     transition: 0.2s;
 }
 
-.phone-2 {
-    width: 90px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #939292;
-    border-radius: 10px;
-    border-color: 2px solid #000000;
-}
-
-.heading-2 {
-    font-size: x-large;
-    font-variant: small-caps;
-}
-
-.third-details {
-    width: 70vw;
-}
-
-.relationship {
+.Specialization {
     width: 60%;
     padding: 14px 20px;
     margin: 8px 0;
@@ -109,6 +85,16 @@ textarea {
 .gender {
     width: 60%;
     padding: 14px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #939292;
+    border-radius: 10px;
+    border-color: 2px solid #000000;
+}
+
+.license{
+    width: 60%;
+    padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid #939292;
