@@ -10,6 +10,7 @@ import { DoctorLayoutComponent } from './doctor-layout/doctor-layout.component';
 import { NavbarDoctorComponent } from './navbar-doctor/navbar-doctor.component';
 import { LeaveComponent } from './leave/leave.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     DoctorLayoutComponent,
     NavbarDoctorComponent,
     LeaveComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    AppointmentDetailsComponent
   ],
   imports: [
     CommonModule,
