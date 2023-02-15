@@ -4,26 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DepartmentsService {
-  private departments = [
-    {
-      id: 1,
-      name: 'Dentistry'
-    },
-    {
-      id: 2,
-      name: 'Paediatrics'
-    },
-    {
-      id: 3,
-      name: 'Cardiology'
-    },
-  ]
+  private departments = [];
 
   constructor() {
 
   }
   
   getAll() {
+    // this.departments = 
     return this.departments;
   }
 }
