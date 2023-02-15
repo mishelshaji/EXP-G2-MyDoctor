@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     FormsModule,
     FontAwesomeModule,
+    NgbModule,
     NgbDatepickerModule
   ]
 })

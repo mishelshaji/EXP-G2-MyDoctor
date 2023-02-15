@@ -1,0 +1,86 @@
+<div class="container-fluid main">
+    <form class="row" #form="ngForm" (ngSubmit)="saveData()">
+        <div class="col-lg-8">
+            <h1 class="heading-1 d-flex">Enter details:</h1>
+            <div class="row">
+                <div class="first-details justify-content-between row col-10 col-lg-6">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" #firstName="ngModel" required
+                        [(ngModel)]="model.firstName" minlength="3" maxlength="25" pattern="[a-zA-z]+">
+                    <div class="text-danger" *ngIf="firstName.invalid && firstName.touched">
+                        <div *ngIf="firstName.errors?.['minlength']">First name is too short</div>
+                        <div *ngIf="firstName.errors?.['maxlength']">Fist name is too long</div>
+                        <div *ngIf="firstName.errors?.['pattern']">Invalid Name</div>
+                        <div *ngIf="firstName.errors?.['required']">First Name is required</div>
+                    </div>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" #lastName="ngModel" required
+                        [(ngModel)]="model.lastName" minlength="3" maxlength="25" pattern="[a-zA-z]+">
+                    <div class="text-danger" *ngIf="lastName.invalid && lastName.touched">
+                        <div *ngIf="lastName.errors?.['minlength']">Last name is too short</div>
+                        <div *ngIf="lastName.errors?.['maxlength']">Last name is too long</div>
+                        <div *ngIf="lastName.errors?.['pattern']">Invalid name</div>
+                        <div *ngIf="lastName.errors?.['required']">Last name is required</div>
+                    </div>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" #dob="ngModel" [(ngModel)]="model.dob" required>
+                    <label for="Gender">Gender:</label>
+                    <select class="gender justify-content-between row" name="gender" #gender="ngModel"
+                        [(ngModel)]="model.gender" required>
+                        <option disabled>Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <label for="Specialization">Specialization:</label>
+                    <select class="specialization justify-content-between" name="Specialization"
+                        #specialization="ngModel" [(ngModel)]="model.Specialization" required>
+                        <option disabled value="Select a Specialization">Select a Specialization</option>
+                        <option value="General">General</option>
+                        <option value="Dentist">Dentist</option>
+                        <option value="Cardio">Cardio</option>
+                    </select>
+                    <label for="Qualification">Qualification:</label>
+                    <input type="text" id="Qualification" name="Qualification" #qualification="ngModel" required
+                        [(ngModel)]="model.qualification" maxlength="25" required>
+                </div>
+                <div class="second-details justify-content-between row col-10 col-lg-6">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" #email="ngModel" [(ngModel)]="model.email" required
+                        minlength="5" maxlength="70" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <div class="text-danger" *ngIf="email.invalid && email.touched">
+                        <div *ngIf="email.errors?.['minlength']">Email is too short.</div>
+                        <div *ngIf="email.errors?.['required']">Email is required.</div>
+                        <div *ngIf="email.errors?.['maxlength']">Email is too long.</div>
+                        <div *ngIf="email.errors?.['pattern']">Email is invalid.</div>
+                    </div>
+                    <label for="tel">Phone No:</label>
+                    <input type="tel" id="phone" name="phone" #phone="ngModel" [(ngModel)]="model.phone"
+                        pattern="[0-9]+" maxlength="10" required>
+                    <div class="text-danger" *ngIf="phone.invalid && phone.touched">
+                        <div *ngIf="phone.errors?.['required']">Phone is required.</div>
+                        <div *ngIf="phone.errors?.['maxlength']">Phone is too long.</div>
+                        <div *ngIf="phone.errors?.['pattern']">Phone is invalid.</div>
+                    </div>
+                    <label for="address">Current Address:</label>
+                    <textarea id="address" name="address" #address="ngModel" [(ngModel)]="model.address"
+                        required></textarea>
+                    <label for="licenseNumber">License Number:</label>
+                    <input class="license" type="text license justify-content-between" name="licenseNumber"
+                        #licenseNumber="ngModel" [(ngModel)]="model.licenseNumber" required>
+                    <label for="bloodgroup">Blood Group:</label>
+                    <input class="bloodgroup" type="text" name="bloodgroup" placeholder="eg:O+ve" #bloodGroup="ngModel"
+                        [(ngModel)]="model.bloodGroup" required>
+
+                    <label for="appointmentFee">Consultation Fee:</label>
+                    <input type="text" id="appointmentFee" name="appointmentFee" #qualification="ngModel" required
+                        [(ngModel)]="model.AppointmentFee" maxlength="25" required>
+                </div>
+            </div>
+        </div>
+        <div class="submit" id="submit">
+            <input type="submit" value="Submit">
+        </div>
+        <div class="col-lg-4 img-container d-none d-lg-inline">
+        </div>
+    </form>
+</div>
