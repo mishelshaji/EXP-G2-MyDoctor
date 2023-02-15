@@ -14,17 +14,15 @@ export class PatientProfileComponent {
     gender: '',
     email: '',
     phone: '',
-    address:'',
-    phone2:'',
-    relationship:'',
-    bloodgroup:''
+    address: '',
+    phone2: '',
+    relationship: '',
+    bloodgroup: ''
   }
-
   constructor(private patientServices: PatientService) {
-    
-  }
 
-  saveData(){
+  }
+  saveData() {
     this.patientServices.updateProfile(this.model);
   }
 }

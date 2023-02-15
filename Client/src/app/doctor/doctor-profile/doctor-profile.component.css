@@ -49,7 +49,7 @@ textarea {
     padding: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('../../../assets/images/doctor33.jpg');
     background-size: cover;
-    border: 0;
+    border: none;
 }
 
 .img-container div {
@@ -64,15 +64,15 @@ textarea {
 }
 
 .submit {
-    padding-left: 170px; 
+    padding-left: 170px;
 }
 
-.submit :hover{
+.submit :hover {
     background-color: rgb(128, 128, 128);
     transition: 0.2s;
 }
 
-.Specialization {
+.specialization {
     width: 60%;
     padding: 14px 20px;
     margin: 8px 0;
@@ -92,7 +92,7 @@ textarea {
     border-color: 2px solid #000000;
 }
 
-.license{
+.license {
     width: 60%;
     padding: 12px 20px;
     margin: 8px 0;

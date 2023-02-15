@@ -14,19 +14,16 @@ export class DoctorProfileComponent {
     gender: '',
     email: '',
     phone: '',
-    address:'',
-    Specialization:'',
-    licenseNumber:'',
+    address: '',
+    Specialization: '',
+    licenseNumber: '',
     bloodGroup: '',
-    qualification:'',
-    AppointmentFee:''
+    qualification: '',
+    AppointmentFee: ''
   }
-
   constructor(private doctorServices: DoctorService) {
-    
   }
-
-  saveData(){
+  saveData() {
     this.doctorServices.updateProfile(this.model);
   }
 }

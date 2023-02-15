@@ -43,20 +43,15 @@ export class DoctorService {
       photo: '../../../assets/images/doctor5png.png'
     }
   ]
-
-  constructor() { 
-
+  constructor() {
   }
   getAll() {
     return this.doctors;
   }
-  getSearchDetails(index:number) {
+  getSearchDetails(index: number) {
     return this.doctors[index];
   }
-
-  updateProfile(model:any){
+  updateProfile(model: any) {
     console.log(model);
-    
-
   }
 }
