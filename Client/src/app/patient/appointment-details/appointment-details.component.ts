@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppointmentsService } from 'src/app/services/appointments.service';
 
 @Component({
@@ -6,17 +6,16 @@ import { AppointmentsService } from 'src/app/services/appointments.service';
   templateUrl: './appointment-details.component.html',
   styleUrls: ['./appointment-details.component.css']
 })
-export class AppointmentDetailsComponent {
 
-  constructor(private appointmentService: AppointmentsService) {
+export class AppointmentDetailsComponent implements OnInit {
 
-  }
   model = {
     name: '',
     department: '',
     email: '',
-    contact: ''
+    phone: ''
   }
+
   detail = {
     appointmentno: '',
     date: '',
@@ -38,10 +37,15 @@ export class AppointmentDetailsComponent {
     prefer2: '',
     pefer3: ''
   }
+
+  constructor(private appointmentService: AppointmentsService) {
+
+  }
+
   ngOnInit() {
-    this.model = this.appointmentService.DoctorDetails;
-    this.detail = this.appointmentService.AppointmentDetails;
-    this.medication = this.appointmentService.Prescription;
+    this.model = this.appointmentService.doctorDetails;
+    this.detail = this.appointmentService.appointmentDetails;
+    this.medication = this.appointmentService.prescription;
   }
 }
 

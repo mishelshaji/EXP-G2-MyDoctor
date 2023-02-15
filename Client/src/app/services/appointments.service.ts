@@ -213,14 +213,14 @@ export class AppointmentsService {
     }
   ]
 
-  DoctorDetails = {
+  doctorDetails = {
     name: 'Dr.Raj Kumar',
     department: 'Dentistry',
     email: 'rajkumar@gmail.com',
-    contact: '8905XXXXXX'
+    phone: '8905XXXXXX'
   }
 
-  AppointmentDetails = {
+  appointmentDetails = {
     appointmentno: '123',
     date: '24-02-2023',
     time: '2:30',
@@ -228,7 +228,7 @@ export class AppointmentsService {
     fee: '300'
   }
 
-  Prescription = {
+  prescription = {
     disease: 'Influenza',
     description1: 'Difficulty breathing',
     description2: 'Chest pain',

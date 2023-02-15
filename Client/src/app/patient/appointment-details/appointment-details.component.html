@@ -5,11 +5,11 @@
         <h5>{{model.name}}</h5>
         <p>{{model.department}}</p>
         <br>
-        <p>Email Address:</p>
+        <p>Email:</p>
         <p>{{model.email}}</p>
         <br>
-        <p>Contact Number</p>
-        <p>{{model.contact}}</p>
+        <p>Phone Number</p>
+        <p>{{model.phone}}</p>
     </div>
     <div class="container d-flex flex-column align-items-center">
         <div class="details mb-3">
@@ -27,7 +27,7 @@
                 <span class="content">{{detail.status}}</span>
             </p>
             <p>Fee:
-                <span class="content">{{detail.fee}}</span>
+                <span class="content">{{detail.fee | currency: 'INR'}}</span>
             </p>
             <button>Cancel Appointment</button>
         </div>
