@@ -23,7 +23,10 @@ namespace MyDoctor.Service.Services
         private readonly IConfiguration _configuration;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public ApplicationUserService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, SignInManager<ApplicationUser> signInManager)
+        public ApplicationUserService(UserManager<ApplicationUser> userManager,
+                                      RoleManager<IdentityRole> roleManager,
+                                      IConfiguration configuration,
+                                      SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -53,6 +56,7 @@ namespace MyDoctor.Service.Services
                 var rolestatus = await _userManager.AddToRoleAsync(user, dto.Role);
                 return response;
             }
+
             response.AddError("", "Role is not correct");
             return response;
         }
@@ -65,13 +69,15 @@ namespace MyDoctor.Service.Services
                 response.AddError(nameof(dto.Email), "Email not found");
                 return response;
             }
-            var signin = await _signInManager.CheckPasswordSignInAsync(user, dto.Password, false);
+
+            var signin = await _signInManager.CheckPasswordSignInAsync(user, dto.Password, true);
             if (signin.Succeeded)
             {
                 response.Result= GenerateToken(user);
                 return response;
             }
-            response.AddError("", "Not logined");
+
+            response.AddError("", "Not able to login");
             return response;
         }
 

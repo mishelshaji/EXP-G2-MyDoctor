@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Domain.Models
 {
-    public class PatientsMaster: DbContext
+    public class PatientsMaster
     {
+        public int Id { get; set; }
         public ApplicationUser UserId { get; set; }
 
         [StringLength(10)]
         public string BloodGroup { get; set; }
 
-        public DateOnly Dob { get; set; }
+        public DateTime Dob { get; set; }
 
         [StringLength(5)]
         public string Gender { get; set;}
@@ -26,6 +27,5 @@ namespace MyDoctor.Domain.Models
         public int EmergencyContactNumber { get; set;}
 
         public string Relationship { get; set;}
-
     }
 }

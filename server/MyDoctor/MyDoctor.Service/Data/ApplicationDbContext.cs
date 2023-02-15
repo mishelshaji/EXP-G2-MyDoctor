@@ -20,7 +20,6 @@ namespace MyDoctor.Service.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
             var roles = new IdentityRole[]
             {
                 new IdentityRole()
@@ -46,9 +45,9 @@ namespace MyDoctor.Service.Data
                 }
             };
             builder.Entity<IdentityRole>().HasData(roles);
-
-
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<PatientsMaster> PatientsMaster { get; set;}
     }
 }
