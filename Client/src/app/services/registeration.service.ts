@@ -10,7 +10,8 @@ export class RegisterationService {
   constructor(private http: HttpClient) {
 
   }
-  getData(model:any){
+
+  registerUser(model:any){
     return this.http.post(this.url, model)
   }
 }

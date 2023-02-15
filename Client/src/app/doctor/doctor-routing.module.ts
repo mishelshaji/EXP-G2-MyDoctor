@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { DoctorLayoutComponent } from './doctor-layout/doctor-layout.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'leave', component: LeaveComponent },
       { path: 'appointments', component: AppointmentsComponent },
-      { path: 'doctor-profile', component: DoctorProfileComponent }
+      { path: 'profile', component: DoctorProfileComponent },
+      { path: 'appointment-details', component: AppointmentDetailsComponent }
     ]
   }
 ];
