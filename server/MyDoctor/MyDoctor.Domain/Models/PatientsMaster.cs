@@ -14,18 +14,18 @@ namespace MyDoctor.Domain.Models
         public ApplicationUser UserId { get; set; }
 
         [StringLength(10)]
-        public string BloodGroup { get; set; }
+        public string? BloodGroup { get; set; }
 
-        public DateTime Dob { get; set; }
+        public DateTime? Dob { get; set; }
 
-        [StringLength(5)]
-        public string Gender { get; set;}
+        [StringLength(10)]
+        public string? Gender { get; set;}
 
         [StringLength(200)]
-        public string Address { get; set;}
+        public string? Address { get; set;}
 
-        public int EmergencyContactNumber { get; set;}
+        public int? EmergencyContactNumber { get; set;}
 
-        public string Relationship { get; set;}
+        public string? Relationship { get; set;}
     }
 }
