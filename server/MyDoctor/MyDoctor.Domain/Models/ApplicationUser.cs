@@ -10,6 +10,6 @@ namespace MyDoctor.Domain.Models
     {
        public string FirstName { get; set; }
        public string LastName { get; set; }
-        public string Specilization { get; set; }
+        public string? Specialization { get; set; }
     }
 }

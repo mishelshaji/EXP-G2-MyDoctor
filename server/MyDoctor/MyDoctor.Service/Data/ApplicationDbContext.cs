@@ -46,6 +46,8 @@ namespace MyDoctor.Service.Data
                 }
             };
             builder.Entity<IdentityRole>().HasData(roles);
+
+
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }

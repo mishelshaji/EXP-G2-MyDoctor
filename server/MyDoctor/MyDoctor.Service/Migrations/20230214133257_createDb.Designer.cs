@@ -12,8 +12,8 @@ using MyDoctor.Service.Data;
 namespace MyDoctor.Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230214055457_CreateDB")]
-    partial class CreateDB
+    [Migration("20230214133257_createDb")]
+    partial class createDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -233,16 +233,15 @@ namespace MyDoctor.Service.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Specilization")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("specilization")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

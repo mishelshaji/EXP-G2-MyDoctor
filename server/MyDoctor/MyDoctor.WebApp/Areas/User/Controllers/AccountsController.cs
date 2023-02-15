@@ -22,10 +22,10 @@ namespace MyDoctor.WebApp.Areas.User.Controllers
             return Ok(res);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetByEmail(LoginDto dto)
+        [HttpPost("login")]
+        public async Task<IActionResult> login(LoginDto dto)
         {
-            var res = await _service.GetDataByEmail(dto);
+            var res = await _service.login(dto);
             return Ok(res);
         }
     }
