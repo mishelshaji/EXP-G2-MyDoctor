@@ -17,6 +17,6 @@ namespace MyDoctor.Domain.Models
         [StringLength(50)]
         public string? Description { get; set; }
 
-        public int status { get; set; }
+        public int Status { get; set; }
     }
 }

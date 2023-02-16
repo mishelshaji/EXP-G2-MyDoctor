@@ -11,7 +11,10 @@ namespace MyDoctor.Domain.Models
     public class PatientsMaster
     {
         public int Id { get; set; }
-        public ApplicationUser UserId { get; set; }
+
+        public string UserId { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
 
         [StringLength(10)]
         public string? BloodGroup { get; set; }
