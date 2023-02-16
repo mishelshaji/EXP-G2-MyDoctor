@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { inject } from '@angular/core/testing';
 import { DepartmentsService } from 'src/app/services/departments.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-home',
@@ -13,27 +14,24 @@ import { DoctorService } from 'src/app/services/doctor.service';
 export class HomeComponent {
   departments: any = [];
   doctors: any = [];
-  searchItems: any = [];
+  resultItems: any = [];
   enteredSearchValue: string = '';
 
-  constructor(private DepartmentsService: DepartmentsService, private DoctorService: DoctorService) {
+  constructor(private departmentsService: DepartmentsService, 
+    private doctorService: DoctorService, 
+    private patientService: PatientService) {
 
   }
 
   ngOnInit() {
-    this.departments = this.DepartmentsService.getAll();
+    this.departments = this.departmentsService.getAll();
   }
 
   searchResult() {
     var result = document.getElementById('result-dept') as HTMLElement;
     result.style.display = 'block';
     result.scrollIntoView();
-    this.doctors = this.DoctorService.getAll();
-    this.searchItems = [];
-    
-    for (let i = 0; i < this.doctors.length; i++) {
-      if (this.doctors[i].department == this.enteredSearchValue)
-        this.searchItems.push(this.DoctorService.getSearchDetails(i));
-    }
+    this.resultItems = [];
+    this.resultItems = this.patientService.searchResult(this.enteredSearchValue);
   }
 }

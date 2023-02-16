@@ -27,7 +27,7 @@
         <h2 class="text-center">Search Results</h2>
         <div class="row px-4 w-100">
             <div class="result-item col-10 col-lg-4 ms-2 me-2 ms-lg-5 mb-4 mt-4 me-lg-5"
-                *ngFor="let item of searchItems">
+                *ngFor="let item of resultItems">
                 <img src={{item.photo}} alt="" id="doctor-img">
                 <p id="doc-name">Dr. {{item.name}}</p>
                 <p id="doc-dept">{{item.department}}</p>

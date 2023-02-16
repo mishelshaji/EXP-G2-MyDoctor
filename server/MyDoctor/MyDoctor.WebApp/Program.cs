@@ -54,6 +54,8 @@ builder.Services.AddAuthentication(options =>
     });
 
 builder.Services.AddScoped<ApplicationUserService>();
+builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<PatientService>();
 
 var app = builder.Build();
 
