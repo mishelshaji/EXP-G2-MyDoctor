@@ -19,7 +19,6 @@ namespace MyDoctor.Domain.Models
 
         public Disease Disease { get; set; }
 
-
         [StringLength(50)]
         public string DiseaseDetails { get; set; }
 
