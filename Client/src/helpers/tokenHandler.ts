@@ -1,4 +1,4 @@
-export class tokenHandler{
+export class TokenHandler{
 
     setToken(token: string){
         localStorage.setItem('token',token);
