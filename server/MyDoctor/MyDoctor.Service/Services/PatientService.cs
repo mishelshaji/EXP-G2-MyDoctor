@@ -9,7 +9,7 @@ namespace MyDoctor.Service.Services
 {
     public class PatientService
     {
-        public async Task<ServiceResponse<bool>> PatientHomeSearch(string SearchValue)
+        public async Task<ServiceResponse<bool>> PatientHomeSearch(string searchValue)
         {
             var response = new ServiceResponse<bool>();
             return response;
