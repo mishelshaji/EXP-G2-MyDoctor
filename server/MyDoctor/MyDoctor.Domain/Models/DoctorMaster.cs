@@ -11,7 +11,7 @@ namespace MyDoctor.Domain.Models
     {
         public int Id { get; set; }
         public string UserId { get; set; }
-        public ApplicationUser ApplicationUser{ get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
         public string DepartmentId { get; set; }
         public Department Department { get; set; }
 
@@ -21,7 +21,7 @@ namespace MyDoctor.Domain.Models
 
         [StringLength(10)]
         public string? Gender { get; set; }
-        public int Status { get; set; }
 
+        public int Status { get; set; }
     }
 }
