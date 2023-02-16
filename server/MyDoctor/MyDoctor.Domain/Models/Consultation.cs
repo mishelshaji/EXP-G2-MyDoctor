@@ -11,21 +11,18 @@ namespace MyDoctor.Domain.Models
     {
         public int Id { get; set; }
 
-        public string AppointmentId { get; set; }
+        public int AppointmentId { get; set; }
 
         public Appointment Appointment { get; set; }
 
-        public string DiseaseId { get; set; }
+        public int DiseaseId { get; set; }
 
         public Disease Disease { get; set; }
 
-        [StringLength(50)]
-        public string DiseaseDetails { get; set; }
-
-        [StringLength(50)]
-        public string? DiseaseSummary { get; set; }
+        [StringLength(80)]
+        public string Elaboration { get; set; }
 
         [StringLength(200)]
-        public string Prescription { get; set; }
+        public string Medication { get; set; }
     }
 }
