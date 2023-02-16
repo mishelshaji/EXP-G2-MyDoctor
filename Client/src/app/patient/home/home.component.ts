@@ -17,7 +17,9 @@ export class HomeComponent {
   resultItems: any = [];
   enteredSearchValue: string = '';
 
-  constructor(private departmentsService: DepartmentsService, private doctorService: DoctorService, private patientService: PatientService) {
+  constructor(private departmentsService: DepartmentsService, 
+    private doctorService: DoctorService, 
+    private patientService: PatientService) {
 
   }
 
