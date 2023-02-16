@@ -14,22 +14,22 @@ import { PatientService } from 'src/app/services/patient.service';
 export class HomeComponent {
   departments: any = [];
   doctors: any = [];
-  searchItems: any = [];
+  resultItems: any = [];
   enteredSearchValue: string = '';
 
-  constructor(private DepartmentsService: DepartmentsService, private DoctorService: DoctorService, private PatientService:PatientService) {
+  constructor(private departmentsService: DepartmentsService, private doctorService: DoctorService, private patientService: PatientService) {
 
   }
 
   ngOnInit() {
-    this.departments = this.DepartmentsService.getAll();
+    this.departments = this.departmentsService.getAll();
   }
 
   searchResult() {
     var result = document.getElementById('result-dept') as HTMLElement;
     result.style.display = 'block';
     result.scrollIntoView();
-    this.searchItems = [];
-    this.searchItems = this.PatientService.searchResult(this.enteredSearchValue);
+    this.resultItems = [];
+    this.resultItems = this.patientService.searchResult(this.enteredSearchValue);
   }
 }

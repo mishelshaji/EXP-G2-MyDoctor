@@ -11,7 +11,6 @@ export class DepartmentsService {
   }
   
   getAll() {
-    // this.departments = 
     return this.departments;
   }
 }
