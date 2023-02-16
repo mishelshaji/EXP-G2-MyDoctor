@@ -9,6 +9,7 @@ namespace MyDoctor.Service.Dto
     public class DoctorSearchResultDto
     {
         public string Name { get; set; }
+
         public string DepartmentName { get; set; }
     }
 }
