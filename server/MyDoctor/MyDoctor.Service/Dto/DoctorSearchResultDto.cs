@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Dto
 {
-    internal class DoctorSearchResultDto
+    public class DoctorSearchResultDto
     {
+        public string Name { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

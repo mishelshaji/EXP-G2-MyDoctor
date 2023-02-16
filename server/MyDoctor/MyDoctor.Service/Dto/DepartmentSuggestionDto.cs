@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Dto
 {
-    public class DepartmentViewDto
+    public class DepartmentSuggestionDto
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
     }
 }
