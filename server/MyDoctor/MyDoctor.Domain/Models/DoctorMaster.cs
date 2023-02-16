@@ -15,7 +15,7 @@ namespace MyDoctor.Domain.Models
 
         public ApplicationUser ApplicationUser { get; set; }
 
-        public string DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
 
         public Department Department { get; set; }
 

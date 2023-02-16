@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyDoctor.Service.Dto;
 using MyDoctor.Service.Services;
 
 namespace MyDoctor.WebApp.Areas.Patient.Controllers
@@ -24,11 +25,11 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             return Ok(res);
         }
 
-        [HttpGet]
-        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [HttpGet("departments")]
+        [ProducesResponseType(typeof(DepartmentSuggestionDto[]),statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDepartmentSuggestion()
         {
-            var res = await _departmentService.GetDepartmentSuggestion();
+            var res = await _departmentService.GetDepartmentSuggestionAsync();
             return Ok(res);
         }
     }

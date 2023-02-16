@@ -1,16 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { DepartmentSuggestionDto } from 'src/types/Dtos/department.suggestion';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepartmentsService {
-  private departments = [];
+  url = "https://localhost:7238/api/Patient/Home/departments";
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
-  
+
   getAll() {
-    return this.departments;
+    return this.http.get(this.url);
   }
 }

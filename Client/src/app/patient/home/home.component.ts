@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { inject } from '@angular/core/testing';
@@ -11,20 +11,27 @@ import { PatientService } from 'src/app/services/patient.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  departments: any = [];
+export class HomeComponent implements OnInit {
+  departments: any;
   doctors: any = [];
   resultItems: any = [];
   enteredSearchValue: string = '';
 
-  constructor(private departmentsService: DepartmentsService, 
-    private doctorService: DoctorService, 
+  constructor(private departmentsService: DepartmentsService,
+    private doctorService: DoctorService,
     private patientService: PatientService) {
 
   }
 
   ngOnInit() {
-    this.departments = this.departmentsService.getAll();
+    this.departmentsService.getAll().subscribe({
+      next: (Data) => {
+        this.departments = Data;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 
   searchResult() {

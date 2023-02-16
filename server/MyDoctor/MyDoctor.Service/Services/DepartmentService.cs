@@ -1,4 +1,7 @@
 ﻿using CartSharp.Domain.Types;
+using Microsoft.EntityFrameworkCore;
+using MyDoctor.Service.Data;
+using MyDoctor.Service.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +12,20 @@ namespace MyDoctor.Service.Services
 {
     public class DepartmentService
     {
-        public async Task<ServiceResponse<bool>> GetDepartmentSuggestion()
+        private readonly ApplicationDbContext _db;
+
+        public DepartmentService(ApplicationDbContext db)
         {
-            var response = new ServiceResponse<bool>();
-            return response;
+            _db = db;
+        }
+        public async Task<List<DepartmentSuggestionDto>> GetDepartmentSuggestionAsync()
+        {
+            return await _db.Department
+                .Select(c => new DepartmentSuggestionDto
+                {
+                    Name = c.DepartmentName,
+                })
+                .ToListAsync();
         }
     }
 }
