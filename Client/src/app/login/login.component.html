@@ -10,7 +10,7 @@
     <div class="col-10 col-lg-5 logindiv flex">
         <img src="./assets/images/logo2.png" alt="" id="logo2">
         <h3>User Login</h3>
-        <form class="flex">
+        <form class="flex" #form="ngForm" (ngSubmit)="saveData()">
             <input type="email" placeholder="Enter your email address" name="email" #email="ngModel" [(ngModel)]="modal.email" required
                 minlength="5" maxlength="70" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             <div class="text-danger" *ngIf="email.invalid && email.touched">

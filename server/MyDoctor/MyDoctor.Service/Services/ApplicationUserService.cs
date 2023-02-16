@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MyDoctor.Domain.Models;
+using MyDoctor.Service.Data;
 using MyDoctor.Service.Dto;
 using System;
 using System.Collections.Generic;
@@ -22,16 +23,19 @@ namespace MyDoctor.Service.Services
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ApplicationDbContext _db;
 
         public ApplicationUserService(UserManager<ApplicationUser> userManager,
                                       RoleManager<IdentityRole> roleManager,
                                       IConfiguration configuration,
-                                      SignInManager<ApplicationUser> signInManager)
+                                      SignInManager<ApplicationUser> signInManager,
+                                      ApplicationDbContext db)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
             _signInManager = signInManager;
+            _db = db;
         }
         public async Task<ServiceResponse<bool>> PostData(RegisterDto dto)
         {
@@ -87,13 +91,15 @@ namespace MyDoctor.Service.Services
             string issuer = _configuration["Jwt:Issuer"];
             string audience = _configuration["Jwt:Audience"];
 
+            var role = _userManager.GetRolesAsync(user).GetAwaiter().GetResult().First();
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var credentials = new SigningCredentials(signingKey, "HS256");
 
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}")
+                new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"),
+                new Claim(ClaimTypes.Role, role)
             };
 
             var token = new JwtSecurityToken(

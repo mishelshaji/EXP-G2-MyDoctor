@@ -14,4 +14,13 @@ export class RegisterationService {
   registerUser(model:any){
     return this.http.post(this.url + "accounts", model)
   }
+
+  loginUser(model:any){
+    var res = this.http.post(this.url + "accounts/login", model)
+    res.subscribe({
+      next: (res) => {
+        
+      }
+    })
+  }
 }
