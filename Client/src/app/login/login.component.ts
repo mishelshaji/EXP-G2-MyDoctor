@@ -17,10 +17,6 @@ export class LoginComponent {
   }
 
   saveData(){
-    this.registerationService.loginUser(this.modal).subscribe({
-      next: res => {
-        console.log(res);
-      }
-    })
+    this.registerationService.loginUser(this.modal)
   }
 }

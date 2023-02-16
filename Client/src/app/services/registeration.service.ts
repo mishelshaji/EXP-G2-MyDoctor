@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { tokenHandler } from 'src/helpers/tokenHandler';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterationService {
   url:string = 'https://localhost:7238/api/user/'
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private tokenHandler: tokenHandler) {
 
   }
 
@@ -18,8 +19,8 @@ export class RegisterationService {
   loginUser(model:any){
     var res = this.http.post(this.url + "accounts/login", model)
     res.subscribe({
-      next: (res) => {
-        
+      next: (res:any) => {
+        this.tokenHandler.setToken(res.result)
       }
     })
   }

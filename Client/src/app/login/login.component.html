@@ -26,7 +26,7 @@
                 <div *ngIf="password.errors?.['required']">Password is required.</div>
             </div>
             <h5><a href="#">Forgot your Password?</a></h5>
-            <button [routerLink]="['patient/home']" [disabled]="email.invalid || password.invalid">Login</button>
+            <button [disabled]="email.invalid || password.invalid">Login</button>
         </form>
         <h5>Not Registered Yet? <span><a routerLink="register">SignUp</a></span></h5>
     </div>
