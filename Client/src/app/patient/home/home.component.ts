@@ -25,8 +25,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.departmentsService.getAll().subscribe({
-      next: (Data) => {
-        this.departments = Data;
+      next: (res: any) => {
+        this.departments = res.result;
+      },
+      error: (res: any) => {
+        alert("Unauthorised");
       }
     })
   }

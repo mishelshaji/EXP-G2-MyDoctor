@@ -10,13 +10,13 @@ namespace MyDoctor.Domain.Models
     {
         public int Id { get; set; }
 
-        public int PatientMasterId { get; set; }
+        public int? PatientsMasterId { get; set; }
 
-        public PatientsMaster PatientsMaster { get; set; }
+        public PatientsMaster? PatientsMaster { get; set; }
 
-        public int DoctorId { get; set; }
+        public int? DoctorMasterId { get; set; }
 
-        public DoctorMaster DoctorMaster { get; set; }
+        public DoctorMaster? DoctorMaster { get; set; }
 
         public DateTime FromDateTime { get; set; }
 

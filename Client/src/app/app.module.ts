@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OtpPageComponent } from './otp-page/otp-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenHandler } from 'src/helpers/tokenHandler';
+import { TokenInterceptor } from 'src/helpers/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { TokenHandler } from 'src/helpers/tokenHandler';
     HttpClientModule,
     NgbDatepickerModule
   ],
-  providers: [TokenHandler],
+  providers: [TokenHandler, TokenInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

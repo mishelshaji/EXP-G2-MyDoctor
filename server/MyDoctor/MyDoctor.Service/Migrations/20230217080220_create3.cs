@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDoctor.Service.Migrations
 {
-    public partial class createdb : Migration
+    public partial class create3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,6 +64,19 @@ namespace MyDoctor.Service.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Department", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Diseases",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DiseaseName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Diseases", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -229,6 +242,61 @@ namespace MyDoctor.Service.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Appointments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PatientsMasterId = table.Column<int>(type: "int", nullable: true),
+                    DoctorMasterId = table.Column<int>(type: "int", nullable: true),
+                    FromDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ToDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Appointments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Appointments_DoctorMaster_DoctorMasterId",
+                        column: x => x.DoctorMasterId,
+                        principalTable: "DoctorMaster",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Appointments_PatientsMaster_PatientsMasterId",
+                        column: x => x.PatientsMasterId,
+                        principalTable: "PatientsMaster",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Consultations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AppointmentId = table.Column<int>(type: "int", nullable: false),
+                    DiseaseId = table.Column<int>(type: "int", nullable: false),
+                    Elaboration = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    Medication = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Consultations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Consultations_Appointments_AppointmentId",
+                        column: x => x.AppointmentId,
+                        principalTable: "Appointments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Consultations_Diseases_DiseaseId",
+                        column: x => x.DiseaseId,
+                        principalTable: "Diseases",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
@@ -249,6 +317,16 @@ namespace MyDoctor.Service.Migrations
                     { 3, "Cardiology", "About heart diseases", 1 },
                     { 4, "General Surgeon", "About surgical science", 1 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Appointments_DoctorMasterId",
+                table: "Appointments",
+                column: "DoctorMasterId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Appointments_PatientsMasterId",
+                table: "Appointments",
+                column: "PatientsMasterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -290,6 +368,16 @@ namespace MyDoctor.Service.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Consultations_AppointmentId",
+                table: "Consultations",
+                column: "AppointmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Consultations_DiseaseId",
+                table: "Consultations",
+                column: "DiseaseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DoctorMaster_ApplicationUserId",
                 table: "DoctorMaster",
                 column: "ApplicationUserId");
@@ -323,13 +411,22 @@ namespace MyDoctor.Service.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Consultations");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Appointments");
+
+            migrationBuilder.DropTable(
+                name: "Diseases");
+
+            migrationBuilder.DropTable(
                 name: "DoctorMaster");
 
             migrationBuilder.DropTable(
                 name: "PatientsMaster");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Department");
