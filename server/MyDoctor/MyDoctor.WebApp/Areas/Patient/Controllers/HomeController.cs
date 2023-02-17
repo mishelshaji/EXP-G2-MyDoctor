@@ -29,14 +29,6 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             return Ok(res);
         }
 
-        [HttpGet("departments")]
-        [ProducesResponseType(typeof(DepartmentSuggestionDto), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetDepartmentSuggestion()
-        {
-            var res = await _departmentService.GetDepartmentSuggestionAsync();
-            return Ok(res);
-        }
-
         [HttpPut]
         [ProducesResponseType(typeof(PatientProfileDto[]), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> PatientProfile(int id, PatientProfileDto dto)
