@@ -28,9 +28,6 @@ export class RegisterComponent {
     this.departmentService.getAll().subscribe({
       next: (Data) => {
         this.departments = Data;
-      },
-      error: (err) => {
-        console.error(err);
       }
     })
   }
