@@ -21,7 +21,9 @@ export class RegisterComponent {
     Specialization: ''
   }
 
-  constructor(private DepartmentService: DepartmentsService, private registerationService: RegisterationService, private Router: Router) {
+  constructor(private departmentService: DepartmentsService, 
+              private registerationService: RegisterationService, 
+              private Router: Router) {
 
   }
 
