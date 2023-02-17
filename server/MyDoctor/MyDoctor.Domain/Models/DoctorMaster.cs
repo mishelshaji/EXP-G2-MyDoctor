@@ -11,11 +11,11 @@ namespace MyDoctor.Domain.Models
     {
         public int Id { get; set; }
 
-        public string UserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
 
-        public string DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
 
         public Department Department { get; set; }
 
@@ -23,6 +23,8 @@ namespace MyDoctor.Domain.Models
         public string DoctorLicenseNo { get; set; }
 
         public DateTime? Dob { get; set; }
+
+        public long? PhoneNumber { get; set; }
 
         [StringLength(10)]
         public string? Gender { get; set; }
