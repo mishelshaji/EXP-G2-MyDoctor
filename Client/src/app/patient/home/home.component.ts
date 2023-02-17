@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.departmentsService.getAll().subscribe({
       next: (Data) => {
         this.departments = Data;
+        console.log(this.departments);
       },
       error: (err) => {
         console.error(err);

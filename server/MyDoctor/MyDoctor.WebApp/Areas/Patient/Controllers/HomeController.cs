@@ -17,11 +17,11 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(statusCode:StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DoctorSearchResultDto[]), statusCode:StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode:StatusCodes.Status404NotFound)]
         public async Task<IActionResult> PatientHomeSearch(string searchValue)
         {
-            var res = await _patientService.PatientHomeSearch(searchValue);
+            var res = await _patientService.PatientHomeSearchAsync(searchValue);
             return Ok(res);
         }
 

@@ -13,6 +13,6 @@ export class DepartmentsService {
   }
 
   getAll() {
-    return this.http.get(this.url);
+    return this.http.get<DepartmentSuggestionDto[]>(this.url);
   }
 }

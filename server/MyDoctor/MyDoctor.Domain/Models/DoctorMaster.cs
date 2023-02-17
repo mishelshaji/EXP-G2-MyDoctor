@@ -11,7 +11,7 @@ namespace MyDoctor.Domain.Models
     {
         public int Id { get; set; }
 
-        public string UserId { get; set; }
+        public int ApplicationUserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
 

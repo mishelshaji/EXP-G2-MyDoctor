@@ -8,7 +8,7 @@ import { RegisterationService } from '../services/registeration.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  public departments: any = [];
+  departments:any;
 
   model = {
     firstName: '',
@@ -20,12 +20,19 @@ export class RegisterComponent {
     Specialization: ''
   }
 
-  constructor(private DepartmentService: DepartmentsService, private registerationService: RegisterationService) {
+  constructor(private departmentService: DepartmentsService, private registerationService: RegisterationService) {
 
   }
 
   ngOnInit() {
-    this.departments = this.DepartmentService.getAll();
+    this.departmentService.getAll().subscribe({
+      next: (Data) => {
+        this.departments = Data;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 
   saveData() {
