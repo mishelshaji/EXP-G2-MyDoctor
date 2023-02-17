@@ -25,15 +25,15 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
         public async Task<IActionResult> PatientHomeSearch(string searchValue)
         {
-            var res = await _patientService.PatientHomeSearch(searchValue);
+            var res = await _patientService.PatientHomeSearchAsync(searchValue);
             return Ok(res);
         }
 
-        [HttpGet]
-        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [HttpGet("departments")]
+        [ProducesResponseType(typeof(DepartmentSuggestionDto), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDepartmentSuggestion()
         {
-            var res = await _departmentService.GetDepartmentSuggestion();
+            var res = await _departmentService.GetDepartmentSuggestionAsync();
             return Ok(res);
         }
 

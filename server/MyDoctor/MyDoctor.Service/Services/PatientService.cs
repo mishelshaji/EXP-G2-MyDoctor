@@ -19,7 +19,7 @@ namespace MyDoctor.Service.Services
 
         public async Task<ServiceResponse<bool>> PatientHomeSearchAsync(string searchValue)
         {
-           
+            return new ServiceResponse<bool>();
         }
     }
 }
