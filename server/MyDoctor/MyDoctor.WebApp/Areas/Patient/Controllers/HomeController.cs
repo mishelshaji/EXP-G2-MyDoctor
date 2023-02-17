@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyDoctor.Service.Dto;
 using MyDoctor.Service.Services;
 
 namespace MyDoctor.WebApp.Areas.Patient.Controllers
@@ -8,11 +9,13 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
     {
         private readonly PatientService _patientService;
         private readonly DepartmentService _departmentService;
+        private readonly PatientProfileService _patientProfileService;
 
-        public HomeController(PatientService patientService, DepartmentService departmentService) 
+        public HomeController(PatientService patientService, DepartmentService departmentService, PatientProfileService patientProfileService) 
         {
             _patientService = patientService;
             _departmentService = departmentService;
+            _patientProfileService = patientProfileService;
         }
 
         [HttpPost]
@@ -33,9 +36,10 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
         }
 
         [HttpPut]
-        [ProducesResponseType(statusCode:StatusCodes.Status200OK)]
-        public async Task<IActionResult> PatientProfile()
+        [ProducesResponseType(typeof(PatientProfileDto[]), statusCode:StatusCodes.Status200OK)]
+        public async Task<IActionResult> PatientProfile(int id, PatientProfileDto dto)
         {
+            var res = await _patientProfileService.EditPatientProfileAsync(id, dto);
             return Ok();
         }
     }
