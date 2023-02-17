@@ -1,39 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { inject } from '@angular/core/testing';
 import { DepartmentsService } from 'src/app/services/departments.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  departments: any = [];
+export class HomeComponent implements OnInit {
+  departments: any;
   doctors: any = [];
-  searchItems: any = [];
+  resultItems: any = [];
   enteredSearchValue: string = '';
 
-  constructor(private DepartmentsService: DepartmentsService, private DoctorService: DoctorService) {
+  constructor(private departmentsService: DepartmentsService,
+    private doctorService: DoctorService,
+    private patientService: PatientService) {
 
   }
 
   ngOnInit() {
-    this.departments = this.DepartmentsService.getAll();
+    this.departmentsService.getAll().subscribe({
+      next: (Data) => {
+        this.departments = Data;
+      }
+    })
   }
 
   searchResult() {
     var result = document.getElementById('result-dept') as HTMLElement;
     result.style.display = 'block';
     result.scrollIntoView();
-    this.doctors = this.DoctorService.getAll();
-    this.searchItems = [];
-    
-    for (let i = 0; i < this.doctors.length; i++) {
-      if (this.doctors[i].department == this.enteredSearchValue)
-        this.searchItems.push(this.DoctorService.getSearchDetails(i));
-    }
+    this.resultItems = [];
+    this.resultItems = this.patientService.searchResult(this.enteredSearchValue);
   }
 }

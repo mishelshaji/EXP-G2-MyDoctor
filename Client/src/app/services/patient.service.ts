@@ -7,7 +7,11 @@ export class PatientService {
 
   constructor() { }
 
-  updateProfile(model: object){
+  updateProfile(model: object) {
     console.log(model);
+  }
+
+  searchResult(searchValue: string) {
+    return
   }
 }

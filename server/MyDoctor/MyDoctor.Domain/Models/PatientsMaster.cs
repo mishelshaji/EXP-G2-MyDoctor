@@ -11,21 +11,26 @@ namespace MyDoctor.Domain.Models
     public class PatientsMaster
     {
         public int Id { get; set; }
-        public ApplicationUser UserId { get; set; }
+
+        public string ApplicationUserId { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
 
         [StringLength(10)]
-        public string BloodGroup { get; set; }
+        public string? BloodGroup { get; set; }
 
-        public DateTime Dob { get; set; }
+        public DateTime? Dob { get; set; }
 
-        [StringLength(5)]
-        public string Gender { get; set;}
+        [StringLength(10)]
+        public string? Gender { get; set;}
+
+        public long? PhoneNumber { get; set; }
 
         [StringLength(200)]
-        public string Address { get; set;}
+        public string? Address { get; set;}
 
-        public int EmergencyContactNumber { get; set;}
+        public long? EmergencyContactNumber { get; set;}
 
-        public string Relationship { get; set;}
+        public string? Relationship { get; set;}
     }
 }

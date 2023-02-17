@@ -9,7 +9,7 @@ import { RegisterationService } from '../services/registeration.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  public departments: any = [];
+  departments:any;
 
   model = {
     firstName: '',
@@ -26,7 +26,11 @@ export class RegisterComponent {
   }
 
   ngOnInit() {
-    this.departments = this.DepartmentService.getAll();
+    this.departmentService.getAll().subscribe({
+      next: (Data) => {
+        this.departments = Data;
+      }
+    })
   }
 
   saveData() {
