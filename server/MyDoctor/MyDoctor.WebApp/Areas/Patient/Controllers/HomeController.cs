@@ -35,7 +35,7 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             return Ok(res);
         }
 
-        [HttpPut]
+        [HttpPut("EditProfile")]
         [ProducesResponseType(typeof(PatientProfileDto[]), statusCode:StatusCodes.Status200OK)]
         public async Task<IActionResult> PatientProfile(int id, PatientProfileDto dto)
         {
