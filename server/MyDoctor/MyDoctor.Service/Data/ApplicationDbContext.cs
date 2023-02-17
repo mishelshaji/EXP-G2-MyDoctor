@@ -87,5 +87,11 @@ namespace MyDoctor.Service.Data
         public DbSet<Department> Department { get; set; }
 
         public DbSet<DoctorMaster> DoctorMaster { get; set; }
+
+        public DbSet<Appointment> Appointments { get; set; }
+
+        public DbSet<Disease> Diseases { get; set; }
+
+        public DbSet<Consultation> Consultations { get; set; }
     }
 }

@@ -18,14 +18,12 @@ namespace MyDoctor.Service.Services
         {
             _db = db;
         }
-        public async Task<List<DepartmentSuggestionDto>> GetDepartmentSuggestionAsync()
+        public async Task<ServiceResponse<List<DepartmentSuggestionDto>>> GetDepartmentSuggestionAsync()
         {
-            return await _db.Department
-                .Select(c => new DepartmentSuggestionDto
-                {
-                    Name = c.DepartmentName,
-                })
-                .ToListAsync();
+            var response = new ServiceResponse<List<DepartmentSuggestionDto>>();
+            response.Result = _db.Department.Select(c => new DepartmentSuggestionDto { Name = c.DepartmentName}).ToList();
+            return response;
+                //.Select(c => new DepartmentSuggestionDto{Name = c.DepartmentName,}).ToListAsync();
         }
     }
 }

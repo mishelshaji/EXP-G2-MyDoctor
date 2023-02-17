@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyDoctor.Service.Dto;
 using MyDoctor.Service.Services;
@@ -20,6 +21,7 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             _patientProfileService = patientProfileService;
         }
 
+        [Authorize]
         [HttpPost]
         [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
