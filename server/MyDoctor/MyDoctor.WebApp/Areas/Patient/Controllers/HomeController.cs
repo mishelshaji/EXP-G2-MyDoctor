@@ -32,5 +32,12 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             var res = await _departmentService.GetDepartmentSuggestionAsync();
             return Ok(res);
         }
+
+        [HttpPut]
+        [ProducesResponseType(statusCode:StatusCodes.Status200OK)]
+        public async Task<IActionResult> PatientProfile()
+        {
+            return Ok();
+        }
     }
 }

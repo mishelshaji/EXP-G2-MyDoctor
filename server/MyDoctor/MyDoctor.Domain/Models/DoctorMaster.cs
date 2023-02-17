@@ -11,7 +11,7 @@ namespace MyDoctor.Domain.Models
     {
         public int Id { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
 
@@ -23,6 +23,8 @@ namespace MyDoctor.Domain.Models
         public string DoctorLicenseNo { get; set; }
 
         public DateTime? Dob { get; set; }
+
+        public long? PhoneNumber { get; set; }
 
         [StringLength(10)]
         public string? Gender { get; set; }
