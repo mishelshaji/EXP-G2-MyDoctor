@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyDoctor.Service.Dto;
 using MyDoctor.Service.Services;
@@ -14,6 +15,7 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             _departmentService = departmentService;
         }
 
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(typeof(DepartmentSuggestionDto), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDepartmentSuggestion()
