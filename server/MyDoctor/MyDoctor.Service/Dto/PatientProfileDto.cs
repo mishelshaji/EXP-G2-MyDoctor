@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Dto
 {
-    public class EditPatientProfileDto
+    public class PatientProfileDto
     {
         public string FirstName { get; set; }
 

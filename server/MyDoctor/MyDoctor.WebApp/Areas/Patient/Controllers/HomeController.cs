@@ -9,34 +9,39 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
     {
         private readonly PatientService _patientService;
         private readonly DepartmentService _departmentService;
+        private readonly PatientProfileService _patientProfileService;
 
-        public HomeController(PatientService patientService, DepartmentService departmentService) 
+        public HomeController(PatientService patientService,
+            DepartmentService departmentService,
+            PatientProfileService patientProfileService)
         {
             _patientService = patientService;
             _departmentService = departmentService;
+            _patientProfileService = patientProfileService;
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(DoctorSearchResultDto[]), statusCode:StatusCodes.Status200OK)]
-        [ProducesResponseType(statusCode:StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
         public async Task<IActionResult> PatientHomeSearch(string searchValue)
         {
-            var res = await _patientService.PatientHomeSearchAsync(searchValue);
+            var res = await _patientService.PatientHomeSearch(searchValue);
             return Ok(res);
         }
 
-        [HttpGet("departments")]
-        [ProducesResponseType(typeof(DepartmentSuggestionDto[]),statusCode: StatusCodes.Status200OK)]
+        [HttpGet]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDepartmentSuggestion()
         {
-            var res = await _departmentService.GetDepartmentSuggestionAsync();
+            var res = await _departmentService.GetDepartmentSuggestion();
             return Ok(res);
         }
 
         [HttpPut]
-        [ProducesResponseType(statusCode:StatusCodes.Status200OK)]
-        public async Task<IActionResult> PatientProfile()
+        [ProducesResponseType(typeof(PatientProfileDto[]), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> PatientProfile(int id, PatientProfileDto dto)
         {
+            var res = await _patientProfileService.EditPatientProfileAsync(id, dto);
             return Ok();
         }
     }
