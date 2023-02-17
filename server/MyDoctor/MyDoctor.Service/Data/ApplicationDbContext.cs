@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Data
 {
-    public class ApplicationDbContext: IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            :base(options)
+            : base(options)
         {
 
         }
@@ -44,10 +44,11 @@ namespace MyDoctor.Service.Data
                     NormalizedName = "PATIENT"
                 }
             };
+
             builder.Entity<IdentityRole>().HasData(roles);
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
-        public DbSet<PatientsMaster> PatientsMaster { get; set;}
+        public DbSet<PatientsMaster> PatientsMaster { get; set; }
     }
 }

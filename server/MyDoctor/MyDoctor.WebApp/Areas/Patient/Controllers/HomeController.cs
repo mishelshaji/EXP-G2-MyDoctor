@@ -26,6 +26,7 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
 
         [HttpGet]
         [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode:StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetDepartmentSuggestion()
         {
             var res = await _departmentService.GetDepartmentSuggestion();

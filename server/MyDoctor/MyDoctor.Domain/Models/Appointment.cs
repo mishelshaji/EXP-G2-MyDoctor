@@ -10,17 +10,17 @@ namespace MyDoctor.Domain.Models
     {
         public int Id { get; set; }
 
-        public string PatientMasterId { get; set; }
+        public int PatientMasterId { get; set; }
 
         public PatientsMaster PatientsMaster { get; set; }
 
-        public string DoctorId { get; set; }
+        public int DoctorId { get; set; }
 
         public DoctorMaster DoctorMaster { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public DateTime FromDateTime { get; set; }
 
-        public DateTime CreatedDateTime { get; set; }
+        public DateTime ToDateTime { get; set; }
 
         public int Status { get; set; }
     }
