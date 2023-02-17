@@ -6,7 +6,7 @@ import { DepartmentSuggestionDto } from 'src/types/Dtos/department.suggestion';
   providedIn: 'root'
 })
 export class DepartmentsService {
-  url = "https://localhost:7238/api/Patient/Home/departments";
+  url = "https://localhost:7238/api/Patient/Departments";
 
   constructor(private http: HttpClient) {
 
