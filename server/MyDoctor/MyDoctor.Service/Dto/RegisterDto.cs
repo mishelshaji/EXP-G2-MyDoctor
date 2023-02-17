@@ -18,5 +18,7 @@ namespace MyDoctor.Service.Dto
         public string Role { get; set; }
 
         public string? Specialization { get; set; }
+
+        public string? otp { get; set; }
     }
 }

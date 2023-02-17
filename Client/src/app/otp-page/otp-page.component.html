@@ -2,12 +2,12 @@
     <div class=" col-lg-10 p-2 flex mt-0 container">
         <h1 class="text-center">OTP Verification</h1>
         <img src="./assets/images/otppage.png" alt="">
-        <form class="flex">
+        <form class="flex" #form="ngForm" (ngSubmit)="saveData()">
             <p>We have sent an One-Time-Password (OTP) to your registered email address.</p>
-            <input type="number" name="otp" placeholder="Enter the 4 digit OTP here" id="otp">
+            <input type="number" name="otp" placeholder="Enter the 4 digit OTP here" id="otp" [(ngModel)]="otp">
             <div class="content">
                 <button>Go Back</button>
-                <button>Submit</button>
+                <input type="submit" value="Submit">
             </div>
         </form>
     </div>

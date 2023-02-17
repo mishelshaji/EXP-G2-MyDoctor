@@ -16,6 +16,13 @@ namespace MyDoctor.WebApp.Areas.User.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> OtpGeneration(RegisterDto dto)
+        {
+            var res = _service.SendOtp(dto);
+            return Ok(res);
+        }
+
+        [HttpPost("register")]
         public async Task<IActionResult> PostData(RegisterDto dto)
         {
             var res = await _service.PostData(dto);

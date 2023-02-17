@@ -12,7 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OtpPageComponent } from './otp-page/otp-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { tokenHandler } from 'src/helpers/tokenHandler';
+import { TokenHandler } from 'src/helpers/tokenHandler';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { tokenHandler } from 'src/helpers/tokenHandler';
     HttpClientModule,
     NgbDatepickerModule
   ],
-  providers: [tokenHandler],
+  providers: [TokenHandler],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

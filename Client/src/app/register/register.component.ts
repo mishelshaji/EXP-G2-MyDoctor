@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DepartmentsService } from '../services/departments.service';
 import { RegisterationService } from '../services/registeration.service';
 
@@ -20,7 +21,7 @@ export class RegisterComponent {
     Specialization: ''
   }
 
-  constructor(private DepartmentService: DepartmentsService, private registerationService: RegisterationService) {
+  constructor(private DepartmentService: DepartmentsService, private registerationService: RegisterationService, private Router: Router) {
 
   }
 
@@ -29,9 +30,12 @@ export class RegisterComponent {
   }
 
   saveData() {
-    this.registerationService.registerUser(this.model).subscribe({
+    this.registerationService.getOtp(this.model).subscribe({
       next: (res) => {
-        console.log(res);
+        if (res)
+          this.Router.navigateByUrl('/otp');
+        else
+          alert("error occured")
       }
     })
   }
