@@ -1,4 +1,5 @@
 ﻿using CartSharp.Domain.Types;
+using MyDoctor.Service.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,16 @@ namespace MyDoctor.Service.Services
 {
     public class PatientService
     {
-        public async Task<ServiceResponse<bool>> PatientHomeSearch(string searchValue)
+        private readonly ApplicationDbContext _db;
+
+        public PatientService(ApplicationDbContext db)
         {
-            var response = new ServiceResponse<bool>();
-            return response;
+            _db = db;
+        }
+
+        public async Task<ServiceResponse<bool>> PatientHomeSearchAsync(string searchValue)
+        {
+           
         }
     }
 }
