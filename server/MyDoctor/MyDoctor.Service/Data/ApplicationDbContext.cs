@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Data
 {
-    public class ApplicationDbContext: IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            :base(options)
+            : base(options)
         {
 
         }
@@ -44,10 +44,48 @@ namespace MyDoctor.Service.Data
                     NormalizedName = "PATIENT"
                 }
             };
+
+            var departments = new Department[]
+            {
+                new Department()
+                {
+                    Id = 1,
+                    DepartmentName = "Dentistry",
+                    Description = "About dental science",
+                    Status = 1
+                },
+                new Department()
+                {
+                    Id = 2,
+                    DepartmentName = "Paediatrics",
+                    Description = "About children health",
+                    Status = 1
+                },
+                new Department()
+                {
+                    Id = 3,
+                    DepartmentName = "Cardiology",
+                    Description = "About heart diseases",
+                    Status = 1
+                },
+                new Department()
+                {
+                    Id = 4,
+                    DepartmentName = "General Surgeon",
+                    Description = "About surgical science",
+                    Status = 1
+                }
+            };
+
             builder.Entity<IdentityRole>().HasData(roles);
+            builder.Entity<Department>().HasData(departments);
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
-        public DbSet<PatientsMaster> PatientsMaster { get; set;}
+        public DbSet<PatientsMaster> PatientsMaster { get; set; }
+
+        public DbSet<Department> Department { get; set; }
+
+        public DbSet<DoctorMaster> DoctorMaster { get; set; }
     }
 }
