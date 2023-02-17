@@ -6,15 +6,15 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tokenHandler } from './tokenHandler';
+import { TokenHandler } from './tokenHandler';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private tokenHandler: tokenHandler) {}
+  constructor(private TokenHandler: TokenHandler) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = this.tokenHandler.getToken();
+    const token = this.TokenHandler.getToken();
     if(!token){
       return next.handle(request);
     }

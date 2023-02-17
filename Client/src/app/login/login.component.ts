@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { TokenHandler } from 'src/helpers/tokenHandler';
 import { RegisterationService } from '../services/registeration.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +14,23 @@ export class LoginComponent {
     password: ''
   }
 
-  constructor(private registerationService: RegisterationService) {
+  constructor(private registerationService: RegisterationService, private TokenHandler: TokenHandler, private Router: Router) {
     
   }
 
   saveData(){
-    this.registerationService.loginUser(this.modal)
+    this.registerationService.loginUser(this.modal).subscribe({
+      next: (res: any) =>{
+        console.log(res);  
+        var role = this.TokenHandler.getRoleFromToken();
+        var id = this.TokenHandler.getUserIdFromToken();
+        if( role == "Patient"){
+          this.Router.navigateByUrl('/patient/home');
+        }
+        else if( role == "Doctor"){
+          this.Router.navigateByUrl('/doctor/home');
+        }
+      } 
+    })
   }
 }
