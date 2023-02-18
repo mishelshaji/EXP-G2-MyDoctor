@@ -57,7 +57,7 @@ namespace MyDoctor.Service.Services
                     UserName = Guid.NewGuid().ToString()
                 };
 
-                if (dto.Role == "Doctor" || dto.Role == "Patient")
+                if (dto.Role == "Patient")
                 {
                     var UserStatus = await _userManager.CreateAsync(user, dto.Password);
                     if (!UserStatus.Succeeded)
@@ -66,6 +66,34 @@ namespace MyDoctor.Service.Services
                         return response;
                     }
                     var rolestatus = await _userManager.AddToRoleAsync(user, dto.Role);
+                    var id = await _userManager.FindByEmailAsync(dto.Email);
+                    var user2 = new PatientsMaster()
+                    {
+                        ApplicationUserId = id.Id
+                    };
+                    _db.PatientsMaster.Add(user2);
+                    _db.SaveChanges();
+                    return response;
+                }
+                else if(dto.Role == "Doctor")
+                {
+                    var UserStatus = await _userManager.CreateAsync(user, dto.Password);
+                    if (!UserStatus.Succeeded)
+                    {
+                        response.AddError("", "Failed to add items");
+                        return response;
+                    }
+                    var rolestatus = await _userManager.AddToRoleAsync(user, dto.Role);
+                    var id = await _userManager.FindByEmailAsync(dto.Email);
+                    var deptId =  _db.Department.Where(m => m.DepartmentName == dto.Specialization).Select(m => m.Id).FirstOrDefault();
+                    var user2 = new DoctorMaster()
+                    {
+                        ApplicationUserId = id.Id,
+                        DepartmentName = dto.Specialization,
+                        DepartmentId = deptId
+                    };
+                    _db.DoctorMaster.Add(user2);
+                    _db.SaveChanges();
                     return response;
                 }
 

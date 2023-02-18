@@ -19,8 +19,11 @@ namespace MyDoctor.Domain.Models
 
         public Department Department { get; set; }
 
+        [StringLength(50)]
+        public string DepartmentName { get; set; }
+
         [StringLength(20)]
-        public string DoctorLicenseNo { get; set; }
+        public string? DoctorLicenseNo { get; set; }
 
         public DateTime? Dob { get; set; }
 
@@ -29,6 +32,6 @@ namespace MyDoctor.Domain.Models
         [StringLength(10)]
         public string? Gender { get; set; }
 
-        public int Status { get; set; }
+        public int? Status { get; set; }
     }
 }

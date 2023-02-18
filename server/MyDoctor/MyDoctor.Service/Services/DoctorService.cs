@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Services
 {
-    internal class DoctorService
+    public class DoctorService
     {
+      
     }
 }

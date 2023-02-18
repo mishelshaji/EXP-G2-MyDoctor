@@ -15,6 +15,14 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             _departmentService = departmentService;
         }
 
+        [HttpGet("register")]
+        [ProducesResponseType(typeof(DepartmentSuggestionDto), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDepartmentToRegister()
+        {
+            var res = await _departmentService.GetDepartmentSuggestionAsync();
+            return Ok(res);
+        }
+
         [Authorize]
         [HttpGet]
         [ProducesResponseType(typeof(DepartmentSuggestionDto), statusCode: StatusCodes.Status200OK)]
