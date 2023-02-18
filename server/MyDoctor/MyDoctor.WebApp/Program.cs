@@ -40,13 +40,11 @@ builder.Services.AddAuthentication(options =>
 })
     .AddJwtBearer(options =>
     {
-        options.Audience = builder.Configuration["Jwt:Audience"];
-        options.ClaimsIssuer = builder.Configuration["Jwt:Issuer"];
         options.TokenValidationParameters = new()
         {
             ValidateAudience = true,
             ValidateIssuer = true,
-            ValidAudience = builder.Configuration["Jwt: Audience"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
             ValidIssuer= builder.Configuration["Jwt:Issuer"],
             ClockSkew= TimeSpan.Zero,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
@@ -57,6 +55,7 @@ builder.Services.AddScoped<ApplicationUserService>();
 builder.Services.AddScoped<DepartmentService>();
 builder.Services.AddScoped<PatientService>();
 builder.Services.AddScoped<DoctorService>();
+builder.Services.AddScoped<AppointmentBookingService>();
 
 var app = builder.Build();
 

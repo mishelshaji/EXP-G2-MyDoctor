@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { tokenHandler } from '../tokenHandler';
+import { TokenHandler } from '../tokenHandler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientGuard implements CanActivate {
 
-  constructor(private tokenHandler: tokenHandler) {
+  constructor(private tokenHandler: TokenHandler,
+              private router: Router) {
 
   }
 
@@ -17,7 +18,11 @@ export class PatientGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
     const token = this.tokenHandler.getToken();
-    return true;
+    if(token != null){
+      return true;
+    }
+    this.router.navigateByUrl('/');
+    return false;
   }
   
 }

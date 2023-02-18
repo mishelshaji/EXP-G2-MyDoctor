@@ -21,9 +21,8 @@ namespace MyDoctor.Service.Services
         public async Task<ServiceResponse<List<DepartmentSuggestionDto>>> GetDepartmentSuggestionAsync()
         {
             var response = new ServiceResponse<List<DepartmentSuggestionDto>>();
-            response.Result = _db.Department.Select(c => new DepartmentSuggestionDto { Name = c.DepartmentName}).ToList();
+            response.Result = _db.Department.Select(d => new DepartmentSuggestionDto { Name = d.DepartmentName}).ToList();
             return response;
-                //.Select(c => new DepartmentSuggestionDto{Name = c.DepartmentName,}).ToListAsync();
         }
     }
 }

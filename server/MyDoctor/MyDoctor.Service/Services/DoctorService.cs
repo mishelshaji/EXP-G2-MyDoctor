@@ -29,6 +29,5 @@ namespace MyDoctor.Service.Services
             response.Result = res.ToList();
             return response;
         }
-
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDoctor.Service.Migrations
 {
-    public partial class create3 : Migration
+    public partial class CreateTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -250,8 +250,9 @@ namespace MyDoctor.Service.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PatientsMasterId = table.Column<int>(type: "int", nullable: true),
                     DoctorMasterId = table.Column<int>(type: "int", nullable: true),
-                    FromDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ToDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FromTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ToTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
