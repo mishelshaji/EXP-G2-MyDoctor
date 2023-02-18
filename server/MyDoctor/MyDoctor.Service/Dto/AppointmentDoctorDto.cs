@@ -8,9 +8,9 @@ namespace MyDoctor.Service.Dto
 {
     public class AppointmentDoctorDto
     {
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
 
         public string PatientName { get; set; }
     }

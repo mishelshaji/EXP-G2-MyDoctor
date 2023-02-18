@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AppointmentsService {
 
+  url = 'https://localhost:7238/api/Patient/Appointment'
   private upcomingAppointments = [
     
   ]
@@ -115,7 +117,7 @@ export class AppointmentsService {
 
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -129,5 +131,9 @@ export class AppointmentsService {
 
   getCancelledAppointments() {
     return this.cancelledAppointments
+  }
+
+  getTimeSlots(id: number, date: string){
+    return this.http.get(this.url);
   }
 }

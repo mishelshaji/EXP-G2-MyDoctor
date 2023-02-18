@@ -56,6 +56,7 @@ builder.Services.AddScoped<DepartmentService>();
 builder.Services.AddScoped<PatientService>();
 builder.Services.AddScoped<DoctorService>();
 builder.Services.AddScoped<AppointmentBookingService>();
+builder.Services.AddScoped<PatientProfileService>();
 
 var app = builder.Build();
 

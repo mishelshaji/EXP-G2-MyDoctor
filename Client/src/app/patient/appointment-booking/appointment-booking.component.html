@@ -30,7 +30,7 @@
                 <button type="button" class="btn btn-sm btn-outline-primary" (click)="today()">This month</button>
                 <button type="button" class="btn btn-sm btn-outline-primary" (click)="navigate(1)">Next</button>
             </div>
-            <ngb-datepicker class="custom-datepicker px-3 pt-1 pb-3" #dp [minDate]="todayDate" [displayMonths]="1" outsideDays="hidden"
+            <ngb-datepicker #d1 [(ngModel)]="model1" #c1="ngModel" class="custom-datepicker px-3 pt-1 pb-3" #dp [minDate]="todayDate" [displayMonths]="1" outsideDays="hidden"
                 [weekdays]="false" navigation="none">
                 <ng-template ngbDatepickerContent>
                     <div *ngFor="let month of dp.state.months">
@@ -40,12 +40,13 @@
                     </div>
                 </ng-template>
             </ngb-datepicker>
+            <button id="selectdate" (click)="getDate(model1)">Select date</button>
         </div>
         <br><br>
-        <div class="mx-auto w-75">
+        <div class="mx-auto w-75 d-none radioclass">
             <form>
                 <label class="radio-inline">
-                    <input class="ms-2 me-1" type="radio" name="opt-time" (click)="DisplayTimeSlots(0)" checked>Morning
+                    <input class="ms-2 me-1" type="radio" name="opt-time" (click)="DisplayTimeSlots(0)">Morning
                     (9AM to 1PM)
                 </label>
                 <label class="radio-inline">
@@ -60,14 +61,14 @@
         </div>
         <br>
         <div *ngIf="timeSlot==0" class="time-slots-area row row-cols-4">
-            <button class="time-slot col-lg-3 p-1 m-1">9:00 AM to 9:30AM</button>
-            <button class="time-slot col-lg-3 p-1 m-1">9:30 AM to 10:00AM</button>
-            <button class="time-slot col-lg-3 p-1 m-1">10:00 AM to 10:30AM</button>
-            <button class="time-slot col-lg-3 p-1 m-1">10:30 AM to 11:00AM</button>
-            <button class="time-slot col-lg-3 p-1 m-1">11:00 AM to 11:30AM</button>
-            <button class="time-slot col-lg-3 p-1 m-1">11:30 AM to 12:00PM</button>
-            <button class="time-slot col-lg-3 p-1 m-1">12:00 PM to 12:30PM</button>
-            <button class="time-slot col-lg-3 p-1 m-1">12:30 PM to 1:00PM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="9:00">9:00 AM to 9:30AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="9:30">9:30 AM to 10:00AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="10:00">10:00 AM to 10:30AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="10:30">10:30 AM to 11:00AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="11:00">11:00 AM to 11:30AM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="11:30">11:30 AM to 12:00PM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="12:00">12:00 PM to 12:30PM</button>
+            <button class="time-slot col-lg-3 p-1 m-1" value="12:30">12:30 PM to 1:00PM</button>
         </div>
         <div *ngIf="timeSlot==1" class="time-slots-area row row-cols-4">
             <button class="time-slot col-lg-3 p-1 m-1">2:00 PM to 2:30PM</button>
@@ -80,6 +81,6 @@
             <button class="time-slot col-lg-3 p-1 m-1">5:00 PM to 5:30PM</button>
             <button class="time-slot col-lg-3 p-1 m-1">5:30 PM to 6:00PM</button>
         </div>
-        <button type="submit" class="appointment-book">Book Appointment</button>
+        <button type="submit" class="appointment-book d-none">Book Appointment</button>
     </div>
 </div>
