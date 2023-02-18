@@ -18,9 +18,11 @@ namespace MyDoctor.Domain.Models
 
         public DoctorMaster? DoctorMaster { get; set; }
 
-        public DateTime FromDateTime { get; set; }
+        public DateTime Date { get; set; }
 
-        public DateTime ToDateTime { get; set; }
+        public DateTime FromTime { get; set; } 
+
+        public DateTime ToTime { get; set; }
 
         public int Status { get; set; }
     }
