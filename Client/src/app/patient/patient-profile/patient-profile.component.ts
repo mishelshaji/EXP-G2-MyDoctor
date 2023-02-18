@@ -10,15 +10,16 @@ export class PatientProfileComponent {
   model = {
     firstName: '',
     lastName: '',
-    dob: '',
+    dob: new Date(),
     gender: '',
     email: '',
-    phone: '',
+    phoneNumber: 0,
     address: '',
-    phone2: '',
+    emergencyContactNumber: 0,
     relationship: '',
-    bloodgroup: ''
+    bloodGroup: ''
   }
+  
   constructor(private patientServices: PatientService) {
 
   }

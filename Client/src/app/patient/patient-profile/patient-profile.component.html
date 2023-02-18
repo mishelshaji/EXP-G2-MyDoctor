@@ -50,7 +50,7 @@
                 </div>                
                     <label for="tel">Phone No:</label>
                     <input type="tel" id="phone" name="phone" #phone="ngModel"
-                    [(ngModel)]="model.phone" pattern="[0-9]+" maxlength="10" required>
+                    [(ngModel)]="model.phoneNumber" pattern="[0-9]+" maxlength="10" required>
                     <div class="text-danger" *ngIf="phone.invalid && phone.touched">
                         <div *ngIf="phone.errors?.['required']">phone is required.</div>
                         <div *ngIf="phone.errors?.['maxlength']">phone is too long.</div>
@@ -68,7 +68,7 @@
 
                         <label for="phone">Emergency Phone Number:</label>
                         <input type="tel" id="phone-2" name="phone-2" #phone2="ngModel"
-                        [(ngModel)]="model.phone" pattern="[0-9]+" maxlength="10" required>
+                        [(ngModel)]="model.emergencyContactNumber" pattern="[0-9]+" maxlength="10" required>
                     <div class="text-danger" *ngIf="phone.invalid && phone.touched">
                         <div *ngIf="phone2.errors?.['required']">phone is required.</div>
                         <div *ngIf="phone2.errors?.['maxlength']">phone is too long.</div>
@@ -89,7 +89,7 @@
                         </select>
                         <label for=" Blood group">Blood group:</label>
                         <input type="text" id="Blood-group"  name="bloodgroup" placeholder="eg: O+ve" #bloodgroup="ngModel"
-                        [(ngModel)]="model.bloodgroup" required>
+                        [(ngModel)]="model.bloodGroup" required>
                     </div>
                 </div>
             </div>

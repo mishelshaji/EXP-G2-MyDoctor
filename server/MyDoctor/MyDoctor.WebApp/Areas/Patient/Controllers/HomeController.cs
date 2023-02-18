@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyDoctor.Service.Dto;
@@ -10,15 +11,12 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
     {
         private readonly PatientService _patientService;
         private readonly DepartmentService _departmentService;
-        private readonly PatientProfileService _patientProfileService;
 
         public HomeController(PatientService patientService,
-            DepartmentService departmentService,
-            PatientProfileService patientProfileService)
+            DepartmentService departmentService)
         {
             _patientService = patientService;
             _departmentService = departmentService;
-            _patientProfileService = patientProfileService;
         }
 
         [Authorize]
@@ -33,10 +31,11 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
 
         [HttpPut]
         [ProducesResponseType(typeof(PatientProfileDto[]), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> PatientProfile(int id, PatientProfileDto dto)
+        public async Task<IActionResult> PatientProfile(PatientProfileDto dto)
         {
-            var res = await _patientProfileService.EditPatientProfileAsync(id, dto);
-            return Ok();
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var res = await _patientService.EditPatientProfileAsync(dto, id, 1);
+            return Ok(res);
         }
     }
 }
