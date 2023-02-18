@@ -29,8 +29,12 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.departmentService.getAll().subscribe({
-      next: (Data) => {
-        this.departments = Data;
+      next: (Data: any) => {
+        this.departments = Data.result;
+      },
+      error: res => {
+      console.log(res);
+      
       }
     })
   }

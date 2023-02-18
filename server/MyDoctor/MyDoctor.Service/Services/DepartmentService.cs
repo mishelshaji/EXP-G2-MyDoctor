@@ -23,7 +23,6 @@ namespace MyDoctor.Service.Services
             var response = new ServiceResponse<List<DepartmentSuggestionDto>>();
             response.Result = _db.Department.Select(d => new DepartmentSuggestionDto { Name = d.DepartmentName}).ToList();
             return response;
-                //.Select(c => new DepartmentSuggestionDto{Name = c.DepartmentName,}).ToListAsync();
         }
     }
 }

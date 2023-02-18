@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { RegisterationService } from '../services/registeration.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   modal = {
     email: '',
     password: ''
@@ -16,6 +16,10 @@ export class LoginComponent {
 
   constructor(private registerationService: RegisterationService, private TokenHandler: TokenHandler, private Router: Router) {
     
+  }
+
+  ngOnInit(): void {
+    this.TokenHandler.removeToken();
   }
 
   saveData(){

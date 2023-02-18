@@ -5,6 +5,7 @@ import { inject } from '@angular/core/testing';
 import { DepartmentsService } from 'src/app/services/departments.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { PatientService } from 'src/app/services/patient.service';
+import { TokenHandler } from 'src/helpers/tokenHandler';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.departmentsService.getAll().subscribe({
+    this.departmentsService.getDepartmentsAuthorized().subscribe({
       next: (res: any) => {
         this.departments = res.result;
         console.log(res);
