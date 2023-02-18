@@ -262,14 +262,16 @@ namespace MyDoctor.Service.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("DoctorMasterId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FromTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("FromTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PatientsMasterId")
                         .HasColumnType("int");
@@ -277,8 +279,9 @@ namespace MyDoctor.Service.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ToTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ToTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

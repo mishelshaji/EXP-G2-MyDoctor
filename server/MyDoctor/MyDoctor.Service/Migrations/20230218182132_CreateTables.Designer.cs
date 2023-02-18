@@ -12,8 +12,8 @@ using MyDoctor.Service.Data;
 namespace MyDoctor.Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230218092731_createDb")]
-    partial class createDb
+    [Migration("20230218182132_CreateTables")]
+    partial class CreateTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -264,14 +264,16 @@ namespace MyDoctor.Service.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("DoctorMasterId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FromTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("FromTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PatientsMasterId")
                         .HasColumnType("int");
@@ -279,8 +281,9 @@ namespace MyDoctor.Service.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ToTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ToTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -412,11 +415,15 @@ namespace MyDoctor.Service.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<string>("DepartmentName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<DateTime?>("Dob")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DoctorLicenseNo")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
@@ -427,7 +434,7 @@ namespace MyDoctor.Service.Migrations
                     b.Property<long?>("PhoneNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
