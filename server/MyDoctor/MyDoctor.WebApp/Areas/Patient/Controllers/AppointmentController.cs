@@ -9,15 +9,21 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
 {
     public class AppointmentController : BaseController
     {
-        public AppointmentController() { }
+        private readonly PatientService _patientService;
+
+        public AppointmentController(PatientService patientService)
+        {
+            _patientService = patientService;
+        }
+
         [Authorize]
-        [HttpPost]
+        [HttpGet]
         [ProducesResponseType(typeof(PatientAppointmentsDto), statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetDoctorSearch(string searchValue)
+        public async Task<IActionResult> GetAppointmentHistory()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var res = await _patientService.GetDoctorSearchAsync(id, searchValue);
+            var res = await _patientService.GetAppointmentHistoryAsync(id);
             return Ok(res);
         }
     }

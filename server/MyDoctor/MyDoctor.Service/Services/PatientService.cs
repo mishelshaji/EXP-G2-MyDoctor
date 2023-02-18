@@ -43,6 +43,7 @@ namespace MyDoctor.Service.Services
                     Time = d.FromTime,
                     DoctorName = d.DoctorMaster.ApplicationUser.FirstName + ' ' + d.DoctorMaster.ApplicationUser.LastName,
                 }).ToList();
+            return response;
         }
     }
 }
