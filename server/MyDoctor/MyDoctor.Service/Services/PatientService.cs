@@ -31,17 +31,18 @@ namespace MyDoctor.Service.Services
         {
             var patientsMaster = await _db.PatientsMaster.FirstOrDefaultAsync(M => M.Id == masterId);
             var applicationUser = await _userManager.FindByIdAsync(id);
-            //applicationUser.FirstName = dto.FirstName;
-            //applicationUser.LastName = dto.LastName;
-            //applicationUser.Email = dto.Email;
-            //patientsMaster.Address = dto.Address;
-            //patientsMaster.PhoneNumber = dto.PhoneNumber;
-            //patientsMaster.EmergencyContactNumber = dto.EmergencyContactNumber;
-            //patientsMaster.Gender = dto.Gender;
-            //patientsMaster.Relationship = dto.Relationship;
-            //patientsMaster.Dob = dto.Dob;
-            //patientsMaster.BloodGroup = dto.BloodGroup;
-            //await _db.SaveChangesAsync();
+            applicationUser.FirstName = dto.FirstName;
+            applicationUser.LastName = dto.LastName;
+            applicationUser.Email = dto.Email;
+            patientsMaster.Address = dto.Address;
+            patientsMaster.PhoneNumber = dto.PhoneNumber;
+            patientsMaster.EmergencyContactNumber = dto.EmergencyContactNumber;
+            patientsMaster.Gender = dto.Gender;
+            patientsMaster.Relationship = dto.Relationship;
+            patientsMaster.Dob = dto.Dob;
+            patientsMaster.BloodGroup = dto.BloodGroup;
+            await _db.SaveChangesAsync();
+
 
             var user = new PatientProfileDto()
             {
