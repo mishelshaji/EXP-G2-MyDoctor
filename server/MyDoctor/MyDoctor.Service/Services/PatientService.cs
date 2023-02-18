@@ -1,5 +1,6 @@
 ﻿using CartSharp.Domain.Types;
 using MyDoctor.Service.Data;
+using MyDoctor.Service.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,31 @@ namespace MyDoctor.Service.Services
             _db = db;
         }
 
-        public async Task<ServiceResponse<bool>> PatientHomeSearchAsync(string searchValue)
+        public async Task<ServiceResponse<List<DoctorSearchResultDto>>> GetDoctorSearchAsync(string searchValue)
         {
-            return new ServiceResponse<bool>();
+            var response = new ServiceResponse<List<DoctorSearchResultDto>>();
+            response.Result = _db.DoctorMaster
+                .Where(d => d.Department.DepartmentName == searchValue)
+                .Select(d=>new DoctorSearchResultDto
+                {
+                    Name = d.ApplicationUser.FirstName + ' ' + d.ApplicationUser.LastName,
+                    DepartmentName = d.Department.DepartmentName
+                })
+                .ToList();
+            return response;
+        }
+
+        public async Task<ServiceResponse<List<PatientAppointmentsDto>>> GetAppointmentHistoryAsync(string id)
+        {
+            var response = new ServiceResponse<List<PatientAppointmentsDto>>();
+            response.Result = _db.Appointments
+                .Where(m=>m.DoctorMaster.ApplicationUserId == id)
+                .Select(d=>new PatientAppointmentsDto
+                {
+                    Date = d.Date,
+                    Time = d.FromTime,
+                    DoctorName = d.DoctorMaster.ApplicationUser.FirstName + ' ' + d.DoctorMaster.ApplicationUser.LastName,
+                }).ToList();
         }
     }
 }
