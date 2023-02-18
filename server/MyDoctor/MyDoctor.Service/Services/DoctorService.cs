@@ -9,11 +9,9 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Services
 {
-
     public class DoctorService
     {
         private readonly ApplicationDbContext _db;
-
         public DoctorService(ApplicationDbContext db)
         {
             _db = db;
@@ -31,8 +29,6 @@ namespace MyDoctor.Service.Services
             response.Result = res.ToList();
             return response;
         }
-
-
 
     }
 }

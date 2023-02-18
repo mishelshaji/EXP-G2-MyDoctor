@@ -77,7 +77,6 @@ namespace MyDoctor.Service.Data
                 }
             };
 
-
             builder.Entity<IdentityRole>().HasData(roles);
             builder.Entity<Department>().HasData(departments);
         }
