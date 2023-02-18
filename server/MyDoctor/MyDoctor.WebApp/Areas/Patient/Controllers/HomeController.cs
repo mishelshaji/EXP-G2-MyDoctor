@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyDoctor.Service.Dto;
 using MyDoctor.Service.Services;
+using System.Security.Claims;
 
 namespace MyDoctor.WebApp.Areas.Patient.Controllers
 {
@@ -23,11 +24,11 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
 
         [Authorize(Roles = "Patient")]
         [HttpPost]
-        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DoctorSearchResultDto), statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> PatientHomeSearch(string searchValue)
+        public async Task<IActionResult> GetDoctorSearch(string searchValue)
         {
-            var res = await _patientService.PatientHomeSearchAsync(searchValue);
+            var res = await _patientService.GetDoctorSearchAsync(searchValue);
             return Ok(res);
         }
 
