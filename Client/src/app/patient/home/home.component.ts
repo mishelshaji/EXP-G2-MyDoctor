@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
     this.departmentsService.getDepartmentsAuthorized().subscribe({
       next: (res: any) => {
         this.departments = res.result;
-        console.log(res);
       },
       error: (res: any) => {
         alert("Unauthorised");
