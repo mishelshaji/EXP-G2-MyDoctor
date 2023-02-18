@@ -11,7 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OtpPageComponent } from './otp-page/otp-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { TokenInterceptor } from 'src/helpers/token.interceptor';
 
@@ -33,7 +33,10 @@ import { TokenInterceptor } from 'src/helpers/token.interceptor';
     HttpClientModule,
     NgbDatepickerModule
   ],
-  providers: [TokenHandler, TokenInterceptor],
+  providers: [
+    TokenHandler,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

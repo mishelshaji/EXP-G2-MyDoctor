@@ -21,7 +21,7 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             _patientProfileService = patientProfileService;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Patient")]
         [HttpPost]
         [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
