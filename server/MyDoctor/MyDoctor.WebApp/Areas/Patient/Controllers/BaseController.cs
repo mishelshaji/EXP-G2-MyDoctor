@@ -8,5 +8,6 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
+
     }
 }
