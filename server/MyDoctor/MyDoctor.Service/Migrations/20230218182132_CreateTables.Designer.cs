@@ -12,8 +12,8 @@ using MyDoctor.Service.Data;
 namespace MyDoctor.Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230218054603_createdb")]
-    partial class createdb
+    [Migration("20230218182132_CreateTables")]
+    partial class CreateTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -264,11 +264,16 @@ namespace MyDoctor.Service.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("DoctorMasterId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FromDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("FromTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PatientsMasterId")
                         .HasColumnType("int");
@@ -276,8 +281,9 @@ namespace MyDoctor.Service.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ToDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ToTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

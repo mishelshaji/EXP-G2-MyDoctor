@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Dto
 {
-    public class DoctorSearchResultDto
+    public class PatientDetailsDto
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
-        public string DepartmentName { get; set; }
+        public string Email { get; set; }
+
+        public long? PhoneNumber { get; set; }
+
+        public long? EmergencyPhoneNumber { get; set; }
     }
 }

@@ -40,6 +40,13 @@ export class HomeComponent implements OnInit {
     result.style.display = 'block';
     result.scrollIntoView();
     this.resultItems = [];
-    this.resultItems = this.patientService.searchResult(this.enteredSearchValue);
+    this.patientService.searchResult(this.enteredSearchValue).subscribe({
+      next: (res: any) => {
+        this.resultItems = res.result;
+      },
+      error: (res: any) => {
+        alert("Wrong Search!");
+      }
+    });
   }
 }

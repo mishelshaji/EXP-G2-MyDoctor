@@ -7,6 +7,7 @@ using MyDoctor.Service.Data;
 using MyDoctor.Service.Dto;
 using MyDoctor.Service.Services;
 using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace MyDoctor.WebApp.Areas.Doctor
 {
@@ -19,13 +20,12 @@ namespace MyDoctor.WebApp.Areas.Doctor
         }
 
         [HttpGet]
-        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AppointmentDoctorDto),statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetTodayAppointments(int id)
         {
-            var todayAppointments = await _doctorService.GetTodayAppointments(id);
-            return Ok(todayAppointments);
+            var res = await _doctorService.GetTodayAppointmentsAsync(id);
+            return Ok(res);
         }
-
     }
 }

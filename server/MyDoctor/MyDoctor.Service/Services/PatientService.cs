@@ -25,6 +25,7 @@ namespace MyDoctor.Service.Services
                 .Where(d => d.Department.DepartmentName == searchValue)
                 .Select(d=>new DoctorSearchResultDto
                 {
+                    Id = d.Id,
                     Name = d.ApplicationUser.FirstName + ' ' + d.ApplicationUser.LastName,
                     DepartmentName = d.Department.DepartmentName
                 })

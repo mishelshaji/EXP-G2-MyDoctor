@@ -23,7 +23,7 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
         }
 
         [Authorize(Roles = "Patient")]
-        [HttpPost]
+        [HttpGet]
         [ProducesResponseType(typeof(DoctorSearchResultDto), statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetDoctorSearch(string searchValue)
