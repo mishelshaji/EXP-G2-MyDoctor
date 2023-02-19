@@ -123,8 +123,16 @@ export class AppointmentsService {
 
   }
 
-  getUpcomingAppointments() {
-    return this.upcomingAppointments
+  getTodaysAppointmentsForDoctor(masterId: any){
+    return this.http.get(`https://localhost:7238/api/Doctor/DoctorHome?id=${masterId}`)
+  }
+
+  getUpcomingAppointmentsForDoctor(masterId: any) {
+
+  }
+
+  getUpcomingAppointments(){
+    
   }
 
   getPreviousAppointments() {

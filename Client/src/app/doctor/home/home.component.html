@@ -27,8 +27,8 @@
                 <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.id}}</th>
                 <td class="col-5 col-lg-2">{{item.date}}</td>
                 <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
-                <td class="col-4">{{item.patient}}</td>
-                <td class="col-1 col-lg-3 w-25"><button class="btn btn-warning" [routerLink]="['appointment-details']">View details</button></td>
+                <td class="col-4">{{item.patientName}}</td>
+                <td class="col-1 col-lg-3 w-25"><button class="btn btn-warning" (click)="saveData()">View details</button></td>
               </tr>
             </tbody>
           </table>

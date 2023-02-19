@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppointmentsService } from 'src/app/services/appointments.service';
+import { TokenHandler } from 'src/helpers/tokenHandler';
 
 @Component({
   selector: 'app-appointments',
@@ -12,7 +13,8 @@ export class AppointmentsComponent {
   previousAppointments: any = [];
   cancelledAppointments: any = [];
   
-  constructor(private AppointmentsService: AppointmentsService) {
+  constructor(private AppointmentsService: AppointmentsService,
+              private tokenHandler: TokenHandler) {
 
   }
 
@@ -50,7 +52,8 @@ export class AppointmentsComponent {
   }
 
   ngOnInit() {
-    this.upcomingAppointments = this.AppointmentsService.getUpcomingAppointments();
+    var masterId = this.tokenHandler.getMasterId();
+    this.upcomingAppointments = this.AppointmentsService.getUpcomingAppointmentsForDoctor(masterId);
     this.previousAppointments = this.AppointmentsService.getPreviousAppointments();
     this.cancelledAppointments = this.AppointmentsService.getCancelledAppointments();
   }

@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit {
           }
         }
         else{
-          alert("Doctor was not approved")
+          console.log(res);
+          alert(res.errors[""][0])
+          
         }
       }
     })

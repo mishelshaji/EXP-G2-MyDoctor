@@ -29,6 +29,7 @@ namespace MyDoctor.Service.Services
                 .Where(m => m.Status == 1)
                 .Select(d => new AppointmentDoctorDto()
                 {
+                    Id = d.Id,
                     Date = d.Date,
                     Time = d.FromTime,
                     PatientName = d.PatientsMaster.ApplicationUser.FirstName + ' ' + d.PatientsMaster.ApplicationUser.LastName,
@@ -44,6 +45,7 @@ namespace MyDoctor.Service.Services
                 .Where(c => c.DoctorMasterId == id)
                 .Select(d => new AppointmentDoctorDto()
                 {
+                    Id = d.Id,
                     Date = d.Date,
                     Time = d.FromTime,
                     PatientName = d.PatientsMaster.ApplicationUser.FirstName + ' ' + d.PatientsMaster.ApplicationUser.LastName,

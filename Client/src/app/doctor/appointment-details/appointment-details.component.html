@@ -1,70 +1,72 @@
-<div class="main">
-    <div class="mt-5 mb-3 patient-details">
-        <h4>Patient Details</h4>
-        <h5>Raj Kumar</h5>
-        <br>
-        <p class="pt-2">Email Address:</p>
-        <p>someone@gmail.com</p>
-        <p class="pt-2">Contact Number</p>
-        <p>9074XXXXXX</p>
-        <p class="pt-2">Emergency Contact</p>
-        <p>9074XXXXXX</p>
-    </div>
-    <div class="container d-flex flex-column align-items-center">
-        <div class="details mb-3">
-            <h2 class="text-center">Appointment Details</h2>
-            <p>Appointment No:
-                <span class="content">123</span>
-            </p>
-            <p>Date:
-                <span class="content">11-02-2023</span>
-            </p>
-            <p>Time:
-                <span class="content">02:30 PM</span>
-            </p>
-            <p>Status:
-                <span class="content">Completed</span>
-            </p>
-            <p>Fee:
-                <span class="content">300</span>
-            </p>
+<div class="container-fluid">
+    <div class="main row">
+        <div class="mt-5 mb-3 patient-details col-lg-3">
+            <h4>Patient Details</h4>
+            <h5>Raj Kumar</h5>
+            <br>
+            <p class="pt-2">Email Address:</p>
+            <p>someone@gmail.com</p>
+            <p class="pt-2">Contact Number</p>
+            <p>9074XXXXXX</p>
+            <p class="pt-2">Emergency Contact</p>
+            <p>9074XXXXXX</p>
         </div>
-        <div class="completed">
-            <h3>Prescription details</h3>
-            <div class="prescription">
-                <div class="disease">
-                    <p><span class="content1 text-center">Disease</span></p>
-                    <p>Influenza</p>
-                    <br>
-                    <p><span class="content1 text-center">Elaboration</span></p>
-                    <p>Difficulty breathing</p>
-                    <p>Chest pain</p>
-                    <p>Seizures</p>
-                    <p>Dizziness</p>
-                </div>
-                <div class="medication text-center">
-                    <p><span class="content1">Medication</span></p>
-                    <p>Expectorant - 1 tablet</p>
-                    <p>2 times per day (after food)</p>
-                    <br>
-                    <p>Paracetamol-1 tablet</p>
-                    <p>2 times per day(after food)</p>
-                    <br>
-                    <p>Vitamin C - 500g</p>
-                    <p>Once per day(after food)</p>
-                </div>
+        <div class="container row col-12 col-lg-6">
+            <div class="details mb-3 col-10">
+                <h2 class="text-center">Appointment Details</h2>
+                <p>Appointment No:
+                    <span class="content">123</span>
+                </p>
+                <p>Date:
+                    <span class="content">11-02-2023</span>
+                </p>
+                <p>Time:
+                    <span class="content">02:30 PM</span>
+                </p>
+                <p>Status:
+                    <span class="content">Completed</span>
+                </p>
+                <p>Fee:
+                    <span class="content">300</span>
+                </p>
             </div>
-            <div class="prescription-form">
-                <h4>Edit Prescription</h4>
-                <form>
-                    <label for="disease">Disease:</label>
-                    <input type="text" name="disease" class="form-control">
-                    <label for="disease">Elaboration:</label>
-                    <textarea name="elaboration" cols="30" rows="4" class="form-control"></textarea>
-                    <label for="disease">Medication:</label>
-                    <textarea name="elaboration" cols="30" rows="6" class="form-control"></textarea>
-                    <button type="submit" class="mt-4 ms-5">Submit</button>
-                </form>
+            <div class="completed col-10">
+                <h3>Prescription details</h3>
+                <div class="prescription">
+                    <div class="disease">
+                        <p><span class="content1 text-center">Disease</span></p>
+                        <p>Influenza</p>
+                        <br>
+                        <p><span class="content1 text-center">Elaboration</span></p>
+                        <p>Difficulty breathing</p>
+                        <p>Chest pain</p>
+                        <p>Seizures</p>
+                        <p>Dizziness</p>
+                    </div>
+                    <div class="medication text-center col-10">
+                        <p><span class="content1">Medication</span></p>
+                        <p>Expectorant - 1 tablet</p>
+                        <p>2 times per day (after food)</p>
+                        <br>
+                        <p>Paracetamol-1 tablet</p>
+                        <p>2 times per day(after food)</p>
+                        <br>
+                        <p>Vitamin C - 500g</p>
+                        <p>Once per day(after food)</p>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <h4>Edit Prescription</h4>
+                    <form>
+                        <label for="disease">Disease:</label>
+                        <input type="text" name="disease" class="form-control">
+                        <label for="disease">Elaboration:</label>
+                        <textarea name="elaboration" cols="30" rows="4" class="form-control"></textarea>
+                        <label for="disease">Medication:</label>
+                        <textarea name="elaboration" cols="30" rows="6" class="form-control"></textarea>
+                        <button type="submit" class="mt-4 ms-5">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
