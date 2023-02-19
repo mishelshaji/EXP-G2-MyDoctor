@@ -26,7 +26,7 @@ namespace MyDoctor.WebApp.Areas.Doctor
         [HttpPut("Prescription")]
         [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> UpdatePrescriptionAsync(int id, PrescriptionDto dto)
+        public async Task<IActionResult> UpdatePrescription(int id, PrescriptionDto dto)
         {
             var res = await _doctorService.UpdatePrescriptionAsync(id, dto);
             return Ok(res);
