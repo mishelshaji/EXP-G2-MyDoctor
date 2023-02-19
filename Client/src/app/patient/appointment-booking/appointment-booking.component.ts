@@ -4,7 +4,7 @@ import { NgbDatepicker, NgbDatepickerI18n, NgbDatepickerModule } from '@ng-boots
 import { ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppointmentsService } from 'src/app/services/appointments.service';
 import { TokenHandler } from 'src/helpers/tokenHandler';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointment-booking',
@@ -56,12 +56,15 @@ export class AppointmentBookingComponent implements OnInit {
 
   constructor(public i18n: NgbDatepickerI18n,
     private appointmentService: AppointmentsService,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
-    var doctId = 2;
+    console.log(parseInt(this.route.snapshot.params['id']));
+    
+    var doctId = parseInt(this.route.snapshot.params['id']);
     this.appointmentService.getBookingData(doctId).subscribe({
       next: (res: any) => {
         this.doctorData = res.result[0]
@@ -89,7 +92,10 @@ export class AppointmentBookingComponent implements OnInit {
     else {
       document.querySelector(".radioclass")?.classList.remove("d-none");
       document.querySelector(".appointment-book")?.classList.remove("d-none");
-      this.dateChoosed = date.year + "-" + date.month + "-" + date.day;
+      if(date.month < 10)
+        this.dateChoosed = date.year + "-0" + date.month + "-" + date.day;
+      else 
+        this.dateChoosed = date.year + "-" + date.month + "-" + date.day;
     }
   }
 

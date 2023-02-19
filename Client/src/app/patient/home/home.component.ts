@@ -6,6 +6,7 @@ import { DepartmentsService } from 'src/app/services/departments.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { TokenHandler } from 'src/helpers/tokenHandler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +20,8 @@ export class HomeComponent implements OnInit {
   enteredSearchValue: string = '';
 
   constructor(private departmentsService: DepartmentsService,
-    private doctorService: DoctorService,
-    private patientService: PatientService) {
+    private patientService: PatientService,
+    private router: Router) {
 
   }
 
@@ -43,10 +44,16 @@ export class HomeComponent implements OnInit {
     this.patientService.searchResult(this.enteredSearchValue).subscribe({
       next: (res: any) => {
         this.resultItems = res.result;
+        console.log(res.result);
+        
       },
       error: (res: any) => {
         alert("Wrong Search!");
       }
     });
+  }
+
+  saveData(doctid: any){
+    this.router.navigateByUrl(`/patient/booking/${doctid}`);
   }
 }
