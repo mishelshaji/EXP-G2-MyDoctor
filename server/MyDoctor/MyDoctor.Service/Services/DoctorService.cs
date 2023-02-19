@@ -1,4 +1,5 @@
 ﻿using CartSharp.Domain.Types;
+using MyDoctor.Domain.Models;
 using MyDoctor.Service.Data;
 using MyDoctor.Service.Dto;
 using System;
@@ -68,10 +69,18 @@ namespace MyDoctor.Service.Services
         public async Task<ServiceResponse<bool>>UpdatePrescriptionAsync(int id, PrescriptionDto dto)
         {
             var response = new ServiceResponse<bool>();
-            var appointment = await _db.Consultations.FindAsync(id);
-            appointment.DiseaseId = dto.Disease;
-            appointment.Elaboration = dto.Elaboration;
-            appointment.Medication = dto.Medication;
+            //var appointment = await _db.Appointments.FindAsync(id);
+            //appointment.DiseaseId = dto.Disease;
+            //appointment.Elaboration = dto.Elaboration;
+            //appointment.Medication = dto.Medication;
+            var consultation = new Consultation()
+            {
+                AppointmentId = id,
+                DiseaseId = dto.Disease,
+                Elaboration = dto.Elaboration,
+                Medication = dto.Medication,
+            };
+            _db.Consultations.Add(consultation);
             await _db.SaveChangesAsync();
             return new ServiceResponse<bool> 
             { 

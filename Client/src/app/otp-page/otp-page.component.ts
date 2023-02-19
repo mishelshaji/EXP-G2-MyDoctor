@@ -19,11 +19,11 @@ export class OtpPageComponent {
     this.RegisterService.registerUser(this.otp).subscribe({
       next: (res: any) => {
         if (res.isValid) {
-          alert("success")
+          alert("Your OTP Verification has been successful. Please login using your credentials.")
           this.Router.navigateByUrl("")
         }
         else
-          alert("otp error");
+          alert("Error in OTP Verification!");
         console.log(res);
       }
     })
