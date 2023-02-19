@@ -116,6 +116,17 @@ namespace MyDoctor.Service.Services
                 return response;
             }
 
+            var role = _userManager.GetRolesAsync(user).GetAwaiter().GetResult().First();
+            if(role == "Doctor")
+            {
+                var status = _db.DoctorMaster.Where(m => m.ApplicationUserId == user.Id).FirstOrDefault().Status;
+                if(status == null)
+                {
+                    response.AddError("", "Doctor is not approved");
+                    return response;
+                }
+            }
+
             var signin = await _signInManager.CheckPasswordSignInAsync(user, dto.Password, true);
             if (signin.Succeeded)
             {

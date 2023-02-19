@@ -15,26 +15,30 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private registerationService: RegisterationService, private TokenHandler: TokenHandler, private Router: Router) {
-    
+
   }
 
   ngOnInit(): void {
     this.TokenHandler.removeToken();
   }
 
-  saveData(){
+  saveData() {
     this.registerationService.loginUser(this.modal).subscribe({
-      next: (res: any) =>{
-        console.log(res);  
-        var role = this.TokenHandler.getRoleFromToken();
-        var id = this.TokenHandler.getUserIdFromToken();
-        if( role == "Patient"){
-          this.Router.navigateByUrl('/patient/home');
+      next: (res: any) => {
+        if (res.isValid) {
+          var role = this.TokenHandler.getRoleFromToken();
+          var id = this.TokenHandler.getUserIdFromToken();
+          if (role == "Patient") {
+            this.Router.navigateByUrl('/patient/home');
+          }
+          else if (role == "Doctor") {
+            this.Router.navigateByUrl('/doctor/home');
+          }
         }
-        else if( role == "Doctor"){
-          this.Router.navigateByUrl('/doctor/home');
+        else{
+          alert("Doctor was not approved")
         }
-      } 
+      }
     })
   }
 }
