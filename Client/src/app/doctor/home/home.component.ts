@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppointmentsService } from 'src/app/services/appointments.service';
+import { TokenHandler } from 'src/helpers/tokenHandler';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,21 @@ import { AppointmentsService } from 'src/app/services/appointments.service';
 })
 export class HomeComponent {
   appointments: any = [];
-  constructor(private AppointmentService: AppointmentsService) {
+  constructor(private AppointmentService: AppointmentsService,
+              private tokenHandler: TokenHandler) {
 
   }
   ngOnInit() {
-    this.appointments = this.AppointmentService.getCancelledAppointments();
+    var masterId = this.tokenHandler.getMasterId();
+    this.AppointmentService.getTodaysAppointmentsForDoctor(masterId).subscribe({
+      next: (res: any) => {
+        console.log(res.result);
+        this.appointments = res.result
+      }
+    });
   }
 
+  saveData(){
+    
+  }
 }

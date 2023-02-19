@@ -21,4 +21,8 @@ export class DoctorService {
   updateProfile(model: any) {
     console.log(model);
   }
+
+  todaysViewDetails(){
+    
+  }
 }
