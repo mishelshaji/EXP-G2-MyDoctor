@@ -22,7 +22,7 @@ namespace MyDoctor.Service.Services
         public async Task<ServiceResponse<Array>> GetBookingData(int id)
         {
             var response = new ServiceResponse<Array>();
-            response.Result = _db.DoctorMaster.Where(c => c.Id == id)
+            response.Result =  _db.DoctorMaster.Where(c => c.Id == id)
                 .Select(m => new DoctorDetailsDto()
                 {
                     Id = m.ApplicationUserId,
@@ -35,17 +35,31 @@ namespace MyDoctor.Service.Services
             return response;
         }
 
-        public async Task<ServiceResponse<List<Dictionary<string, string>>>> GetTimeSlots(int masterId,string date)
+        public async Task<ServiceResponse<List<GetTimeSlotsDto>>> GetTimeSlots(int masterId,string dater)
         {
-            var response = new ServiceResponse<List<Dictionary<string, string>>>();
-            var res = _db.Appointments.Where(m => m.DoctorMasterId == masterId)
-                .Select(m => m.FromTime.ToString()).ToList();
-            var obj2 = new List<Dictionary<string, string>>();
-            foreach (var item in res)
+            //var response = new ServiceResponse<List<Dictionary<string, string>>>();
+            var response = new ServiceResponse<List<GetTimeSlotsDto>>();
+            var res =  _db.Appointments.Where(m => m.DoctorMasterId == masterId)
+                .Select(m => new GetTimeSlotsDto()
+                {
+                    fromTime = m.FromTime,
+                    date = m.Date,
+                    status = m.Status
+                }).ToList();
+            //var obj2 = new List<Dictionary<string, string>>();
+            //foreach (var item in res)
+            //{
+            //    obj2.Add(new Dictionary<string, string>() { { "fromTime", item } });
+            //}
+            var anotherres = new List<GetTimeSlotsDto>();
+            for (int i = 0; i < res.Count ; i++)
             {
-                obj2.Add(new Dictionary<string, string>() { { "fromTime", item } });
+                if (res[i].date == dater && res[i].status == 1)
+                {
+                    anotherres.Add(res[i]);
+                }
             }
-            response.Result = obj2;
+            response.Result = anotherres;
             return response;
         }
 

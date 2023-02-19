@@ -136,6 +136,15 @@ namespace MyDoctor.Service.Services
             var role = _userManager.GetRolesAsync(user).GetAwaiter().GetResult().First();
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var credentials = new SigningCredentials(signingKey, "HS256");
+            List<int> master = null;
+            if(role == "Patient") 
+            {
+                master = _db.PatientsMaster.Where(m => m.ApplicationUserId == user.Id).Select(c => c.Id).ToList();
+            }
+            else if(role == "Doctor")
+            {
+                master = _db.DoctorMaster.Where(m => m.ApplicationUserId == user.Id).Select(c => c.Id).ToList();
+            }
 
             var claims = new Claim[]
             {
@@ -143,7 +152,8 @@ namespace MyDoctor.Service.Services
                 new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"),
                 new Claim(ClaimTypes.Role, role),
                 new Claim("Role", role),
-                new Claim("UserId", user.Id)
+                new Claim("UserId", user.Id),
+                new Claim("MasterId", master[0].ToString())
             };
 
             var token = new JwtSecurityToken(
