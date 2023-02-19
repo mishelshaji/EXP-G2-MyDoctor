@@ -124,7 +124,6 @@ export class AppointmentBookingComponent implements OnInit {
 
   AddBookings() {
     try {
-
       this.postAppointmentBooking.doctorMasterId = this.doctorData.masterId;
       this.postAppointmentBooking.date = this.dateChoosed;
       this.postAppointmentBooking.fromTime = this.timeChoosed;
