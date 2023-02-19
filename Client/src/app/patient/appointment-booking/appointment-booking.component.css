@@ -71,6 +71,15 @@ p {
     margin-bottom: 10px;
 }
 
+#selectdate{
+    background-color: #00C294;
+    color: white;
+    margin: 5px 10px;
+    border-radius: 20px;
+    border: 0;
+    padding: 10px 20px;
+}
+
 @media screen and (max-width: 768px)
 {
     .doctor{

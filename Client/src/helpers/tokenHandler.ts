@@ -34,4 +34,9 @@ export class TokenHandler {
         const parsedToken = this.getDecodedToken();
         return parsedToken.UserId;
     }
+
+    getMasterId(): any {
+        const parsedToken = this.getDecodedToken();
+        return parsedToken.MasterId;
+    }
 }

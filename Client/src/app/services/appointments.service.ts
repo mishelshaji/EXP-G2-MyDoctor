@@ -1,12 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TokenHandler } from 'src/helpers/tokenHandler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentsService {
 
+  url = 'https://localhost:7238/api/Patient/Appointment'
   private upcomingAppointments = [
-    
+
   ]
 
   private previousAppointments = [
@@ -115,7 +118,8 @@ export class AppointmentsService {
 
   }
 
-  constructor() {
+  constructor(private http: HttpClient,
+    private tokenHandler: TokenHandler) {
 
   }
 
@@ -129,5 +133,19 @@ export class AppointmentsService {
 
   getCancelledAppointments() {
     return this.cancelledAppointments
+  }
+
+  getBookingData(id: number) {
+    return this.http.get(this.url + `/${id}`);
+  }
+
+  getTimeSlots(idsample: string, date: string) {
+    var id = parseInt(idsample)
+    return this.http.get(this.url + `/${id}/${date}`);
+  }
+
+  AddBookings(model: any) {
+    model.patientMasterId = parseInt(this.tokenHandler.getMasterId());
+    return this.http.post(this.url, model);
   }
 }
