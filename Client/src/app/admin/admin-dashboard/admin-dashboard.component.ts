@@ -19,7 +19,6 @@ export class AdminDashboardComponent implements OnInit {
     this.adminService.getPatientsCount().subscribe({
       next: (res: any) => {
         this.patientsCount = res.result;
-        console.log(this.patientsCount);
       },
       error: (res: any) => {
         console.log(res.error);

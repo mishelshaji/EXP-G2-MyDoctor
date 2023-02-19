@@ -1,5 +1,7 @@
 ﻿using CartSharp.Domain.Types;
+using Microsoft.EntityFrameworkCore;
 using MyDoctor.Service.Data;
+using MyDoctor.Service.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +64,45 @@ namespace MyDoctor.Service.Services
                 .ToList()
                 .Count();
             return response;
+        }
+
+        public async Task<ServiceResponse<List<DoctorDetailsDto>>> GetNewDoctorsAsync()
+        {
+            var response = new ServiceResponse<List<DoctorDetailsDto>>();
+            response.Result = _db.DoctorMaster
+                .Where(m => m.Status == null)
+                .Select(m => new DoctorDetailsDto()
+                {
+                   MasterId = m.Id,
+                   Name = m.ApplicationUser.FirstName + ' ' + m.ApplicationUser.LastName,
+                   DepartmentName = m.ApplicationUser.Specialization
+                })
+                .ToList();
+            return response;
+        }
+
+        public async Task<ServiceResponse<bool>> ApproveDoctorAsync(int id)
+        {
+            var response = new ServiceResponse<bool>();
+            var doctor = _db.DoctorMaster.Where(m => m.Id == id).First();
+            doctor.Status = 1;
+            _db.SaveChangesAsync();
+            return new ServiceResponse<bool>
+            {
+                Result = true,
+            };
+        }
+
+        public async Task<ServiceResponse<bool>> DeclineDoctorAsync(int id)
+        {
+            var response = new ServiceResponse<bool>();
+            var doctor = _db.DoctorMaster.Where(m => m.Id == id).First();
+            _db.DoctorMaster.Remove(doctor);
+            _db.SaveChangesAsync();
+            return new ServiceResponse<bool>
+            {
+                Result = true,
+            };
         }
     }
 }

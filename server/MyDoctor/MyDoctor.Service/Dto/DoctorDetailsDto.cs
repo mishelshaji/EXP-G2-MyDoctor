@@ -8,15 +8,15 @@ namespace MyDoctor.Service.Dto
 {
     public class DoctorDetailsDto
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
-        public int MasterId { get; set; }
+        public int? MasterId { get; set; }
 
         public string Name { get; set; }
 
         public string DepartmentName { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         public long? PhoneNumber { get; set; }
 

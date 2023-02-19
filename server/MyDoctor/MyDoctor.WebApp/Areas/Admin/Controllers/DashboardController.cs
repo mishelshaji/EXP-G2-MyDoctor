@@ -51,7 +51,5 @@ namespace MyDoctor.WebApp.Areas.Admin.Controllers
             var res = await _adminService.GetRegistrationApprovalsCountAsync();
             return Ok(res);
         }
-
-
     }
 }
