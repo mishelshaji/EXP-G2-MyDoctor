@@ -141,8 +141,6 @@ export class AppointmentsService {
 
   getTimeSlots(idsample: string, date: string) {
     var id = parseInt(idsample)
-    console.log(this.url + `/${id}/${date}`);
-
     return this.http.get(this.url + `/${id}/${date}`);
   }
 

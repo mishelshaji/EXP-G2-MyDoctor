@@ -65,9 +65,9 @@ export class AppointmentBookingComponent implements OnInit {
     this.appointmentService.getBookingData(doctId).subscribe({
       next: (res: any) => {
         this.doctorData = res.result[0]
-        console.log(res);
       },
       error: (res: any) => {
+        alert("error")
         console.log(res);
       }
     })
@@ -103,8 +103,6 @@ export class AppointmentBookingComponent implements OnInit {
       }
       this.appointmentService.getTimeSlots(this.doctorData.masterId, this.dateChoosed).subscribe({
         next: (res: any) => {
-          console.log(res);
-
           res.result.forEach((element: any) => {
             var obj: any = document.getElementById(element.fromTime);
             if (obj == null)
@@ -125,18 +123,30 @@ export class AppointmentBookingComponent implements OnInit {
   }
 
   AddBookings() {
-    this.postAppointmentBooking.doctorMasterId = this.doctorData.masterId;
-    this.postAppointmentBooking.date = this.dateChoosed;
-    this.postAppointmentBooking.fromTime = this.timeChoosed;
-    this.postAppointmentBooking.toTime = this.timeChoosed;
-    this.appointmentService.AddBookings(this.postAppointmentBooking).subscribe({
-      next: (res: any) => {
-        alert("Booking successful. Please return to home page.")
-        this.router.navigateByUrl('/patient/home')
-      },
-      error: (res: any) => {
-        console.log(res);
+    try {
+
+      this.postAppointmentBooking.doctorMasterId = this.doctorData.masterId;
+      this.postAppointmentBooking.date = this.dateChoosed;
+      this.postAppointmentBooking.fromTime = this.timeChoosed;
+      this.postAppointmentBooking.toTime = this.timeChoosed;
+      if (this.postAppointmentBooking.date != '' && this.postAppointmentBooking.fromTime != '' && this.postAppointmentBooking.doctorMasterId != null) {
+        this.appointmentService.AddBookings(this.postAppointmentBooking).subscribe({
+          next: (res: any) => {
+            alert("Booking successful. Please return to home page.")
+            this.router.navigateByUrl('/patient/home')
+          },
+          error: (res: any) => {
+            alert("Date and time is not selected")
+            console.log(res);
+          }
+        });
       }
-    });
+      else {
+        alert("select the date and time")
+      }
+    }
+    catch {
+      alert("Date and time is not selected")
+    }
   }
 }

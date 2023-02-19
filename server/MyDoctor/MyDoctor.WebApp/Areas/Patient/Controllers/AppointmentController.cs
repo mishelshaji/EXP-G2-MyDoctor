@@ -47,7 +47,7 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             return Ok(res);
         }
 
-        [HttpPost()]
+        [HttpPost]
         [ProducesResponseType(typeof(PatientAppointmentsDto), statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
         public async Task<IActionResult> AddBookings(AddBookingDto dto)
