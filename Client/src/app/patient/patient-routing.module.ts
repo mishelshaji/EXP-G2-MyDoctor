@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '', component: PatientLayoutComponent, children: [
       { path: 'home', component: HomeComponent },
-      { path: 'appointment-booking', component: AppointmentBookingComponent },
+      { path: 'booking/:id', component: AppointmentBookingComponent },
       { path: 'appointment-history', component: AppointmentHistoryComponent},
       { path: 'profile', component: PatientProfileComponent},
       { path: 'appointment-details', component: AppointmentDetailsComponent}

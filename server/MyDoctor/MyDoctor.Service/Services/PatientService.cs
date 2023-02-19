@@ -23,6 +23,7 @@ namespace MyDoctor.Service.Services
             var response = new ServiceResponse<List<DoctorSearchResultDto>>();
             response.Result = _db.DoctorMaster
                 .Where(d => d.Department.DepartmentName == searchValue)
+                .Where(d => d.Status == 1)
                 .Select(d=>new DoctorSearchResultDto
                 {
                     Id = d.Id,
