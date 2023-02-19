@@ -91,5 +91,24 @@ namespace MyDoctor.Service.Services
                 Result = true 
             };
         }
+
+        public async Task<ServiceResponse<List<ConsultationDetailsDto>>> GetConsultationDetailsAsync (int id)
+        {
+            var response = new ServiceResponse<List<ConsultationDetailsDto>>();
+            var res = _db.Consultations
+                .Where(m => m.Id == id)
+                .Select(d => new ConsultationDetailsDto()
+                {
+                    AppointmentId = d.AppointmentId,
+                    Date = d.Appointment.Date,
+                    FromTime = d.Appointment.FromTime,
+                    Status = d.Appointment.Status,
+                    Disease = d.Disease.DiseaseName,
+                    Elaboration = d.Elaboration,
+                    Medication = d.Medication,
+                });
+            response.Result = res.ToList();
+            return response;
+        }
     }
 }
