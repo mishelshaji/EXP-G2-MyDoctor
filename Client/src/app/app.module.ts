@@ -14,6 +14,8 @@ import { OtpPageComponent } from './otp-page/otp-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { TokenInterceptor } from 'src/helpers/token.interceptor';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NetworkInterceptor } from 'src/helpers/network.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,11 +33,13 @@ import { TokenInterceptor } from 'src/helpers/token.interceptor';
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     TokenHandler,
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: NetworkInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

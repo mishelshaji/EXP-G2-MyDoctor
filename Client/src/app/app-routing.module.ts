@@ -1,6 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PatientGuard } from 'src/helpers/gaurds/patient.guard';
+import { PatientGuard } from 'src/helpers/guards/patient.guard';
 import { DoctorModule } from './doctor/doctor.module';
 import { LoginComponent } from './login/login.component';
 import { OtpPageComponent } from './otp-page/otp-page.component';
