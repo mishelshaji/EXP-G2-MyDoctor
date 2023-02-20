@@ -41,7 +41,6 @@ export class RegistrationApprovalComponent implements OnInit {
 
   declineDoctor(event: any) {
     this.masterId = event.target.getAttribute('data-uid');
-    alert(this.masterId)
     var confirmation = confirm("Are you sure you want to reject this doctor?");
     if (confirmation == true)
       this.adminService.declineDoctor(this.masterId).subscribe({

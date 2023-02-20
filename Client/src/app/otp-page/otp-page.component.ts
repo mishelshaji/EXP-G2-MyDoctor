@@ -16,7 +16,8 @@ export class OtpPageComponent {
   }
 
   saveData() {
-    this.RegisterService.registerUser(this.otp).subscribe({
+    var otp = parseInt(this.otp)
+    this.RegisterService.registerUser(otp).subscribe({
       next: (res: any) => {
         if (res.isValid) {
           alert("Your OTP Verification has been successful. Please login using your credentials.")

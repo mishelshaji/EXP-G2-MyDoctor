@@ -10,7 +10,7 @@ import { PatientSectionComponent } from './patient-section/patient-section.compo
 import { DoctorSectionComponent } from './doctor-section/doctor-section.component';
 import { DepartmentSectionComponent } from './department-section/department-section.component';
 import { RegistrationApprovalComponent } from './registration-approval/registration-approval.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { RegistrationApprovalComponent } from './registration-approval/registrat
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

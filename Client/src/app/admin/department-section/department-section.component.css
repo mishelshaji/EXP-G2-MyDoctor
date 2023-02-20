@@ -12,29 +12,6 @@
 .inputdiv {
     color: white;
 }
-
-button {
-    font-size: 16px;
-    border: none;
-    background-color: rgb(0, 255, 255);
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    margin: 15px 10px 0 0;
-    height: 50px;
-}
-
-button:hover {
-    background-color: rgb(128, 128, 128);
-}
-
-button.add {
-    width: 85px;
-}
-
-button.edit {
-    background-color: rgb(190, 188, 188);
-}
-
 .department-details {
     background-color: rgba(10, 9, 9, 0.797);
     border-radius: 15px;
@@ -55,7 +32,7 @@ h1 {
     color: #fff;
 }
 
-button {
+#submit {
     font-size: 16px;
     border: none;
     background-color: rgb(0, 255, 255);
@@ -64,6 +41,6 @@ button {
     width: fit-content;
 }
 
-button:hover {
+#submit:hover {
     background-color: rgb(128, 128, 128);
 }
