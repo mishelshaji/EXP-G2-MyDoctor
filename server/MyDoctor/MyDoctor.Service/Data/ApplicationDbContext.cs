@@ -90,7 +90,6 @@ namespace MyDoctor.Service.Data
 
         public DbSet<Appointment> Appointments { get; set; }
 
-        public DbSet<Disease> Diseases { get; set; }
 
         public DbSet<Consultation> Consultations { get; set; }
     }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { AppointmentsService } from 'src/app/services/appointments.service';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 
@@ -14,7 +15,8 @@ export class AppointmentsComponent {
   cancelledAppointments: any = [];
   
   constructor(private AppointmentsService: AppointmentsService,
-              private tokenHandler: TokenHandler) {
+              private tokenHandler: TokenHandler,
+              private router: Router) {
 
   }
 
@@ -53,8 +55,40 @@ export class AppointmentsComponent {
 
   ngOnInit() {
     var masterId = this.tokenHandler.getMasterId();
-    this.upcomingAppointments = this.AppointmentsService.getUpcomingAppointmentsForDoctor(masterId);
-    this.previousAppointments = this.AppointmentsService.getPreviousAppointments();
-    this.cancelledAppointments = this.AppointmentsService.getCancelledAppointments();
+    this.AppointmentsService.getUpcomingAppointmentsForDoctor().subscribe({
+      next: (res: any) => {
+        for (let index = 0; index < res.result.length; index++) {
+          const element = res.result[index];
+          if(element.status == 1)
+            this.upcomingAppointments.push(element);
+            console.log(element);
+            
+        }
+      }
+    });
+
+    this.AppointmentsService.getPreviousAppointmentsForDoctor().subscribe({
+      next: (res: any) => {
+        for (let index = 0; index < res.result.length; index++) {
+          const element = res.result[index];
+          if(element.status == 2)
+            this.previousAppointments.push(element);
+        }
+      }
+    });
+    this.AppointmentsService.getCancelledAppointmentsForDoctor().subscribe({
+      next: (res: any) => {
+        for (let index = 0; index < res.result.length; index++) {
+          const element = res.result[index];
+          if(element.status == 0)
+            this.cancelledAppointments.push(element);
+        }
+      }
+    });;
+  }
+
+  saveData(patientId: any, appointmentId: any){
+    console.log("hello")
+    this.router.navigateByUrl(`/doctor/appointment-details/${appointmentId}/${patientId}`)
   }
 }

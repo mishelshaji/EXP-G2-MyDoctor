@@ -8,85 +8,6 @@ import { TokenHandler } from 'src/helpers/tokenHandler';
 export class AppointmentsService {
 
   url = 'https://localhost:7238/api/Patient/Appointment'
-  private upcomingAppointments = [
-
-  ]
-
-  private previousAppointments = [
-    {
-      id: 1,
-      date: '12-02-2023',
-      time: '09:30 AM',
-      doctor: 'Dr. Arjun',
-      status: true
-    },
-    {
-      id: 2,
-      date: '12-02-2023',
-      time: '10:30 AM',
-      doctor: 'Dr. vicky',
-      status: true
-    },
-    {
-      id: 3,
-      date: '12-02-2023',
-      time: '10:30 AM',
-      doctor: 'Dr. rashid',
-      status: true
-    },
-    {
-      id: 1,
-      date: '12-02-2023',
-      time: '09:30 AM',
-      doctor: 'Dr. Arjun',
-      status: true
-    },
-    {
-      id: 2,
-      date: '12-02-2023',
-      time: '10:30 AM',
-      doctor: 'Dr. vicky',
-      status: true
-    }
-  ]
-
-  private cancelledAppointments = [
-    {
-      id: 1,
-      date: '12-02-2023',
-      time: '09:30 AM',
-      doctor: 'Dr. Arjun',
-      status: true
-    },
-    {
-      id: 2,
-      date: '12-02-2023',
-      time: '10:30 AM',
-      doctor: 'Dr. vicky',
-      status: true
-    },
-    {
-      id: 3,
-      date: '12-02-2023',
-      time: '10:30 AM',
-      doctor: 'Dr. rashid',
-      status: true
-    },
-    {
-      id: 1,
-      date: '12-02-2023',
-      time: '09:30 AM',
-      doctor: 'Dr. Arjun',
-      status: true
-    },
-    {
-      id: 2,
-      date: '12-02-2023',
-      time: '10:30 AM',
-      doctor: 'Dr. vicky',
-      status: true
-    }
-  ]
 
   doctorDetails = {
     name: 'Dr.Raj Kumar',
@@ -123,24 +44,32 @@ export class AppointmentsService {
 
   }
 
-  getTodaysAppointmentsForDoctor(masterId: any){
-    return this.http.get(`https://localhost:7238/api/Doctor/DoctorHome?id=${masterId}`)
+  getTodaysAppointmentsForDoctor(){
+    return this.http.get(`https://localhost:7238/api/Doctor/DoctorHome`)
   }
 
-  getUpcomingAppointmentsForDoctor(masterId: any) {
-
+  getUpcomingAppointmentsForDoctor() {
+    return this.http.get(`https://localhost:7238/api/Doctor/DoctorHome/history`)
   }
 
-  getUpcomingAppointments(){
-    
+  getPreviousAppointmentsForDoctor() {
+    return this.http.get(`https://localhost:7238/api/Doctor/DoctorHome/history`)
   }
 
-  getPreviousAppointments() {
-    return this.previousAppointments
+  getCancelledAppointmentsForDoctor() {
+    return this.http.get(`https://localhost:7238/api/Doctor/DoctorHome/history`)
   }
 
-  getCancelledAppointments() {
-    return this.cancelledAppointments
+  getUpcomingAppointmentsForPatients(){
+    return this.http.get(`https://localhost:7238/api/Patient/Appointment`);
+  }
+
+  getPreviousAppointmentsForPatients() {
+    return this.http.get('https://localhost:7238/api/Patient/Appointment');
+  }
+
+  getCancelledAppointmentsForPatients() {
+    return this.http.get('https://localhost:7238/api/Patient/Appointment');
   }
 
   getBookingData(id: number) {

@@ -18,9 +18,7 @@ namespace MyDoctor.Service.Dto
 
         public int Status { get; set; }
 
-        public int Fee { get; set; } 
-
-        public string? Disease { get; set; }
+        public string? Diseases { get; set; }
 
         public string? Elaboration { get; set; }
 

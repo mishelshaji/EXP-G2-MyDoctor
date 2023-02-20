@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppointmentsService } from 'src/app/services/appointments.service';
+import { DoctorService } from 'src/app/services/doctor.service';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 
 @Component({
@@ -10,12 +12,12 @@ import { TokenHandler } from 'src/helpers/tokenHandler';
 export class HomeComponent {
   appointments: any = [];
   constructor(private AppointmentService: AppointmentsService,
-              private tokenHandler: TokenHandler) {
+              private tokenHandler: TokenHandler,
+              private router: Router) {
 
   }
   ngOnInit() {
-    var masterId = this.tokenHandler.getMasterId();
-    this.AppointmentService.getTodaysAppointmentsForDoctor(masterId).subscribe({
+    this.AppointmentService.getTodaysAppointmentsForDoctor().subscribe({
       next: (res: any) => {
         console.log(res.result);
         this.appointments = res.result
@@ -23,7 +25,7 @@ export class HomeComponent {
     });
   }
 
-  saveData(){
-    
+  saveData(patientId: any, appointmentId: any){
+    this.router.navigateByUrl(`/doctor/appointment-details/${appointmentId}/${patientId}`)
   }
 }

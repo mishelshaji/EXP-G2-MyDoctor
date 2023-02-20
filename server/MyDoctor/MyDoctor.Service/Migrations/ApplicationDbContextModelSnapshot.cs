@@ -303,24 +303,22 @@ namespace MyDoctor.Service.Migrations
                     b.Property<int>("AppointmentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DiseaseId")
-                        .HasColumnType("int");
+                    b.Property<string>("Disease")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Elaboration")
-                        .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
                     b.Property<string>("Medication")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AppointmentId");
-
-                    b.HasIndex("DiseaseId");
 
                     b.ToTable("Consultations");
                 });
@@ -378,24 +376,6 @@ namespace MyDoctor.Service.Migrations
                             Description = "About surgical science",
                             Status = 1
                         });
-                });
-
-            modelBuilder.Entity("MyDoctor.Domain.Models.Disease", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("DiseaseName")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Diseases");
                 });
 
             modelBuilder.Entity("MyDoctor.Domain.Models.DoctorMaster", b =>
@@ -561,15 +541,7 @@ namespace MyDoctor.Service.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyDoctor.Domain.Models.Disease", "Disease")
-                        .WithMany()
-                        .HasForeignKey("DiseaseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Appointment");
-
-                    b.Navigation("Disease");
                 });
 
             modelBuilder.Entity("MyDoctor.Domain.Models.DoctorMaster", b =>

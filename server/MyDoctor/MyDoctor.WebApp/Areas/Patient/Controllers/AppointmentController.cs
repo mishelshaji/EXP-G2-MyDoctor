@@ -8,6 +8,7 @@ using System.Security.Claims;
 
 namespace MyDoctor.WebApp.Areas.Patient.Controllers
 {
+    [Authorize]
     public class AppointmentController : BaseController
     {
         private readonly PatientService _patientService;
@@ -20,7 +21,6 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             _appointmentBookingService = appointmentBookingService;
         }
 
-        [Authorize]
         [HttpGet]
         [ProducesResponseType(typeof(PatientAppointmentsDto), statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]

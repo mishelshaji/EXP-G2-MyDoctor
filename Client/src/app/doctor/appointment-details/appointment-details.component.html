@@ -2,69 +2,42 @@
     <div class="main row">
         <div class="mt-5 mb-3 patient-details col-lg-3">
             <h4>Patient Details</h4>
-            <h5>Raj Kumar</h5>
+            <h5>{{patientDetails.name}}</h5>
             <br>
             <p class="pt-2">Email Address:</p>
-            <p>someone@gmail.com</p>
-            <p class="pt-2">Contact Number</p>
-            <p>9074XXXXXX</p>
-            <p class="pt-2">Emergency Contact</p>
-            <p>9074XXXXXX</p>
+            <p>{{patientDetails.email}}</p>
+            <p class="pt-2">Contact Number:</p>
+            <p>{{patientDetails.phoneNumber}}</p>
+            <p class="pt-2">Emergency Contact:</p>
+            <p>{{patientDetails.emergencyPhoneNumber}}</p>
         </div>
         <div class="container row col-12 col-lg-6">
             <div class="details mb-3 col-10">
                 <h2 class="text-center">Appointment Details</h2>
                 <p>Appointment No:
-                    <span class="content">123</span>
+                    <span class="content">{{appointmentDetails.appointmentId}}</span>
                 </p>
                 <p>Date:
-                    <span class="content">11-02-2023</span>
+                    <span class="content">{{appointmentDetails.date}}</span>
                 </p>
                 <p>Time:
-                    <span class="content">02:30 PM</span>
+                    <span class="content">{{appointmentDetails.fromTime}}</span>
                 </p>
-                <p>Status:
-                    <span class="content">Completed</span>
-                </p>
-                <p>Fee:
-                    <span class="content">300</span>
+                <p>Time:
+                    <span class="content">{{appointmentDetails.status}}</span>
                 </p>
             </div>
             <div class="completed col-10">
-                <h3>Prescription details</h3>
-                <div class="prescription">
-                    <div class="disease">
-                        <p><span class="content1 text-center">Disease</span></p>
-                        <p>Influenza</p>
-                        <br>
-                        <p><span class="content1 text-center">Elaboration</span></p>
-                        <p>Difficulty breathing</p>
-                        <p>Chest pain</p>
-                        <p>Seizures</p>
-                        <p>Dizziness</p>
-                    </div>
-                    <div class="medication text-center col-10">
-                        <p><span class="content1">Medication</span></p>
-                        <p>Expectorant - 1 tablet</p>
-                        <p>2 times per day (after food)</p>
-                        <br>
-                        <p>Paracetamol-1 tablet</p>
-                        <p>2 times per day(after food)</p>
-                        <br>
-                        <p>Vitamin C - 500g</p>
-                        <p>Once per day(after food)</p>
-                    </div>
-                </div>
                 <div class="col-10">
                     <h4>Edit Prescription</h4>
-                    <form>
+                    <form (ngSubmit)="saveData()">
                         <label for="disease">Disease:</label>
-                        <input type="text" name="disease" class="form-control">
+                        <input type="text" name="disease" class="form-control" [(ngModel)]="appointmentDetails.diseases">
                         <label for="disease">Elaboration:</label>
-                        <textarea name="elaboration" cols="30" rows="4" class="form-control"></textarea>
+                        <textarea name="elaboration" cols="30" rows="4" class="form-control" name="elaboration" value="{{appointmentDetails.elaboration}}" [(ngModel)]="appointmentDetails.elaboration" ></textarea>
                         <label for="disease">Medication:</label>
-                        <textarea name="elaboration" cols="30" rows="6" class="form-control"></textarea>
-                        <button type="submit" class="mt-4 ms-5">Submit</button>
+                        <textarea name="elaboration" cols="30" rows="6" class="form-control" name="medication" [(ngModel)]="appointmentDetails.medication"></textarea>
+                        <button type="submit" class="mt-4 ms-5"  *ngIf="appointmentDetails.status=='1'" >Submit</button>
                     </form>
                 </div>
             </div>

@@ -37,8 +37,9 @@ export class LoginComponent implements OnInit {
         }
         else{
           console.log(res);
-          alert(res.errors[""][0])
+          console.log(res.errors);
           
+          alert(res.errors[""][0]);
         }
       }
     })
