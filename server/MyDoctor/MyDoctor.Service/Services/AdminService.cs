@@ -101,8 +101,6 @@ namespace MyDoctor.Service.Services
             var response = new ServiceResponse<bool>();
             var doctor = _db.DoctorMaster.Where(m => m.Id == id).First();
             var user = _db.ApplicationUsers.Where(m => m.Id == doctor.ApplicationUserId).First();
-            //await _userManager.RemoveFromRoleAsync(user, "Doctor");
-            //await _userManager.DeleteAsync(user);
             var userroles = _db.UserRoles.Where(m => m.UserId == user.Id).First();
             _db.DoctorMaster.Remove(doctor);
             _db.UserRoles.Remove(userroles);

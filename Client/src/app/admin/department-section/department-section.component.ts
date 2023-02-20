@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { window } from 'rxjs';
 import { DepartmentsService } from 'src/app/services/departments.service';
 
 @Component({
@@ -8,19 +9,19 @@ import { DepartmentsService } from 'src/app/services/departments.service';
 })
 export class DepartmentSectionComponent {
   masterId: number;
-  i:number = 0;
+  i:any = 0;
   model = {
     departmentName: '',
     description: ''
   }
   departments: any = [];
   addedItems: any = [];
-  
+
   constructor(private departmentService: DepartmentsService) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.departmentService.getDepartmentDetails().subscribe({
       next: (res: any) => {
         this.departments = res.result;
@@ -28,14 +29,23 @@ export class DepartmentSectionComponent {
     })
   }
 
-  getNextNumber()
-  {
-    return this.i++;
+  getNextNumber() {
+    var k = this.i+1
+    return k;
   }
-  
+
   addDepartment() {
-    this.departmentService.addNewDepartment(this.model);
+    this.departmentService.addNewDepartment(this.model).subscribe({
+      next: () => {
+        alert("Department added successfully!");
+        location.reload();
+      },
+      error: () => {
+        alert("Adding department failed!");
+      }
+    });
   }
+
   deleteDepartment(event: any) {
     this.masterId = event.target.getAttribute('data-uid');
     var confirmation = confirm("Are you sure you want to remove this department?");

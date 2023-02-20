@@ -12,7 +12,6 @@ import { DepartmentSectionComponent } from './department-section/department-sect
 import { RegistrationApprovalComponent } from './registration-approval/registration-approval.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AdminLayoutComponent,

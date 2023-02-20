@@ -5,11 +5,11 @@ using MyDoctor.Service.Services;
 
 namespace MyDoctor.WebApp.Areas.Doctor
 {
-    public class ConsultationController : DoctorBaseController
+    public class DoctorsConsultationController : DoctorBaseController
     {
         private readonly DoctorService _doctorService;
 
-        public ConsultationController(DoctorService doctorService)
+        public DoctorsConsultationController(DoctorService doctorService)
         {
             _doctorService = doctorService;
         }
