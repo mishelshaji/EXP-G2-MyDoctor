@@ -12,7 +12,7 @@ export class AppointmentsService {
 
   ]
 
-  private previousAppointments = [
+  private completedAppointments = [
     {
       id: 1,
       date: '12-02-2023',
@@ -135,8 +135,8 @@ export class AppointmentsService {
     
   }
 
-  getPreviousAppointments() {
-    return this.previousAppointments
+  getCompletedAppointments() {
+    return this.completedAppointments
   }
 
   getCancelledAppointments() {

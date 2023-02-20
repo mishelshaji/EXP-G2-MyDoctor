@@ -9,7 +9,7 @@ import { AppointmentsService } from 'src/app/services/appointments.service';
 export class AppointmentHistoryComponent {
 
   upcomingAppointments: any = [];
-  previousAppointments: any = [];
+  completedAppointments: any = [];
   cancelledAppointments: any = [];
   
   constructor(private AppointmentsService: AppointmentsService) {
@@ -20,12 +20,12 @@ export class AppointmentHistoryComponent {
     var targett = e.target as HTMLElement;
     var others = [
       document.getElementById('upcoming'),
-      document.getElementById('previous'),
+      document.getElementById('completed'),
       document.getElementById('cancelled')
     ]
     var divs = [
       document.getElementById('upcomingdiv'),
-      document.getElementById('previousdiv'),
+      document.getElementById('completeddiv'),
       document.getElementById('cancelleddiv')
     ]
     if (targett.tagName != "BUTTON") {
@@ -51,7 +51,7 @@ export class AppointmentHistoryComponent {
 
   ngOnInit() {
     this.upcomingAppointments = this.AppointmentsService.getUpcomingAppointments();
-    this.previousAppointments = this.AppointmentsService.getPreviousAppointments();
+    this.completedAppointments = this.AppointmentsService.getCompletedAppointments();
     this.cancelledAppointments = this.AppointmentsService.getCancelledAppointments();
   }
 }

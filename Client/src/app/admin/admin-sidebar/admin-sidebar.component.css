@@ -11,3 +11,13 @@ button {
     margin: 10px 2px;
     transition: 0.5s linear alternate;
 }
+
+#logout{
+    font-weight: 500;
+    border: none;
+}
+
+#logout:hover{
+    box-shadow: 0px 2px 5px rgb(0, 0, 0);
+    transform: scale(1.05);
+}
