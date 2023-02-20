@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PatientSectionComponent } from './patient-section/patient-section.component';
 import { DoctorSectionComponent } from './doctor-section/doctor-section.component';
 import { DepartmentSectionComponent } from './department-section/department-section.component';
+import { RegistrationApprovalComponent } from './registration-approval/registration-approval.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DepartmentSectionComponent } from './department-section/department-sect
     AdminSidebarComponent,
     PatientSectionComponent,
     DoctorSectionComponent,
-    DepartmentSectionComponent
+    DepartmentSectionComponent,
+    RegistrationApprovalComponent
   ],
   imports: [
     CommonModule,

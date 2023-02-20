@@ -4,7 +4,7 @@
         <img src="./assets/images/otppage.png" alt="">
         <form class="flex" #form="ngForm" (ngSubmit)="saveData()">
             <p>We have sent an One-Time-Password (OTP) to your registered email address.</p>
-            <input type="number" name="otp" placeholder="Enter the 4 digit OTP here" id="otp" [(ngModel)]="otp">
+            <input type="number" name="otp" placeholder="Enter the 6 digit OTP here" id="otp" [(ngModel)]="otp">
             <div class="content">
                 <button>Go Back</button>
                 <input type="submit" value="Submit">

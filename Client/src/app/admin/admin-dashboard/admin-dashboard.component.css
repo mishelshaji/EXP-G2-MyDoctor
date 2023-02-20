@@ -11,7 +11,7 @@ main {
 
 header {
     border-radius: 10px;
-    box-shadow: 0px 0px 30px 10px #000;
+    box-shadow: 0px 0px 10px #000;
     margin-bottom: 30px;
 }
 
@@ -31,4 +31,9 @@ section div div h5,
 section div div p {
     color: aliceblue;
     font-weight: 700;
+}
+
+.clickable:hover{
+    cursor: pointer;
+    box-shadow: 0px -2px 5px;
 }
