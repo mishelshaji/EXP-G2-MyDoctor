@@ -11,7 +11,7 @@ import { TokenHandler } from 'src/helpers/tokenHandler';
 export class AppointmentsComponent {
 
   upcomingAppointments: any = [];
-  previousAppointments: any = [];
+  completedAppointments: any = [];
   cancelledAppointments: any = [];
   
   constructor(private AppointmentsService: AppointmentsService,
@@ -24,12 +24,12 @@ export class AppointmentsComponent {
     var targett = e.target as HTMLElement;
     var others = [
       document.getElementById('upcoming'),
-      document.getElementById('previous'),
+      document.getElementById('completed'),
       document.getElementById('cancelled')
     ]
     var divs = [
       document.getElementById('upcomingdiv'),
-      document.getElementById('previousdiv'),
+      document.getElementById('completeddiv'),
       document.getElementById('cancelleddiv')
     ]
     if (targett.tagName != "BUTTON") {

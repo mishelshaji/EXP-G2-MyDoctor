@@ -8,7 +8,7 @@ import { TokenHandler } from 'src/helpers/tokenHandler';
 export class AppointmentsService {
 
   url = 'https://localhost:7238/api/Patient/Appointment'
-
+  
   doctorDetails = {
     name: 'Dr.Raj Kumar',
     department: 'Dentistry',

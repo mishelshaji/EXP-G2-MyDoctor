@@ -20,13 +20,11 @@ namespace MyDoctor.Service.Services
         public async Task<ServiceResponse<List<AppointmentDoctorDto>>> GetTodayAppointmentsAsync(int id)
         {
             var response = new ServiceResponse<List<AppointmentDoctorDto>>();
-            var today = DateTime.Today.ToString("yyyy-MM-dd");
+            var today = DateTime.Today.ToString("yyyy-MM-dd").Replace('-', '/');
             Console.WriteLine(today);
             var res = _db.Appointments
                 .Where(c => c.DoctorMasterId == id)
                 .Where(m => m.Date == today)
-                .Where(m => m.DoctorMaster.Status == 1)
-                .Where(m => m.Status == 1)
                 .Select(d => new AppointmentDoctorDto()
                 {
                     Id = d.Id,

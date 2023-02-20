@@ -10,8 +10,8 @@
                                     </button>
                                 </li>
                                 <li class="w-100">
-                                    <button class="nav-link px-0 align-middle text-success" (click)="clicked($event)" id="previous">
-                                        <span>Previous Appoinments</span>
+                                    <button class="nav-link px-0 align-middle text-success" (click)="clicked($event)" id="completed">
+                                        <span>Completed Appoinments</span>
                                     </button>
                                 </li>
                                 <li class="w-100">
@@ -48,11 +48,11 @@
                 </tbody>
               </table>
         </div>
-        <div class="d-none mt-3 ms-lg-3" id="previousdiv">
+        <div class="d-none mt-3 ms-lg-3" id="completeddiv">
             <table class="table ps-3">
                 <thead>
                     <caption class="w-100">
-                    <h3 class="appointment-heading">Previous Appointment History</h3>
+                    <h3 class="appointment-heading">Completed Appointment History</h3>
                     </caption>
                   <tr class="row bg-dark text-light rounded">
                     <th scope="col" class=" d-none d-lg-inline col-lg-1">Id</th>

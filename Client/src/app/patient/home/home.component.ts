@@ -44,8 +44,6 @@ export class HomeComponent implements OnInit {
     this.patientService.searchResult(this.enteredSearchValue).subscribe({
       next: (res: any) => {
         this.resultItems = res.result;
-        console.log(res.result);
-        
       },
       error: (res: any) => {
         alert("Wrong Search!");

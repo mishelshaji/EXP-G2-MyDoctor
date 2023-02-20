@@ -12,6 +12,7 @@ export class AppointmentHistoryComponent {
   upcomingAppointments: any[] = [];
   previousAppointments: any[] = [];
   cancelledAppointments: any[] = [];
+
   
   constructor(private AppointmentsService: AppointmentsService,
               private router: Router) {
@@ -22,12 +23,12 @@ export class AppointmentHistoryComponent {
     var targett = e.target as HTMLElement;
     var others = [
       document.getElementById('upcoming'),
-      document.getElementById('previous'),
+      document.getElementById('completed'),
       document.getElementById('cancelled')
     ]
     var divs = [
       document.getElementById('upcomingdiv'),
-      document.getElementById('previousdiv'),
+      document.getElementById('completeddiv'),
       document.getElementById('cancelleddiv')
     ]
     if (targett.tagName != "BUTTON") {
