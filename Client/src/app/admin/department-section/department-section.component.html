@@ -1,28 +1,48 @@
 <div class="holder">
     <div class="row">
-        <div class="col-5 d-flex mt-3 ms-5">
-            <button class="edit">Edit/Delete</button>
-            <button class="add">Add</button>
+        <div class="col-5 d-flex mt-3 bg-light w-100 rounded">
+            <h3><u>Department Section</u></h3>
         </div>
     </div>
+    <table class="table ps-3 ms-5 w-75">
+        <thead>
+          <tr class="row bg-dark text-light rounded">
+            <th scope="col" class=" d-none d-lg-inline col-1">Id</th>
+            <th scope="col" class="col-4">Department Name</th>
+            <th scope="col" class="d-none d-lg-inline col-5">Description</th>
+            <th scope="col" class="col-2 col-lg-2">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of departments" class="row bg-light rounded">
+            <th scope="row" class=" d-none d-md-inline col-1">{{getNextNumber()}}</th>
+            <td class="col-4">{{item.departmentName}}</td>
+            <td class="d-none d-lg-inline col-5">{{item.description}}</td>
+            <td class="col-2 col-lg-2"><button class="btn btn-danger" (click)="deleteDepartment($event)" [attr.data-uid]="item.masterId">Delete</button></td>
+          </tr>
+          <div class="alert alert-info" *ngIf="departments?.length === 0">
+            <h3 class="text-center">This list is empty!</h3>
+        </div>
+        </tbody>
+      </table>
     <div class="department-details px-2 px-lg-5 py-5 col-9">
         <h1>Add New Department</h1>
-        <form class="flex">
+        <form class="flex" (ngSubmit)="addDepartment()">
             <div class="inputdiv py-3">
                 <label for="department name" class="me-lg-5">Department Name :</label>
                 <div>
-                    <input type="text" name="department" id="department">
+                    <input type="text" name="department" id="department" [(ngModel)]="model.departmentName">
                 </div>
             </div>
             <div class="inputdiv py-2">
                 <label for="department" class="me-lg-5">Department Description :</label>
                 <div class="detail">
-                    <textarea name="department-description" id="department-description" cols="30" rows="3"></textarea>
+                    <textarea name="department-description" id="department-description" cols="30" rows="3" [(ngModel)]="model.description"></textarea>
                 </div>
             </div>
         </form>
         <div class="submit justify-content-between row">
-            <button type="submit" class="submit rounded me-5 ms-5">Submit</button>
+            <button id="submit" type="submit" class="submit rounded me-5 ms-5">Submit</button>
         </div>
     </div>
 </div>

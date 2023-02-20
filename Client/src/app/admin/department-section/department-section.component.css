@@ -13,7 +13,7 @@
     color: white;
 }
 
-button {
+#submit {
     font-size: 16px;
     border: none;
     background-color: rgb(0, 255, 255);
@@ -55,7 +55,7 @@ h1 {
     color: #fff;
 }
 
-button {
+/* button {
     font-size: 16px;
     border: none;
     background-color: rgb(0, 255, 255);
@@ -66,4 +66,4 @@ button {
 
 button:hover {
     background-color: rgb(128, 128, 128);
-}
+} */

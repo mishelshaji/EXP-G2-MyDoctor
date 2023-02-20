@@ -19,7 +19,7 @@ export class RegisterationService {
     return this.http.post(this.url + "accounts", model)
   }
 
-  registerUser(otp: string) {
+  registerUser(otp: number) {
     var data: any = localStorage.getItem('registerData');
     var model: any = JSON.parse(data);
     model.otp = otp.toString();
