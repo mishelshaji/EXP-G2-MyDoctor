@@ -19,6 +19,7 @@ export class PatientProfileComponent {
     relationship: '',
     bloodgroup: ''
   }
+  
   constructor(private patientServices: PatientService) {
 
   }

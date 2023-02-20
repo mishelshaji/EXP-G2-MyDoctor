@@ -61,9 +61,7 @@ export class AppointmentBookingComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    console.log(parseInt(this.route.snapshot.params['id']));
-    
+  ngOnInit(): void { 
     var doctId = parseInt(this.route.snapshot.params['id']);
     this.appointmentService.getBookingData(doctId).subscribe({
       next: (res: any) => {

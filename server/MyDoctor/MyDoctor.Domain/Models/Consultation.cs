@@ -15,9 +15,8 @@ namespace MyDoctor.Domain.Models
 
         public Appointment Appointment { get; set; }
 
-        public int? DiseaseId { get; set; }
-
-        public Disease Disease { get; set; }
+        [StringLength(100)]
+        public string Disease { get; set; }
 
         [StringLength(80)]
         public string? Elaboration { get; set; }

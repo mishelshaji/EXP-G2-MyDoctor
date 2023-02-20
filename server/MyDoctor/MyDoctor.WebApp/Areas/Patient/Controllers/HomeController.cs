@@ -7,6 +7,7 @@ using System.Security.Claims;
 
 namespace MyDoctor.WebApp.Areas.Patient.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
         private readonly PatientService _patientService;
@@ -38,6 +39,34 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
         {
             var res = await _patientProfileService.EditPatientProfileAsync(id, dto);
             return Ok();
+        }
+
+
+        [HttpGet("DoctorDetails")]
+        [ProducesResponseType(typeof(PatientDetailsDto), statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetPatientDetails(int id)
+        {
+            var res = await _patientService.GetDoctorDetailsAsync(id);
+            return Ok(res);
+        }
+
+        [HttpGet("AppointmentDetails")]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetAppointmentDetailsForDoctors(int id)
+        {
+            var res = await _patientService.GetAppointmentDetailsForPatient(id);
+            return Ok(res);
+        }
+
+        [HttpPut("cancelappointments")]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> CancelAppointments(int id)
+        {
+            var res = await _patientService.CancelAppointments(id);
+            return Ok(res);
         }
     }
 }

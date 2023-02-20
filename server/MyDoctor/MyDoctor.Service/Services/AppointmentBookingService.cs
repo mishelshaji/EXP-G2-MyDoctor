@@ -74,6 +74,20 @@ namespace MyDoctor.Service.Services
                 };
                 _db.Appointments.Add(user);
                 _db.SaveChanges();
+
+                var appointmentid = _db.Appointments.Where(m => m.DoctorMasterId == dto.DoctorMasterId)
+                                        .Where(m => m.PatientsMasterId == dto.PatientMasterId)
+                                        .Where(m => m.Date == dto.Date)
+                                        .Where(m => m.FromTime == dto.FromTime)
+                                        .Where(m => m.Status == dto.Status).FirstOrDefault();
+
+                var consaltution = new Consultation()
+                {
+                    AppointmentId = Convert.ToInt32(appointmentid.Id),
+                    Disease = "Not Set"
+                };
+                _db.Consultations.Add(consaltution);
+                _db.SaveChanges();
             }
             catch (Exception ex)
             {

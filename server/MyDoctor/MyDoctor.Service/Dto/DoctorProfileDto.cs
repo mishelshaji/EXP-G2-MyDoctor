@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyDoctor.Service.Dto
 {
-    public class PatientProfileDto
+    public class DoctorProfileDto
     {
         public string FirstName { get; set; }
 
@@ -20,13 +20,9 @@ namespace MyDoctor.Service.Dto
 
         public string? Gender { get; set; }
 
-        public string? Address { get; set; }
+        public string DepartmentName { get; set; }
 
-        public string? BloodGroup { get; set; }
-
-        public long? EmergencyContactNumber { get; set; }
-
-        public string? Relationship { get; set; }
+        public string? DoctorLicenseNo { get; set; }
 
     }
 }

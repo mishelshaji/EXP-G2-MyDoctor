@@ -1,61 +1,45 @@
-<div class="main">
-    <div class="mt-5 mb-3 doctor">
+<div class="main row">
+    <div class="mt-5 mb-3 doctor col-10 col-lg-3">
         <h4>Doctor Details</h4>
         <img src="./assets/images/doctor1png.png" alt="">
-        <h5>{{model.name}}</h5>
-        <p>{{model.department}}</p>
+        <h5>{{doctorDetails.name}}</h5>
+        <p>{{doctorDetails.departmentName}}</p>
         <br>
         <p>Email:</p>
-        <p>{{model.email}}</p>
+        <p>{{doctorDetails.email}}</p>
         <br>
-        <p>Phone Number</p>
-        <p>{{model.phone}}</p>
     </div>
-    <div class="container d-flex flex-column align-items-center">
+    <div class="container col-10 col-lg-8">
         <div class="details mb-3">
             <h2 class="text-center">Appointment Details</h2>
             <p>Appointment No:
-                <span class="content">{{detail.appointmentno}}</span>
+                <span class="content">{{appointmentDetails.appointmentId}}</span>
             </p>
             <p>Date:
-                <span class="content">{{detail.date}}</span>
+                <span class="content">{{appointmentDetails.date}}</span>
             </p>
             <p>Time:
-                <span class="content">{{detail.time}}</span>
+                <span class="content">{{appointmentDetails.fromTime}}</span>
             </p>
             <p>Status:
-                <span class="content">{{detail.status}}</span>
+                <span class="content">{{appointmentDetails.status}}</span>
             </p>
-            <p>Fee:
-                <span class="content">{{detail.fee | currency: 'INR'}}</span>
-            </p>
-            <button>Cancel Appointment</button>
+            <div *ngIf="appointmentDetails.status=='1'">
+                <button (click)="cancelAppointment(appointmentDetails.appointmentId)" >Cancel Appointment</button>
+            </div>
         </div>
         <div class="completed">
             <h3>Prescription details</h3>
-            <div class="prescription">
-                <div class="disease">
-                    <p><span class="content1 text-center">Disease</span></p>
-                    <p>{{medication.disease}}</p>
-                    <br>
-                    <p><span class="content1 text-center">Elaboration</span></p>
-                    <p>{{medication.description1}}</p>
-                    <p>{{medication.description2}}</p>
-                    <p>{{medication.description3}}</p>
-                    <p>{{medication.description4}}</p>
-                </div>
-                <div class="medication text-center">
-                    <p><span class="content1">Medication</span></p>
-                    <p>{{medication.medicine1}}</p>
-                    <p>{{medication.prefer1}}</p>
-                    <br>
-                    <p>{{medication.medicine2}}</p>
-                    <p>{{medication.prefer2}}</p>
-                    <br>
-                    <p>{{medication.medicine3}}</p>
-                    <p>{{medication.pefer3}}</p>
-                </div>
-            </div>
+            <form class="my-4">
+                <label for="disease">Disease:</label>
+                <input type="text" name="disease" class="form-control" [(ngModel)]="appointmentDetails.diseases">
+                <label for="disease">Elaboration:</label>
+                <textarea name="elaboration" cols="30" rows="4" class="form-control" name="elaboration"
+                    value="{{appointmentDetails.elaboration}}" [(ngModel)]="appointmentDetails.elaboration"></textarea>
+                <label for="disease">Medication:</label>
+                <textarea name="elaboration" cols="30" rows="6" class="form-control" name="medication"
+                    [(ngModel)]="appointmentDetails.medication"></textarea>
+            </form>
         </div>
     </div>
 </div>

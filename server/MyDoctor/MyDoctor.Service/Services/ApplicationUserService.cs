@@ -112,7 +112,7 @@ namespace MyDoctor.Service.Services
             var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user == null)
             {
-                response.AddError(nameof(dto.Email), "Email not found");
+                response.AddError("", "Email not found");
                 return response;
             }
 
@@ -161,6 +161,7 @@ namespace MyDoctor.Service.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"),
+                new Claim(ClaimTypes.Actor, master[0].ToString()),
                 new Claim(ClaimTypes.Role, role),
                 new Claim("Role", role),
                 new Claim("UserId", user.Id),

@@ -9,6 +9,8 @@ namespace MyDoctor.Service.Dto
     public class AppointmentDoctorDto
     {
         public int? Id { get; set; }
+
+        public int? patientId { get; set; }
         public string Date { get; set; }
 
         public string Time { get; set; }
