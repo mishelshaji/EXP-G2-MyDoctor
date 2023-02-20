@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDoctor.Service.Migrations
 {
-    public partial class CreateTables : Migration
+    public partial class createDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,19 +64,6 @@ namespace MyDoctor.Service.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Department", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Diseases",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DiseaseName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Diseases", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -278,9 +265,9 @@ namespace MyDoctor.Service.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AppointmentId = table.Column<int>(type: "int", nullable: false),
-                    DiseaseId = table.Column<int>(type: "int", nullable: false),
-                    Elaboration = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    Medication = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    Disease = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Elaboration = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: true),
+                    Medication = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -289,12 +276,6 @@ namespace MyDoctor.Service.Migrations
                         name: "FK_Consultations_Appointments_AppointmentId",
                         column: x => x.AppointmentId,
                         principalTable: "Appointments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Consultations_Diseases_DiseaseId",
-                        column: x => x.DiseaseId,
-                        principalTable: "Diseases",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -375,11 +356,6 @@ namespace MyDoctor.Service.Migrations
                 column: "AppointmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Consultations_DiseaseId",
-                table: "Consultations",
-                column: "DiseaseId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_DoctorMaster_ApplicationUserId",
                 table: "DoctorMaster",
                 column: "ApplicationUserId");
@@ -420,9 +396,6 @@ namespace MyDoctor.Service.Migrations
 
             migrationBuilder.DropTable(
                 name: "Appointments");
-
-            migrationBuilder.DropTable(
-                name: "Diseases");
 
             migrationBuilder.DropTable(
                 name: "DoctorMaster");

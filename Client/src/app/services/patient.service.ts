@@ -18,4 +18,12 @@ export class PatientService {
   searchResult(searchValue: string) {
     return this.http.get<PatientHomeSearchDto>(this.url + '?searchValue=' + searchValue);
   }
+
+  doctorDetailsAppointmentDetails(doctorId: number){
+    return this.http.get(`https://localhost:7238/api/Patient/Home/DoctorDetails?id=${doctorId}`)
+  }
+
+  consultationAppointmentDetails(appointmentId: number){
+    return this.http.get(`https://localhost:7238/api/Patient/Home/AppointmentDetails?id=${appointmentId}`)
+  }
 }

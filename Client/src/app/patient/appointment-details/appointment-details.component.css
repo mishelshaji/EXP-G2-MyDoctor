@@ -4,8 +4,6 @@
 
 .main {
     background-color: whitesmoke;
-    display: flex;
-    height: 120vh;
     margin: 0;
 }
 
@@ -80,7 +78,7 @@ p {
     column-gap: 50px;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .doctor {
         height: 60vh;
     }
@@ -130,4 +128,4 @@ p {
     .completed {
         height: 30vh;
     }
-}
+} */

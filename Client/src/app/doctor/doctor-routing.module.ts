@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: 'leave', component: LeaveComponent },
       { path: 'appointments', component: AppointmentsComponent },
       { path: 'profile', component: DoctorProfileComponent },
-      { path: 'appointment-details', component: AppointmentDetailsComponent }
+      { path: 'appointment-details/:appointmentId/:patientId', component: AppointmentDetailsComponent }
     ]
   }
 ];

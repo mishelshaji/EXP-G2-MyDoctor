@@ -28,6 +28,7 @@ namespace MyDoctor.Service.Services
                 .Select(d => new AppointmentDoctorDto()
                 {
                     Id = d.Id,
+                    patientId = d.PatientsMasterId,
                     Date = d.Date,
                     Time = d.FromTime,
                     PatientName = d.PatientsMaster.ApplicationUser.FirstName + ' ' + d.PatientsMaster.ApplicationUser.LastName,
@@ -44,6 +45,7 @@ namespace MyDoctor.Service.Services
                 .Select(d => new AppointmentDoctorDto()
                 {
                     Id = d.Id,
+                    patientId = d.PatientsMasterId,
                     Date = d.Date,
                     Time = d.FromTime,
                     PatientName = d.PatientsMaster.ApplicationUser.FirstName + ' ' + d.PatientsMaster.ApplicationUser.LastName,
@@ -59,10 +61,12 @@ namespace MyDoctor.Service.Services
                 .Where(c => c.Id == id)
                 .Select(d => new PatientDetailsDto()
                 {
+                    patientId = d.Id,
                     Name = d.ApplicationUser.FirstName + ' ' + d.ApplicationUser.LastName,
                     Email = d.ApplicationUser.Email,
                     PhoneNumber = d.PhoneNumber,
-                    EmergencyPhoneNumber = d.EmergencyContactNumber
+                    EmergencyPhoneNumber = d.EmergencyContactNumber,
+                    userId = d.ApplicationUserId
                 });
             response.Result = res.ToList();
             return response;
@@ -71,41 +75,56 @@ namespace MyDoctor.Service.Services
         public async Task<ServiceResponse<bool>>UpdatePrescriptionAsync(int id, PrescriptionDto dto)
         {
             var response = new ServiceResponse<bool>();
-            //var appointment = await _db.Appointments.FindAsync(id);
-            //appointment.DiseaseId = dto.Disease;
-            //appointment.Elaboration = dto.Elaboration;
-            //appointment.Medication = dto.Medication;
-            var consultation = new Consultation()
+            var result =_db.Consultations.FirstOrDefault(m => m.AppointmentId == id);
+            if (result == null)
             {
-                AppointmentId = id,
-                DiseaseId = dto.Disease,
-                Elaboration = dto.Elaboration,
-                Medication = dto.Medication,
-            };
-            _db.Consultations.Add(consultation);
-            await _db.SaveChangesAsync();
-            return new ServiceResponse<bool> 
-            { 
-                Result = true 
-            };
+                response.AddError("", "Failed to find source");
+                return response;
+            }
+            result.Disease = dto.Diseases;
+            result.Elaboration = dto.Elaboration;
+            result.Medication = dto.Medication;
+            _db.SaveChanges();
+
+            var status = _db.Appointments.FirstOrDefault(m => m.Id== id);
+            status.Status = 2;
+            _db.SaveChanges();
+            return response;
         }
 
-        public async Task<ServiceResponse<List<ConsultationDetailsDto>>> GetConsultationDetailsAsync (int id)
+        public async Task<ServiceResponse<List<ConsultationDetailsDto>>> GetAppointmentDetailsForDoctors(int id)
         {
             var response = new ServiceResponse<List<ConsultationDetailsDto>>();
-            var res = _db.Consultations
-                .Where(m => m.Id == id)
-                .Select(d => new ConsultationDetailsDto()
+            var res = _db.Consultations.Where(m => m.AppointmentId == id)
+                .Select( c => new ConsultationDetailsDto()
                 {
-                    AppointmentId = d.AppointmentId,
-                    Date = d.Appointment.Date,
-                    FromTime = d.Appointment.FromTime,
-                    Status = d.Appointment.Status,
-                    Disease = d.Disease.DiseaseName,
-                    Elaboration = d.Elaboration,
-                    Medication = d.Medication,
-                });
-            response.Result = res.ToList();
+                    AppointmentId = c.AppointmentId,
+                    ConsultationId = c.Id,
+                    Date = c.Appointment.Date,
+                    FromTime = c.Appointment.FromTime,
+                    Status = c.Appointment.Status,
+                    Diseases = c.Disease,
+                    Medication = c.Medication,
+                    Elaboration = c.Elaboration,
+                }).ToList();
+            response.Result = res;
+            return response;
+        }
+
+        public async Task<ServiceResponse<List<PatientAppointmentsDto>>> GetAppointmentHistoryAsync(string id)
+        {
+            var response = new ServiceResponse<List<PatientAppointmentsDto>>();
+            response.Result = _db.Appointments
+                .Where(m => m.DoctorMaster.ApplicationUserId == id)
+                .Select(d => new PatientAppointmentsDto
+                {
+                    AppointmentId = d.Id,
+                    status = d.Status,
+                    Date = d.Date,
+                    Time = d.FromTime,
+                    PatientId = d.PatientsMaster.Id,
+                    PatientName = d.PatientsMaster.ApplicationUser.FirstName + ' ' + d.PatientsMaster.ApplicationUser.LastName,
+                }).ToList();
             return response;
         }
     }

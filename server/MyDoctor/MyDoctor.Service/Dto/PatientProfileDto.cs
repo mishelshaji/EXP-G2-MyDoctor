@@ -27,5 +27,6 @@ namespace MyDoctor.Service.Dto
         public long? EmergencyContactNumber { get; set; }
 
         public string? Relationship { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CartSharp.Domain.Types;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -18,13 +19,25 @@ namespace MyDoctor.WebApp.Areas.Doctor
         {
             _doctorService = doctorService;
         }
-
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(typeof(AppointmentDoctorDto),statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetTodayAppointments(int id)
+        public async Task<IActionResult> GetTodayAppointments()
         {
-            var res = await _doctorService.GetTodayAppointmentsAsync(id);
+            var masterId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.Actor));
+            var res = await _doctorService.GetTodayAppointmentsAsync(masterId);
+            return Ok(res);
+        }
+
+        [Authorize]
+        [HttpGet("history")]
+        [ProducesResponseType(typeof(PatientAppointmentsDto), statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetAppointmentHistory()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var res = await _doctorService.GetAppointmentHistoryAsync(id);
             return Ok(res);
         }
     }

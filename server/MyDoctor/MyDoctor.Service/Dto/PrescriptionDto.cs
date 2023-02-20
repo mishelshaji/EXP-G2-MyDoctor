@@ -8,10 +8,10 @@ namespace MyDoctor.Service.Dto
 {
     public class PrescriptionDto
     {
-        public int Disease { get; set; } = 0;
+        public string? Diseases { get; set; } 
 
-        public string Elaboration { get; set; } = string.Empty;
+        public string? Elaboration { get; set; }
 
-        public string Medication { get; set; } = string.Empty;
+        public string? Medication { get; set; }
     }
 }

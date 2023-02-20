@@ -39,11 +39,11 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of upcomingAppointments" class="row bg-light rounded">
-                    <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.id}}</th>
+                    <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.appointmentId}}</th>
                     <td class="col-5 col-lg-2">{{item.date}}</td>
                     <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
-                    <td class="col-4">{{item.doctor}}</td>
-                    <td class="col-1 col-lg-2"><button class="btn btn-warning">View details</button></td>
+                    <td class="col-4">{{item.doctorName}}</td>
+                    <td class="col-1 col-lg-2"><button class="btn btn-warning" (click)="saveData(item.doctorId, item.appointmentId)">View details</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -63,12 +63,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of completedAppointments" class="row bg-light rounded">
-                    <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.id}}</th>
+                  <tr *ngFor="let item of previousAppointments" class="row bg-light rounded">
+                    <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.appointmentId}}</th>
                     <td class="col-5 col-lg-2">{{item.date}}</td>
                     <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
-                    <td class="col-4">{{item.doctor}}</td>
-                    <td class="col-1 col-lg-2"><button class="btn btn-warning">View details</button></td>
+                    <td class="col-4">{{item.doctorName}}</td>
+                    <td class="col-1 col-lg-2"><button class="btn btn-warning" (click)="saveData(item.doctorId, item.appointmentId)">View details</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -89,11 +89,11 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of cancelledAppointments" class="row bg-light rounded">
-                    <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.id}}</th>
+                    <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.appointmentId}}</th>
                     <td class="col-5 col-lg-2">{{item.date}}</td>
                     <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
-                    <td class="col-4">{{item.doctor}}</td>
-                    <td class="col-1 col-lg-2"><button class="btn btn-warning">View details</button></td>
+                    <td class="col-4">{{item.doctorName}}</td>
+                    <td class="col-1 col-lg-2"><button class="btn btn-warning" (click)="saveData(item.doctorId, item.appointmentId)">View details</button></td>
                   </tr>
                 </tbody>
               </table>

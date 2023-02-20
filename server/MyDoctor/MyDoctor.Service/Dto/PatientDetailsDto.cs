@@ -8,6 +8,10 @@ namespace MyDoctor.Service.Dto
 {
     public class PatientDetailsDto
     {
+        public string? userId { get; set; }
+
+        public int? patientId { get; set; }
+
         public string Name { get; set; }
 
         public string Email { get; set; }
@@ -15,5 +19,7 @@ namespace MyDoctor.Service.Dto
         public long? PhoneNumber { get; set; }
 
         public long? EmergencyPhoneNumber { get; set; }
+
+        public string? DepartmentName { get; set; }
     }
 }
