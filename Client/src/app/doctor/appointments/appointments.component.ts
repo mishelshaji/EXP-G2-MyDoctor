@@ -72,7 +72,7 @@ export class AppointmentsComponent {
         for (let index = 0; index < res.result.length; index++) {
           const element = res.result[index];
           if(element.status == 2)
-            this.previousAppointments.push(element);
+            this.completedAppointments.push(element);
         }
       }
     });

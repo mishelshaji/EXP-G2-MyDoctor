@@ -19,8 +19,14 @@ export class PatientGuard implements CanActivate {
       
     const token = this.tokenHandler.getToken();
     if(token != null){
-      return true;
+      var role: string = this.tokenHandler.getRoleFromToken()
+      var mainroute = state.url.split('/')
+      console.log(role.toLowerCase());
+      if(role.toLowerCase() == mainroute[1]){
+        return true;
+      }
     }
+
     this.router.navigateByUrl('/');
     return false;
   }
