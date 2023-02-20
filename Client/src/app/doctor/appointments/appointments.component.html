@@ -11,7 +11,7 @@
                                 </li>
                                 <li class="w-100">
                                     <button class="nav-link px-0 align-middle text-success" (click)="clicked($event)" id="completed">
-                                        <span>completed Appoinments</span>
+                                        <span>Completed Appoinments</span>
                                     </button>
                                 </li>
                                 <li class="w-100">
@@ -48,7 +48,7 @@
                 </tbody>
               </table>
         </div>
-        <div class="d-none mt-3 ms-lg-3 h-100" id="previousdiv">
+        <div class="d-none mt-3 ms-lg-3 h-100" id="completeddiv">
             <table class="table ps-3">
                 <thead>
                     <caption class="w-100">
@@ -63,7 +63,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of previousAppointments" class="row bg-light rounded">
+                  <tr *ngFor="let item of completedAppointments" class="row bg-light rounded">
                     <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.appointmentId}}</th>
                     <td class="col-5 col-lg-2">{{item.date}}</td>
                     <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
