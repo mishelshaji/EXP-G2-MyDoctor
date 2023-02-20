@@ -16,6 +16,7 @@ namespace MyDoctor.Service.Services
         {
             _db = db;
         }
+
         public async Task<DoctorProfileDto> EditDoctorProfileAsync(int id, DoctorProfileDto dto)
         {
             var doctorMaster = await _db.DoctorMaster.FindAsync(id);

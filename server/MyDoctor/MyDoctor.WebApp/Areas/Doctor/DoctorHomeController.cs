@@ -31,6 +31,7 @@ namespace MyDoctor.WebApp.Areas.Doctor
             var res = await _doctorService.GetTodayAppointmentsAsync(id);
             return Ok(res);
         }
+
         [HttpPut]
         [ProducesResponseType(typeof(DoctorProfileDto[]), statusCode: StatusCodes.Status200OK)]
         public async Task<IActionResult> DoctorProfile(int id, DoctorProfileDto dto)
