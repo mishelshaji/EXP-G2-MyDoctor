@@ -14,9 +14,13 @@ namespace MyDoctor.WebApp.Areas.Doctor
     public class DoctorHomeController : DoctorBaseController
     {
         private readonly DoctorService _doctorService;
-        public DoctorHomeController(DoctorService doctorService)
+        private readonly DoctorProfileService _doctorProfileService;
+
+        public DoctorHomeController(DoctorService doctorService,
+                                     DoctorProfileService doctorProfileService)
         {
             _doctorService = doctorService;
+            _doctorProfileService = doctorProfileService;
         }
 
         [HttpGet]
@@ -26,6 +30,13 @@ namespace MyDoctor.WebApp.Areas.Doctor
         {
             var res = await _doctorService.GetTodayAppointmentsAsync(id);
             return Ok(res);
+        }
+        [HttpPut]
+        [ProducesResponseType(typeof(DoctorProfileDto[]), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> DoctorProfile(int id, DoctorProfileDto dto)
+        {
+            var res = await _doctorProfileService.EditDoctorProfileAsync(id, dto);
+            return Ok();
         }
     }
 }
