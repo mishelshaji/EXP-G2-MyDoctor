@@ -19,9 +19,12 @@
             <th scope="row" class=" d-none d-md-inline col-2">{{item.masterId}}</th>
             <td class="col-3">{{item.name}}</td>
             <td class="d-none d-lg-inline col-3">{{item.departmentName}}</td>
-            <td class="col-2"><button class="btn btn-success" (click)="approveDoctor($event)" value="{{item.masterId}}">Approve</button></td>
-            <td class="col-2 col-lg-2"><button class="btn btn-danger" (click)="declineDoctor($event)">Decline</button></td>
+            <td class="col-2"><button class="btn btn-success" (click)="approveDoctor($event)" [attr.data-uid]="item.masterId">Approve</button></td>
+            <td class="col-2 col-lg-2"><button class="btn btn-danger" (click)="declineDoctor($event)" [attr.data-uid]="item.masterId">Decline</button></td>
           </tr>
+          <div class="alert alert-info" *ngIf="newDoctors?.length === 0">
+            <h3 class="text-center">This list is empty!</h3>
+        </div>
         </tbody>
       </table>
 </main>

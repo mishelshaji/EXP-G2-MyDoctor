@@ -26,7 +26,7 @@ export class RegistrationApprovalComponent implements OnInit {
   }
 
   approveDoctor(event: any) {
-    this.masterId = event.target.value;
+    this.masterId = event.target.getAttribute('data-uid');
     var confirmation = confirm("Are you sure you want to approve this doctor?");
     if (confirmation == true)
       this.adminService.approveDoctor(this.masterId).subscribe({
@@ -40,7 +40,8 @@ export class RegistrationApprovalComponent implements OnInit {
   }
 
   declineDoctor(event: any) {
-    this.masterId = event.target.value;
+    this.masterId = event.target.getAttribute('data-uid');
+    alert(this.masterId)
     var confirmation = confirm("Are you sure you want to reject this doctor?");
     if (confirmation == true)
       this.adminService.declineDoctor(this.masterId).subscribe({

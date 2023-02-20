@@ -40,6 +40,8 @@ export class AdminService {
   }
 
   declineDoctor(id: number) {
-    return this.http.delete(this.url + '/Approval/Registration' + `/${id}`)
+    console.log(this.url + '/Approval/Registration' + `/${id}`)
+
+    return this.http.delete(this.url + '/Approval/Registration' + `/${id}`);
   }
 }

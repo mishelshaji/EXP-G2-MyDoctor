@@ -28,11 +28,11 @@
         </div>
         <div class="col-10 row">
             <h4 class="col-10">Other Details</h4>
-            <div class="col-10 col-lg-5 bg-success m-2 p-4 rounded">
+            <div class="clickable col-10 col-lg-5 bg-success m-2 p-4 rounded" [routerLink]="['../registration-approval']">
                 <h5>Pending registration approvals</h5>
                 <p>{{registrationApprovalsCount}}</p>
             </div>
-            <div class="col-10 col-lg-5 bg-success m-2 p-4 rounded">
+            <div class="clickable col-10 col-lg-5 bg-success m-2 p-4 rounded">
                 <h5>Pending leave approvals</h5>
                 <p>10</p>
             </div>
