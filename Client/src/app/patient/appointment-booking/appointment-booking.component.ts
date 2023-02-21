@@ -61,14 +61,14 @@ export class AppointmentBookingComponent implements OnInit {
 
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     var doctId = parseInt(this.route.snapshot.params['id']);
     this.appointmentService.getBookingData(doctId).subscribe({
       next: (res: any) => {
         this.doctorData = res.result[0]
       },
       error: (res: any) => {
-        alert("error")
+        alert("Something went wrong! Try again.")
         console.log(res);
       }
     })
@@ -86,13 +86,13 @@ export class AppointmentBookingComponent implements OnInit {
 
   getDate(date: any) {
     if (date == null)
-      alert("Select the date")
+      alert("Please select a date!")
     else {
       document.querySelector(".radioclass")?.classList.remove("d-none");
       document.querySelector(".appointment-book")?.classList.remove("d-none");
-      if(date.month < 10)
+      if (date.month < 10)
         this.dateChoosed = date.year + "-0" + date.month + "-" + date.day;
-      else 
+      else
         this.dateChoosed = date.year + "-" + date.month + "-" + date.day;
     }
   }
@@ -123,33 +123,35 @@ export class AppointmentBookingComponent implements OnInit {
 
   timeSelected(event: any) {
     this.timeChoosed = event.target.value
-    console.log(typeof (this.timeChoosed));
   }
 
   AddBookings() {
-    try {
-      this.postAppointmentBooking.doctorMasterId = this.doctorData.masterId;
-      this.postAppointmentBooking.date = this.dateChoosed;
-      this.postAppointmentBooking.fromTime = this.timeChoosed;
-      this.postAppointmentBooking.toTime = this.timeChoosed;
-      if (this.postAppointmentBooking.date != '' && this.postAppointmentBooking.fromTime != '' && this.postAppointmentBooking.doctorMasterId != null) {
-        this.appointmentService.AddBookings(this.postAppointmentBooking).subscribe({
-          next: (res: any) => {
-            alert("Booking successful. Please return to home page.")
-            this.router.navigateByUrl('/patient/home')
-          },
-          error: (res: any) => {
-            alert("Date and time is not selected")
-            console.log(res);
-          }
-        });
+    var confirmation = confirm("Are you sure you want to book the specified timeslot?");
+    if (confirmation) {
+      try {
+        this.postAppointmentBooking.doctorMasterId = this.doctorData.masterId;
+        this.postAppointmentBooking.date = this.dateChoosed;
+        this.postAppointmentBooking.fromTime = this.timeChoosed;
+        this.postAppointmentBooking.toTime = this.timeChoosed;
+        if (this.postAppointmentBooking.date != '' && this.postAppointmentBooking.fromTime != '' && this.postAppointmentBooking.doctorMasterId != null) {
+          this.appointmentService.AddBookings(this.postAppointmentBooking).subscribe({
+            next: (res: any) => {
+              alert("Booking successful! Please return to home page.")
+              this.router.navigateByUrl('/patient/home')
+            },
+            error: (res: any) => {
+              alert("Date and time is not selected")
+              console.log(res);
+            }
+          });
+        }
+        else {
+          alert("select the date and time")
+        }
       }
-      else {
-        alert("select the date and time")
+      catch {
+        alert("Date and time is not selected")
       }
-    }
-    catch {
-      alert("Date and time is not selected")
     }
   }
 }

@@ -28,11 +28,15 @@
         <div class="row px-4 w-100">
             <div class="result-item col-10 col-lg-4 ms-2 me-2 ms-lg-5 mb-4 mt-4 me-lg-5"
                 *ngFor="let item of resultItems">
-                <img src={{item.photo}} alt="" id="doctor-img">
+                <img src="../../../assets/images/doctor-avatar.png" alt="" id="doctor-img">
                 <p id="doc-name">Dr. {{item.name}}</p>
-                <p id="doc-dept">{{item.department}}</p>
+                <p id="doc-dept">{{item.departmentName}}</p>
                 <a id="view-doctor" (click)="saveData(item.id)">View Doctor</a>
             </div>
         </div>
+        <div class="alert alert-danger container" *ngIf="resultItems?.length === 0">
+            <h3 class="text-center">No search results!</h3>
+            <p class="text-center">Please try another department!</p>
+          </div>
     </div>
 </div>

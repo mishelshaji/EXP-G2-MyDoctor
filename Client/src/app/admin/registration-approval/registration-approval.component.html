@@ -1,30 +1,32 @@
 <main class="container bg-light h-100">
-    <div class="d-flex flex-column align-items-center bg-dark text-light">
-        <h3>Registration Approval</h3>
-        <p>List of Doctors awaiting for registration approval from administrator.</p>
-    </div>
-    <br><br>
-    <table class="table ps-3 ms-5 w-75">
-        <thead>
-          <tr class="row bg-dark text-light rounded">
-            <th scope="col" class=" d-none d-lg-inline col-2">S.No.</th>
-            <th scope="col" class="col-3">Doctor Name</th>
-            <th scope="col" class="d-none d-lg-inline col-3">Specialization</th>
-            <th scope="col" class="col-2">Approve</th>
-            <th scope="col" class="col-2 col-lg-2">Decline</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of newDoctors" class="row bg-light rounded">
-            <th scope="row" class=" d-none d-md-inline col-2">{{item.masterId}}</th>
-            <td class="col-3">{{item.name}}</td>
-            <td class="d-none d-lg-inline col-3">{{item.departmentName}}</td>
-            <td class="col-2"><button class="btn btn-success" (click)="approveDoctor($event)" [attr.data-uid]="item.masterId">Approve</button></td>
-            <td class="col-2 col-lg-2"><button class="btn btn-danger" (click)="declineDoctor($event)" [attr.data-uid]="item.masterId">Decline</button></td>
-          </tr>
-          <div class="alert alert-info" *ngIf="newDoctors?.length === 0">
-            <h3 class="text-center">This list is empty!</h3>
-        </div>
-        </tbody>
-      </table>
+  <div class="d-flex flex-column align-items-center bg-dark text-light">
+    <h3>Registration Approval</h3>
+    <p>List of Doctors awaiting for registration approval from administrator.</p>
+  </div>
+  <br><br>
+  <table class="table ps-3 ms-5 w-75">
+    <thead>
+      <tr class="row bg-dark text-light rounded">
+        <th scope="col" class=" d-none d-lg-inline col-2">S.No.</th>
+        <th scope="col" class="col-3">Doctor Name</th>
+        <th scope="col" class="d-none d-lg-inline col-3">Specialization</th>
+        <th scope="col" class="col-2">Approve</th>
+        <th scope="col" class="col-2 col-lg-2">Decline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of newDoctors" class="row bg-light rounded">
+        <th scope="row" class=" d-none d-md-inline col-2">{{item.masterId}}</th>
+        <td class="col-3">{{item.name}}</td>
+        <td class="d-none d-lg-inline col-3">{{item.departmentName}}</td>
+        <td class="col-2"><button class="btn btn-success" (click)="approveDoctor($event)"
+            [attr.data-uid]="item.masterId">Approve</button></td>
+        <td class="col-2 col-lg-2"><button class="btn btn-danger" (click)="declineDoctor($event)"
+            [attr.data-uid]="item.masterId">Decline</button></td>
+      </tr>
+      <div class="alert alert-info" *ngIf="newDoctors?.length === 0">
+        <h3 class="text-center">This list is empty!</h3>
+      </div>
+    </tbody>
+  </table>
 </main>

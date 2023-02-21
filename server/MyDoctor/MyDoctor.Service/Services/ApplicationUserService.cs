@@ -180,11 +180,13 @@ namespace MyDoctor.Service.Services
 
         public async Task<ServiceResponse<bool>> SendOtp(RegisterDto Receiver)
         {
+            string Email = _configuration["otp:mail"];
+            string password = _configuration["otp:password"];
             var response = new ServiceResponse<bool>();
             //creating the message in which we store message details
            MimeMessage message = new MimeMessage();
             //details of sender
-            message.From.Add(new MailboxAddress("Admin", "mydonorservice@gmail.com"));
+            message.From.Add(new MailboxAddress("Admin", Email));
             // details of reciever
             message.To.Add(new MailboxAddress("user", "rashirashidka2@gmail.com"));
             Random Random = new Random();
@@ -199,9 +201,6 @@ namespace MyDoctor.Service.Services
                         We Are Here To Help You With Any Kind Of Support
                         In Case Of Emergency.Feel Free To Contact Us."
             };
-
-            string Email = "mydonorservice@gmail.com";
-            string password = "yvtd hrkg gwtf utoh";
 
             // creating a mail client
             MailKit.Net.Smtp.SmtpClient client = new MailKit.Net.Smtp.SmtpClient();
