@@ -33,5 +33,7 @@ namespace MyDoctor.Domain.Models
         public string? Gender { get; set; }
 
         public int? Status { get; set; }
+
+        public double? Fee { get; set; }
     }
 }

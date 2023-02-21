@@ -12,7 +12,7 @@ using MyDoctor.Service.Data;
 namespace MyDoctor.Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230220053006_createDb")]
+    [Migration("20230220234905_createDb")]
     partial class createDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -271,6 +271,9 @@ namespace MyDoctor.Service.Migrations
                     b.Property<int?>("DoctorMasterId")
                         .HasColumnType("int");
 
+                    b.Property<double?>("Fee")
+                        .HasColumnType("float");
+
                     b.Property<string>("FromTime")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -406,6 +409,9 @@ namespace MyDoctor.Service.Migrations
                     b.Property<string>("DoctorLicenseNo")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<double?>("Fee")
+                        .HasColumnType("float");
 
                     b.Property<string>("Gender")
                         .HasMaxLength(10)

@@ -19,8 +19,11 @@ export class HomeComponent {
   ngOnInit() {
     this.AppointmentService.getTodaysAppointmentsForDoctor().subscribe({
       next: (res: any) => {
-        console.log(res.result);
+        console.log(res);
         this.appointments = res.result
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     });
   }

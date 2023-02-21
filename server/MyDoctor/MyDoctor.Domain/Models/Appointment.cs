@@ -25,5 +25,7 @@ namespace MyDoctor.Domain.Models
         public string ToTime { get; set; }
 
         public int Status { get; set; }
+
+        public double? Fee { get; set; }
     }
 }

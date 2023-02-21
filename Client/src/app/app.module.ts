@@ -14,6 +14,7 @@ import { OtpPageComponent } from './otp-page/otp-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { TokenInterceptor } from 'src/helpers/token.interceptor';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TokenInterceptor } from 'src/helpers/token.interceptor';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    OtpPageComponent
+    OtpPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

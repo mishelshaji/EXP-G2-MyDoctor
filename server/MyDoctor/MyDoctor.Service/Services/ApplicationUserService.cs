@@ -80,7 +80,7 @@ namespace MyDoctor.Service.Services
                     var UserStatus = await _userManager.CreateAsync(user, dto.Password);
                     if (!UserStatus.Succeeded)
                     {
-                        response.AddError("", "Failed to add items");
+                        response.AddError("", "Failed to add items.");
                         return response;
                     }
                     var rolestatus = await _userManager.AddToRoleAsync(user, dto.Role);
@@ -134,7 +134,7 @@ namespace MyDoctor.Service.Services
                 return response;
             }
 
-            response.AddError("", "Not able to login");
+            response.AddError("", "Not able to login. Recheck your Email and password");
             return response;
         }
 
@@ -226,6 +226,35 @@ namespace MyDoctor.Service.Services
                 // dispose client object
                 client.Dispose();
             }
+            return response;
+        }
+
+        public async Task<ServiceResponse<string>> AdminLogin(LoginDto dto)
+        {
+            var response = new ServiceResponse<string>();
+            string key = _configuration["Jwt:Key"];
+            string issuer = _configuration["Jwt:Issuer"];
+            string audience = _configuration["Jwt:Audience"];
+
+            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var credentials = new SigningCredentials(signingKey, "HS256");
+
+            var claims = new Claim[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, "admin"),
+                new Claim(ClaimTypes.Role, "Admin"),
+                new Claim("Role", "Admin"),
+                new Claim("UserId", "admin")
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                claims: claims,
+                audience: audience,
+                expires: DateTime.UtcNow + TimeSpan.FromDays(1),
+                signingCredentials: credentials
+                );
+            response.Result = new JwtSecurityTokenHandler().WriteToken(token);
             return response;
         }
     }

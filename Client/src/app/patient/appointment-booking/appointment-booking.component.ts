@@ -39,6 +39,8 @@ export class AppointmentBookingComponent implements OnInit {
   timeSlot: number | null;
   timeChoosed: string;
   dateChoosed: string;
+  feeWithTax: number;
+  feeInPeekTime: number;
   postAppointmentBooking = {
     doctorMasterId: null,
     date: '',
@@ -51,7 +53,8 @@ export class AppointmentBookingComponent implements OnInit {
     departmentName: '',
     email: '',
     id: '',
-    masterId: ''
+    masterId: '',
+    fee: 0
   };
 
   constructor(public i18n: NgbDatepickerI18n,
@@ -66,6 +69,8 @@ export class AppointmentBookingComponent implements OnInit {
     this.appointmentService.getBookingData(doctId).subscribe({
       next: (res: any) => {
         this.doctorData = res.result[0]
+        this.feeInPeekTime = this.doctorData.fee  +(this.doctorData.fee * 0.10);
+        this.feeWithTax = this.doctorData.fee  +(this.doctorData.fee * 0.05);
       },
       error: (res: any) => {
         alert("error")
@@ -114,8 +119,8 @@ export class AppointmentBookingComponent implements OnInit {
             obj.disabled = true;
           });
         },
-        error: res => {
-          console.log(res);
+        error: (res: any) => {
+          this.router.navigateByUrl('/error-page');
         }
       });
     }, 500);

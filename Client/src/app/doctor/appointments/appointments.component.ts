@@ -13,10 +13,10 @@ export class AppointmentsComponent {
   upcomingAppointments: any = [];
   completedAppointments: any = [];
   cancelledAppointments: any = [];
-  
+
   constructor(private AppointmentsService: AppointmentsService,
-              private tokenHandler: TokenHandler,
-              private router: Router) {
+    private tokenHandler: TokenHandler,
+    private router: Router) {
 
   }
 
@@ -59,11 +59,14 @@ export class AppointmentsComponent {
       next: (res: any) => {
         for (let index = 0; index < res.result.length; index++) {
           const element = res.result[index];
-          if(element.status == 1)
+          if (element.status == 1)
             this.upcomingAppointments.push(element);
-            console.log(element);
-            
+          console.log(element);
+
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     });
 
@@ -71,23 +74,30 @@ export class AppointmentsComponent {
       next: (res: any) => {
         for (let index = 0; index < res.result.length; index++) {
           const element = res.result[index];
-          if(element.status == 2)
+          if (element.status == 2)
             this.completedAppointments.push(element);
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     });
+    
     this.AppointmentsService.getCancelledAppointmentsForDoctor().subscribe({
       next: (res: any) => {
         for (let index = 0; index < res.result.length; index++) {
           const element = res.result[index];
-          if(element.status == 0)
+          if (element.status == 0)
             this.cancelledAppointments.push(element);
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
-    });;
+    });
   }
 
-  saveData(patientId: any, appointmentId: any){
+  saveData(patientId: any, appointmentId: any) {
     console.log("hello")
     this.router.navigateByUrl(`/doctor/appointment-details/${appointmentId}/${patientId}`)
   }

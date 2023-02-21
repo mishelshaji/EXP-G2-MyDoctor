@@ -23,6 +23,8 @@ namespace MyDoctor.Service.Dto
         public string? Elaboration { get; set; }
 
         public string? Medication { get; set; }
+
+        public double? Fee { get; set; }
     }
 }
 

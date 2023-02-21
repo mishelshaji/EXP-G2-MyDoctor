@@ -32,7 +32,8 @@ export class AppointmentDetailsComponent implements OnInit {
     elaboration: '',
     fromTime: '',
     medication: '',
-    status: ''
+    status: '',
+    fee: 0
   }
 
   constructor(private patientService: PatientService,
@@ -47,10 +48,11 @@ export class AppointmentDetailsComponent implements OnInit {
     this.patientService.doctorDetailsAppointmentDetails(this.doctorId).subscribe({
       next: (res: any) => {
         if (res.isValid) {
-          this.doctorDetails = res.result[0]
-          console.log(res.result[0]);
-          
+          this.doctorDetails = res.result[0] 
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     });
 
@@ -61,6 +63,9 @@ export class AppointmentDetailsComponent implements OnInit {
           this.appointmentDetails = res.result[0]
           console.log(this.appointmentDetails);
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     })
   }
@@ -68,11 +73,14 @@ export class AppointmentDetailsComponent implements OnInit {
   cancelAppointment(appointmentId: any){
     var id = parseInt(appointmentId)
     this.http.put(`https://localhost:7238/api/Patient/Home/cancelappointments?id=${id}`,0).subscribe({
-      next: res => {
+      next: (res: any) => {
+        if(res.isValid){
+          alert("Cancel Success")
+        }
         console.log(res);
       },
-      error: res => {
-        console.log(res);
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     })
   }
