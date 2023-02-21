@@ -8,11 +8,11 @@ namespace MyDoctor.Service.Dto
 {
     public class DoctorProfileDto
     {
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         public long? PhoneNumber { get; set; }
 
@@ -20,9 +20,11 @@ namespace MyDoctor.Service.Dto
 
         public string? Gender { get; set; }
 
-        public string DepartmentName { get; set; }
+        public string? DepartmentName { get; set; }
 
         public string? DoctorLicenseNo { get; set; }
+
+        public double? Fee { get; set; }
 
     }
 }

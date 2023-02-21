@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CartSharp.Domain.Types;
 using MyDoctor.Service.Data;
 using MyDoctor.Service.Dto;
 
@@ -17,31 +18,43 @@ namespace MyDoctor.Service.Services
             _db = db;
         }
 
-        public async Task<DoctorProfileDto> EditDoctorProfileAsync(int id, DoctorProfileDto dto)
+        public async Task<ServiceResponse<bool>> EditDoctorProfileAsync(int id, DoctorProfileDto dto)
         {
             var doctorMaster = await _db.DoctorMaster.FindAsync(id);
-            var applicationUser = await _db.ApplicationUsers.FindAsync(id);
-            applicationUser.FirstName = dto.FirstName;
+            var applicationUser = _db.ApplicationUsers.FirstOrDefault(m => m.Id == doctorMaster.ApplicationUserId);
+            applicationUser.FirstName= dto.FirstName;
             applicationUser.LastName = dto.LastName;
-            applicationUser.Email = dto.Email;
             doctorMaster.PhoneNumber = dto.PhoneNumber;
             doctorMaster.Gender = dto.Gender;
             doctorMaster.Dob = dto.Dob;
-            doctorMaster.DepartmentName = dto.DepartmentName;
             doctorMaster.DoctorLicenseNo = dto.DoctorLicenseNo;
+            doctorMaster.Fee = dto.Fee;
             await _db.SaveChangesAsync();
 
-            return new DoctorProfileDto
+            return new ServiceResponse<bool>
             {
-                FirstName = applicationUser.FirstName,
-                LastName = applicationUser.LastName,
-                Email = applicationUser.Email,
-                PhoneNumber = doctorMaster.PhoneNumber,
-                Gender = doctorMaster.Gender,
-                Dob = doctorMaster.Dob,
-                DepartmentName = doctorMaster.DepartmentName,
-                DoctorLicenseNo = doctorMaster.DoctorLicenseNo
+                Result = true
             };
+        }
+
+        public async Task<ServiceResponse<List<DoctorProfileDto>>> ViewDoctorProfileAsync(int id)
+        {
+            var response = new ServiceResponse<List<DoctorProfileDto>>();
+            response.Result = _db.DoctorMaster
+                .Where(m=>m.Id == id)
+                .Select(d=> new DoctorProfileDto
+                {
+                    FirstName = d.ApplicationUser.FirstName,
+                    LastName = d.ApplicationUser.LastName,
+                    Email = d.ApplicationUser.Email,
+                    Dob = d.Dob,
+                    DoctorLicenseNo = d.DoctorLicenseNo,
+                    Fee = d.Fee,
+                    Gender = d.Gender,
+                    DepartmentName = d.DepartmentName,
+                    PhoneNumber = d.PhoneNumber
+                }).ToList();
+            return response;
         }
     }
 }

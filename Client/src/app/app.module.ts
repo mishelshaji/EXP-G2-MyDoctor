@@ -17,6 +17,7 @@ import { TokenInterceptor } from 'src/helpers/token.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NetworkInterceptor } from 'src/helpers/network.interceptor';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     FontAwesomeModule,
     HttpClientModule,
     NgbDatepickerModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [
     TokenHandler,

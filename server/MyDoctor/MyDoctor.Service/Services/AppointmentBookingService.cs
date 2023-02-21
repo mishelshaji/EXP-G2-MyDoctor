@@ -31,7 +31,7 @@ namespace MyDoctor.Service.Services
                     DepartmentName = m.DepartmentName,
                     Email = m.ApplicationUser.Email,
                     PhoneNumber = m.PhoneNumber,
-                    fee = m.Fee
+                    Fee = m.Fee
                 }).ToArray();
             return response;
         }

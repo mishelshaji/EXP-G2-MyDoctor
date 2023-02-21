@@ -14,8 +14,6 @@ export class PatientService {
   }
 
   updateProfile(model: object) {
-    console.log(model);
-    
     return this.http.put('https://localhost:7238/api/Patient/Home/PatientProfileUpdate',model)
   }
 

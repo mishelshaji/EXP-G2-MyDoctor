@@ -32,7 +32,6 @@ namespace MyDoctor.Service.Services
             Console.WriteLine("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" + applicationUser);
             applicationUser.FirstName = dto.FirstName;
             applicationUser.LastName = dto.LastName;
-            applicationUser.Email = dto.Email;
             patientsMaster.Address = dto.Address;
             patientsMaster.PhoneNumber = dto.PhoneNumber;
             patientsMaster.EmergencyContactNumber = dto.EmergencyContactNumber;
