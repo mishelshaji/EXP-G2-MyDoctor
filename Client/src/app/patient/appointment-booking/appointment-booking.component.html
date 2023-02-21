@@ -1,11 +1,13 @@
 <div class="container-fluid fullscreen row">
-    <div class="col-lg-3 mt-3 doctor-info d-flex flex-column align-items-center">
+    <div class="col-lg-4 mt-3 doctor-info d-flex flex-column align-items-center">
         <h4>Doctor Details</h4><img src="./assets/images/doctor1png.png" alt="">
         <h5 name="docname">Dr.{{doctorData.name}}</h5>
         <p>{{doctorData.departmentName}}</p><br>
         <p>Email Address:</p>
         <p>{{doctorData.email}}</p>
-        <p> Fee: 300</p><br>
+        <p>Actual Fee: {{doctorData.fee}}.RS</p><br>
+        <p>Fee including tax(5%): {{feeWithTax}}.RS</p><br>;
+        <p>Fee in peak hours(9:00AM - 11PM): {{feeInPeekTime}}.RS</p><br>
     </div>
     <div class="col-lg-8">
         <br>

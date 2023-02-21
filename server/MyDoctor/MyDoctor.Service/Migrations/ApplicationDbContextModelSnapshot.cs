@@ -269,6 +269,9 @@ namespace MyDoctor.Service.Migrations
                     b.Property<int?>("DoctorMasterId")
                         .HasColumnType("int");
 
+                    b.Property<double?>("Fee")
+                        .HasColumnType("float");
+
                     b.Property<string>("FromTime")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -404,6 +407,9 @@ namespace MyDoctor.Service.Migrations
                     b.Property<string>("DoctorLicenseNo")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<double?>("Fee")
+                        .HasColumnType("float");
 
                     b.Property<string>("Gender")
                         .HasMaxLength(10)

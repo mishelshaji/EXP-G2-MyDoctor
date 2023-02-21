@@ -30,7 +30,8 @@ namespace MyDoctor.Service.Services
                     Name = m.ApplicationUser.FirstName + ' ' + m.ApplicationUser.LastName,
                     DepartmentName = m.DepartmentName,
                     Email = m.ApplicationUser.Email,
-                    PhoneNumber = m.PhoneNumber
+                    PhoneNumber = m.PhoneNumber,
+                    fee = m.Fee
                 }).ToArray();
             return response;
         }
@@ -63,6 +64,18 @@ namespace MyDoctor.Service.Services
             var response = new ServiceResponse<Array>();
             try
             {
+                var doctor = _db.DoctorMaster.FirstOrDefault(m => m.Id == dto.DoctorMasterId);
+                double actualFee = Convert.ToDouble(doctor.Fee);
+                double appointmentFee;
+                if(dto.FromTime == "9:00" || dto.FromTime == "9:30" || dto.FromTime == "10:00" 
+                    || dto.FromTime == "10:30" || dto.FromTime == "11:00")
+                {
+                    appointmentFee = actualFee +(actualFee * 0.05 * 0.10);
+                }
+                else
+                {
+                    appointmentFee = actualFee +(actualFee * 0.05);
+                }
                 var user = new Appointment()
                 {
                     DoctorMasterId = dto.DoctorMasterId,
@@ -71,6 +84,7 @@ namespace MyDoctor.Service.Services
                     FromTime = dto.FromTime,
                     ToTime = dto.ToTime,
                     Status = dto.Status,
+                    Fee = appointmentFee
                 };
                 _db.Appointments.Add(user);
                 _db.SaveChanges();

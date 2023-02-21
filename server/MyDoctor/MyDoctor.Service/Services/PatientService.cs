@@ -83,6 +83,7 @@ namespace MyDoctor.Service.Services
                     Diseases = c.Disease,
                     Medication = c.Medication,
                     Elaboration = c.Elaboration,
+                    Fee = c.Appointment.Fee
                 }).ToList();
             response.Result = res;
             return response;

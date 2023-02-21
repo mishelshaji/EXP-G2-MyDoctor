@@ -43,6 +43,9 @@ export class AppointmentDetailsComponent {
         if (res.isValid) {
           this.patientDetails = res.result[0]
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     });
 
@@ -53,6 +56,9 @@ export class AppointmentDetailsComponent {
           this.appointmentDetails = res.result[0]
           console.log(this.appointmentDetails);
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     })
   }
@@ -67,6 +73,9 @@ export class AppointmentDetailsComponent {
         else {
           alert(res.errors[""]);
         }
+      },
+      error: (res: any) => {
+        this.router.navigateByUrl('/error-page');
       }
     });
   }

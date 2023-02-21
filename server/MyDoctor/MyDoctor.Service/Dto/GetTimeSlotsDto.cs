@@ -13,5 +13,7 @@ namespace MyDoctor.Service.Dto
         public string date { get; set; }
 
         public int status { get; set; } 
+
+        public int fee { get; set; }
     }
 }

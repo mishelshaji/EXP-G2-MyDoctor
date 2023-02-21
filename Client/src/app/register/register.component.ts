@@ -46,6 +46,9 @@ export class RegisterComponent {
           this.Router.navigateByUrl('/otp');
         else
           alert("error occured")
+      },
+      error: (res: any) => {
+        this.Router.navigateByUrl('/error-page')
       }
     })
   }

@@ -20,5 +20,7 @@ namespace MyDoctor.Service.Dto
 
         public long? PhoneNumber { get; set; }
 
+        public double? fee { get; set; }
+
     }
 }

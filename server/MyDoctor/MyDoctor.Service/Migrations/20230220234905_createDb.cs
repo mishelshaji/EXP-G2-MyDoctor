@@ -211,7 +211,8 @@ namespace MyDoctor.Service.Migrations
                     Dob = table.Column<DateTime>(type: "datetime2", nullable: true),
                     PhoneNumber = table.Column<long>(type: "bigint", nullable: true),
                     Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: true)
+                    Status = table.Column<int>(type: "int", nullable: true),
+                    Fee = table.Column<double>(type: "float", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -241,7 +242,8 @@ namespace MyDoctor.Service.Migrations
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FromTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ToTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    Fee = table.Column<double>(type: "float", nullable: true)
                 },
                 constraints: table =>
                 {

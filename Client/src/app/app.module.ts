@@ -16,6 +16,7 @@ import { TokenHandler } from 'src/helpers/tokenHandler';
 import { TokenInterceptor } from 'src/helpers/token.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NetworkInterceptor } from 'src/helpers/network.interceptor';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NetworkInterceptor } from 'src/helpers/network.interceptor';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    OtpPageComponent
+    OtpPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

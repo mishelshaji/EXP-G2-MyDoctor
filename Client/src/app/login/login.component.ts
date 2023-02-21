@@ -34,13 +34,16 @@ export class LoginComponent implements OnInit {
           else if (role == "Doctor") {
             this.Router.navigateByUrl('/doctor/home');
           }
+          else if (role == "Admin") {
+            this.Router.navigateByUrl('/admin')
+          }
         }
-        else{
-          console.log(res);
-          console.log(res.errors);
-          
+        else {
           alert(res.errors[""][0]);
         }
+      },
+      error: (res: any) => {
+        this.Router.navigateByUrl('/error-page');
       }
     })
   }
