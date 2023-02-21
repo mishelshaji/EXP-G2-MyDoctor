@@ -13,7 +13,7 @@ export class PatientProfileComponent {
     dob: '',
     gender: '',
     email: '',
-    phone: '',
+    phoneNumber: 0,
     address: '',
     phone2: '',
     relationship: '',
@@ -23,8 +23,22 @@ export class PatientProfileComponent {
   constructor(private patientServices: PatientService) {
 
   }
+
+  ngOnInit(){
+    this.patientServices.getPatientProfile().subscribe({
+      next: (res: any) => {
+        this.model = res.result;
+      }
+    })
+  }
+
   saveData() {
-    this.patientServices.updateProfile(this.model);
+    this.patientServices.updateProfile(this.model).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        
+      }
+    });
   }
 }
 

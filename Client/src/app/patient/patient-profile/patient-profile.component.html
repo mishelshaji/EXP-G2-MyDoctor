@@ -41,7 +41,7 @@
                     <label for="email">E-mail:</label>
                     <input type="email" name="email" id="email"#email="ngModel" 
                     [(ngModel)]="model.email" required minlength="5" maxlength="70"
-                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" disabled>
                 <div class="text-danger" *ngIf="email.invalid && email.touched">
                     <div *ngIf="email.errors?.['minlength']">Email is too short.</div>
                     <div *ngIf="email.errors?.['required']">Email is required.</div>
@@ -50,7 +50,7 @@
                 </div>                
                     <label for="tel">Phone No:</label>
                     <input type="tel" id="phone" name="phone" #phone="ngModel"
-                    [(ngModel)]="model.phone" pattern="[0-9]+" maxlength="10" required>
+                    [(ngModel)]="model.phoneNumber" pattern="[0-9]+" maxlength="10" required>
                     <div class="text-danger" *ngIf="phone.invalid && phone.touched">
                         <div *ngIf="phone.errors?.['required']">phone is required.</div>
                         <div *ngIf="phone.errors?.['maxlength']">phone is too long.</div>
@@ -68,7 +68,7 @@
 
                         <label for="phone">Emergency Phone Number:</label>
                         <input type="tel" id="phone-2" name="phone-2" #phone2="ngModel"
-                        [(ngModel)]="model.phone" pattern="[0-9]+" maxlength="10" required>
+                        [(ngModel)]="model.phone2" pattern="[0-9]+" maxlength="10" required>
                     <div class="text-danger" *ngIf="phone.invalid && phone.touched">
                         <div *ngIf="phone2.errors?.['required']">phone is required.</div>
                         <div *ngIf="phone2.errors?.['maxlength']">phone is too long.</div>
