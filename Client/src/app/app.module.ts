@@ -17,6 +17,8 @@ import { TokenInterceptor } from 'src/helpers/token.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NetworkInterceptor } from 'src/helpers/network.interceptor';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     FontAwesomeModule,
     HttpClientModule,
     NgbDatepickerModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [
     TokenHandler,

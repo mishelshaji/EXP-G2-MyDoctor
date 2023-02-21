@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TokenHandler } from 'src/helpers/tokenHandler';
 
 @Component({
   selector: 'app-error-page',
@@ -10,10 +11,12 @@ export class ErrorPageComponent {
  
   error: any;
 
-  constructor(private route: ActivatedRoute) {
-   console.log(this.route.params)
-    this.error = route.snapshot.params['error'];
-    console.log(this.error);
+  constructor(private route: ActivatedRoute,
+              private tokenHandler: TokenHandler) {
     
+  }
+
+  ngOnInit(){
+    this.tokenHandler.removeToken()
   }
 }

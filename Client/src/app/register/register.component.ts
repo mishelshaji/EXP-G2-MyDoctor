@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DepartmentsService } from '../services/departments.service';
 import { RegisterationService } from '../services/registeration.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +35,6 @@ export class RegisterComponent {
       },
       error: res => {
       console.log(res);
-      
       }
     })
   }
@@ -45,10 +45,14 @@ export class RegisterComponent {
         if (res)
           this.Router.navigateByUrl('/otp');
         else
-          alert("error occured")
+          Swal.fire("error occured")
       },
       error: (res: any) => {
-        this.Router.navigateByUrl('/error-page')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Internal server error!',
+        })
       }
     })
   }

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { RegisterationService } from '../services/registeration.service';
 import { Router } from '@angular/router';
-// import { Swal }from 'sweetalert2/dist/sweetalert2.js';
-import 'sweetalert2/src/sweetalert2.scss'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 @Component({
   selector: 'app-login',
@@ -41,17 +40,20 @@ export class LoginComponent implements OnInit {
           }
         }
         else {
-          alert(res.errors[""][0]);
+          Swal.fire(
+            'Did you entered the correct email ?',
+            res.errors[""][0],
+            'question'
+          )
+         
         }
       },
       error: (res: any) => {
-        // Swal.fire({
-        //   icon: 'error',
-        //   title: 'Oops...',
-        //   text: 'Something went wrong!',
-        //   footer: '<a href="">Why do I have this issue?</a>'
-        // })
-        this.Router.navigateByUrl('/error-page');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Internal server error!',
+        })
       }
     })
   }

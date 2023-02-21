@@ -5,6 +5,7 @@ import { ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppointmentsService } from 'src/app/services/appointments.service';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-appointment-booking',
@@ -69,12 +70,15 @@ export class AppointmentBookingComponent implements OnInit {
     this.appointmentService.getBookingData(doctId).subscribe({
       next: (res: any) => {
         this.doctorData = res.result[0]
-        this.feeInPeekTime = this.doctorData.fee  +(this.doctorData.fee * 0.10);
-        this.feeWithTax = this.doctorData.fee  +(this.doctorData.fee * 0.05);
+        this.feeInPeekTime = this.doctorData.fee + (this.doctorData.fee * 0.10);
+        this.feeWithTax = this.doctorData.fee + (this.doctorData.fee * 0.05);
       },
       error: (res: any) => {
-        alert("Something went wrong! Try again.")
-        console.log(res);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Internal server error!',
+        })
       }
     })
   }
@@ -91,7 +95,11 @@ export class AppointmentBookingComponent implements OnInit {
 
   getDate(date: any) {
     if (date == null)
-      alert("Please select a date!")
+      Swal.fire(
+        'Did you selected the date?',
+        'Try once more',
+        'question'
+      )
     else {
       document.querySelector(".radioclass")?.classList.remove("d-none");
       document.querySelector(".appointment-book")?.classList.remove("d-none");
@@ -131,32 +139,38 @@ export class AppointmentBookingComponent implements OnInit {
   }
 
   AddBookings() {
-    var confirmation = confirm("Are you sure you want to book the specified timeslot?");
-    if (confirmation) {
-      try {
-        this.postAppointmentBooking.doctorMasterId = this.doctorData.masterId;
-        this.postAppointmentBooking.date = this.dateChoosed;
-        this.postAppointmentBooking.fromTime = this.timeChoosed;
-        this.postAppointmentBooking.toTime = this.timeChoosed;
-        if (this.postAppointmentBooking.date != '' && this.postAppointmentBooking.fromTime != '' && this.postAppointmentBooking.doctorMasterId != null) {
-          this.appointmentService.AddBookings(this.postAppointmentBooking).subscribe({
-            next: (res: any) => {
-              alert("Booking successful! Please return to home page.")
-              this.router.navigateByUrl('/patient/home')
-            },
-            error: (res: any) => {
-              alert("Date and time is not selected")
-              console.log(res);
-            }
-          });
-        }
-        else {
-          alert("select the date and time")
-        }
+    try {
+      this.postAppointmentBooking.doctorMasterId = this.doctorData.masterId;
+      this.postAppointmentBooking.date = this.dateChoosed;
+      this.postAppointmentBooking.fromTime = this.timeChoosed;
+      this.postAppointmentBooking.toTime = this.timeChoosed;
+      if (this.postAppointmentBooking.date != '' && this.postAppointmentBooking.fromTime != '' && this.postAppointmentBooking.doctorMasterId != null) {
+        this.appointmentService.AddBookings(this.postAppointmentBooking).subscribe({
+          next: (res: any) => {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Booking successful!',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.router.navigateByUrl('/patient/home')
+          },
+          error: (res: any) => {
+            Swal.fire(
+              'Did you select both Time & date?',
+              'Date/time is not selected',
+              'question'
+            )
+          }
+        });
       }
-      catch {
-        alert("Date and time is not selected")
+      else {
+        Swal.fire("select the date and time")
       }
+    }
+    catch {
+      Swal.fire("Date and time is not selected")
     }
   }
 }

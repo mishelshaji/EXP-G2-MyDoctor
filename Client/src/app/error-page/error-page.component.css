@@ -1,33 +1,13 @@
 main {
-    background: url('../../assets/images/DOCTOR3.jpg');
-    background-size: cover;
-    margin: 0;
-    padding: 50px;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }
 
-div {
-    background-color: rgba(61, 255, 61, 0.619);
-    height: 50vh;
-    width: 50%;
-    margin: 50px;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    font-family: sans-serif;
-    border-radius: 30px;
+img {
+    width: 40%;
+    padding: 5%;
 }
 
-/* h1 {
-    color: white;
+h1 {
+    font-size: xx-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-p {
-    color: white;
-    font-family: sans-serif
-} */

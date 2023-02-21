@@ -33,7 +33,9 @@ namespace MyDoctor.Service.Services
                     Date = d.Date,
                     Time = d.FromTime,
                     PatientName = d.PatientsMaster.ApplicationUser.FirstName + ' ' + d.PatientsMaster.ApplicationUser.LastName,
+                    DoctorName = d.DoctorMaster.ApplicationUser.FirstName
                 }).ToList();
+
             response.Result = res;
             return response;
         }
