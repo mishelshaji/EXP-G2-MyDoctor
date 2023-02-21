@@ -184,7 +184,7 @@ namespace MyDoctor.Service.Services
             //creating the message in which we store message details
            MimeMessage message = new MimeMessage();
             //details of sender
-            message.From.Add(new MailboxAddress("Admin", "mydonorservice@gmail.com"));
+            message.From.Add(new MailboxAddress("Admin", "mydoctor29@gmail.com"));
             // details of reciever
             message.To.Add(new MailboxAddress("user", "rashirashidka2@gmail.com"));
             Random Random = new Random();
@@ -200,8 +200,8 @@ namespace MyDoctor.Service.Services
                         In Case Of Emergency.Feel Free To Contact Us."
             };
 
-            string Email = "mydonorservice@gmail.com";
-            string password = "yvtd hrkg gwtf utoh";
+            string Email = "mydoctor29@gmail.com";
+            string password = "cplx uehq pdcs jnbr";
 
             // creating a mail client
             MailKit.Net.Smtp.SmtpClient client = new MailKit.Net.Smtp.SmtpClient();
