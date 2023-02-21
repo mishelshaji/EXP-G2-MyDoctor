@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from 'src/app/services/doctor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-appointment-details',
@@ -67,7 +68,13 @@ export class AppointmentDetailsComponent {
     this.doctorService.updateConsultationData(this.appointmentId, this.appointmentDetails).subscribe({
       next: (res: any) => {
         if (res.isValid) {
-          alert("BOOking success full");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Prescription added successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.router.navigateByUrl('/doctor/home')
         }
         else {

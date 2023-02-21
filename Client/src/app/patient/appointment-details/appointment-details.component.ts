@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppointmentsService } from 'src/app/services/appointments.service';
 import { PatientService } from 'src/app/services/patient.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-appointment-details',
@@ -48,7 +49,7 @@ export class AppointmentDetailsComponent implements OnInit {
     this.patientService.doctorDetailsAppointmentDetails(this.doctorId).subscribe({
       next: (res: any) => {
         if (res.isValid) {
-          this.doctorDetails = res.result[0] 
+          this.doctorDetails = res.result[0]
         }
       },
       error: (res: any) => {
@@ -70,19 +71,53 @@ export class AppointmentDetailsComponent implements OnInit {
     })
   }
 
-  cancelAppointment(appointmentId: any){
-    var id = parseInt(appointmentId)
-    this.http.put(`https://localhost:7238/api/Patient/Home/cancelappointments?id=${id}`,0).subscribe({
-      next: (res: any) => {
-        if(res.isValid){
-          alert("Cancel Success")
-        }
-        console.log(res);
+  cancelAppointment(appointmentId: any) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
       },
-      error: (res: any) => {
-        this.router.navigateByUrl('/error-page');
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, cancel it!',
+      cancelButtonText: 'No!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your Appointment has been cancelled.',
+          'success'
+        )
+        var id = parseInt(appointmentId)
+        this.http.put(`https://localhost:7238/api/Patient/Home/cancelappointments?id=${id}`, 0).subscribe({
+          next: (res: any) => {
+            if (res.isValid) {
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Cancel success',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              location.reload();
+            }
+            console.log(res);
+          },
+          error: (res: any) => {
+            this.router.navigateByUrl('/error-page');
+          }
+        })
       }
     })
+
+
   }
 }
 

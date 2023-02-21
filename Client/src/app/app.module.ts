@@ -17,6 +17,7 @@ import { TokenInterceptor } from 'src/helpers/token.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NetworkInterceptor } from 'src/helpers/network.interceptor';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     NgbDatepickerModule,
     MatProgressSpinnerModule,
+    SweetAlert2Module.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [

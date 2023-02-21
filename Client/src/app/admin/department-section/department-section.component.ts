@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { window } from 'rxjs';
 import { DepartmentsService } from 'src/app/services/departments.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-department-section',
@@ -9,7 +10,7 @@ import { DepartmentsService } from 'src/app/services/departments.service';
 })
 export class DepartmentSectionComponent {
   masterId: number;
-  i:any = 0;
+  i: any = 0;
   model = {
     departmentName: '',
     description: ''
@@ -30,18 +31,25 @@ export class DepartmentSectionComponent {
   }
 
   getNextNumber() {
-    var k = this.i+1
+    var k = this.i + 1
     return k;
   }
 
   addDepartment() {
     this.departmentService.addNewDepartment(this.model).subscribe({
       next: () => {
-        alert("Department added successfully!");
-        location.reload();
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Department added successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(()=>{
+          location.reload();
+        })
       },
       error: () => {
-        alert("Adding department failed!");
+        Swal.fire("Adding department failed!");
       }
     });
   }

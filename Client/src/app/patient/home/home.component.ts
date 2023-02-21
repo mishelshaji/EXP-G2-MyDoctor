@@ -7,6 +7,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -46,7 +47,7 @@ export class HomeComponent implements OnInit {
         this.resultItems = res.result;
       },
       error: (res: any) => {
-        alert("Wrong Search!");
+        Swal.fire("Wrong Search!");
       }
     });
   }

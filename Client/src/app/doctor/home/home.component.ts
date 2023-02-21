@@ -21,6 +21,8 @@ export class HomeComponent {
       next: (res: any) => {
         console.log(res);
         this.appointments = res.result
+        console.log(this.appointments);
+        
       },
       error: (res: any) => {
         this.router.navigateByUrl('/error-page');
