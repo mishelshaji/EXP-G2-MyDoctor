@@ -1,2 +1,6 @@
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+<ng-container *ngIf="loading$ | async">
+  <div class="overlay"></div>
+  <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+</ng-container>
