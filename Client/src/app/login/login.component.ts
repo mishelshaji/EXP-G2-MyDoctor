@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TokenHandler } from 'src/helpers/tokenHandler';
 import { RegisterationService } from '../services/registeration.service';
 import { Router } from '@angular/router';
+// import { Swal }from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss'
 
 @Component({
   selector: 'app-login',
@@ -43,6 +45,12 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (res: any) => {
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Oops...',
+        //   text: 'Something went wrong!',
+        //   footer: '<a href="">Why do I have this issue?</a>'
+        // })
         this.Router.navigateByUrl('/error-page');
       }
     })
