@@ -12,8 +12,6 @@ namespace MyDoctor.Service.Dto
 
         public string LastName { get; set; }
 
-        public string Email { get; set; }
-
         public long? PhoneNumber { get; set; }
 
         public DateTime? Dob { get; set; }

@@ -25,7 +25,6 @@ namespace MyDoctor.Service.Services
             var applicationUser = await _db.ApplicationUsers.FindAsync(id);
             applicationUser.FirstName = dto.FirstName;
             applicationUser.LastName = dto.LastName;
-            applicationUser.Email = dto.Email;
             patientsMaster.Address = dto.Address;
             patientsMaster.PhoneNumber = dto.PhoneNumber;
             patientsMaster.EmergencyContactNumber = dto.EmergencyContactNumber;
@@ -39,7 +38,6 @@ namespace MyDoctor.Service.Services
             {
                 FirstName = applicationUser.FirstName,
                 LastName = applicationUser.LastName,
-                Email = applicationUser.Email,
                 Gender = patientsMaster.Gender,
                 Address = patientsMaster.Address,
                 PhoneNumber = patientsMaster.PhoneNumber,

@@ -12,15 +12,15 @@ export class DoctorService {
   }
 
   getAll() {
-    return this.doctors;
+    return this.http.get('https://localhost:7238/api/Doctor/DoctorHome/Profile');
   }
   
   getSearchDetails(index: number) {
     return this.doctors[index];
   }
 
-  updateProfile(model: any) {
-    console.log(model);
+  updateProfile(model: object) {
+    return this.http.put('https://localhost:7238/api/Doctor/DoctorHome/Profile', model);
   }
 
   patientDetailsAppointmentDetails(patientId: number){

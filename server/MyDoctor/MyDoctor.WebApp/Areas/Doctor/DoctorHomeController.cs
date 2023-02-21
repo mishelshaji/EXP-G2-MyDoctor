@@ -25,7 +25,7 @@ namespace MyDoctor.WebApp.Areas.Doctor
         }
         [Authorize]
         [HttpGet]
-        [ProducesResponseType(typeof(AppointmentDoctorDto),statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AppointmentDoctorDto), statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetTodayAppointments()
         {
@@ -45,12 +45,23 @@ namespace MyDoctor.WebApp.Areas.Doctor
             return Ok(res);
         }
 
-        [HttpPut]
-        [ProducesResponseType(typeof(DoctorProfileDto[]), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> DoctorProfile(int id, DoctorProfileDto dto)
+        [HttpGet("Profile")]
+        [ProducesResponseType(typeof(DoctorProfileDto), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll()
         {
+            var id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.Actor));
+            var res = await _doctorProfileService.ViewDoctorProfileAsync(id);
+            return Ok(res);
+        }
+            
+
+        [HttpPut("Profile")]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> DoctorProfile(DoctorProfileDto dto)
+        {
+            var id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.Actor));
             var res = await _doctorProfileService.EditDoctorProfileAsync(id, dto);
-            return Ok();
+            return Ok(res);
         }
     }
 }

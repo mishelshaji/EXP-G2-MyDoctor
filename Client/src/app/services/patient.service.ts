@@ -11,9 +11,7 @@ export class PatientService {
 
   constructor(private http: HttpClient) { }
 
-  updateProfile(model: object) {
-    console.log(model);
-  }
+  updateProfile(model: object) { }
 
   searchResult(searchValue: string) {
     return this.http.get<PatientHomeSearchDto>(this.url + '?searchValue=' + searchValue);
