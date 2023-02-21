@@ -45,6 +45,9 @@
                     <td class="col-4">{{item.doctorName}}</td>
                     <td class="col-1 col-lg-2"><button class="btn btn-warning" (click)="saveData(item.doctorId, item.appointmentId)">View details</button></td>
                   </tr>
+                  <div class="alert alert-danger" *ngIf="upcomingAppointments?.length === 0">
+                    <h3 class="text-center">No scheduled appointments yet!</h3>
+                  </div>
                 </tbody>
               </table>
         </div>
@@ -70,6 +73,9 @@
                     <td class="col-4">{{item.doctorName}}</td>
                     <td class="col-1 col-lg-2"><button class="btn btn-warning" (click)="saveData(item.doctorId, item.appointmentId)">View details</button></td>
                   </tr>
+                  <div class="alert alert-danger" *ngIf="previousAppointments?.length === 0">
+                    <h3 class="text-center">No completed appointments yet!</h3>
+                  </div>
                 </tbody>
               </table>
         </div>
@@ -95,6 +101,9 @@
                     <td class="col-4">{{item.doctorName}}</td>
                     <td class="col-1 col-lg-2"><button class="btn btn-warning" (click)="saveData(item.doctorId, item.appointmentId)">View details</button></td>
                   </tr>
+                  <div class="alert alert-danger" *ngIf="cancelledAppointments?.length === 0">
+                    <h3 class="text-center">No cancelled appointments yet!</h3>
+                  </div>
                 </tbody>
               </table>
         </div>
