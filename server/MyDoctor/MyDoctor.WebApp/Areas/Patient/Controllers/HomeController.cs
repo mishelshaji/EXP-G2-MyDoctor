@@ -33,12 +33,24 @@ namespace MyDoctor.WebApp.Areas.Patient.Controllers
             return Ok(res);
         }
 
-        [HttpPut]
+        [HttpPut("PatientProfileUpdate")]
         [ProducesResponseType(typeof(PatientProfileDto[]), statusCode: StatusCodes.Status200OK)]
-        public async Task<IActionResult> PatientProfile(int id, PatientProfileDto dto)
+        public async Task<IActionResult> PatientProfileUpdate(PatientProfileDto dto)
         {
-            var res = await _patientProfileService.EditPatientProfileAsync(id, dto);
-            return Ok();
+            var id2 = Convert.ToInt32(User.FindFirstValue(ClaimTypes.Actor));
+            Console.WriteLine(id2);
+            var res = await _patientProfileService.EditPatientProfileAsync(id2, dto);
+            return Ok(res);
+        }
+
+        [HttpGet("GetPatientProfile")]
+        [ProducesResponseType(typeof(PatientProfileDto[]), statusCode: StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetPatientProfile()
+        {
+            var id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.Actor));
+            Console.WriteLine(id);
+            var res = await _patientProfileService.GetPatientProfile(id);
+            return Ok(res);
         }
 
 
