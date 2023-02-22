@@ -34,8 +34,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of upcomingAppointments" class="row bg-light rounded">
-            <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.appointmentId}}</th>
+          <tr *ngFor="let item of upcomingAppointments; let i=index" class="row bg-light rounded">
+            <th scope="row" class=" d-none d-md-inline col-lg-1">{{i+1}}</th>
             <td class="col-5 col-lg-2">{{item.date}}</td>
             <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
             <td class="col-4">{{item.patientName}}</td>
@@ -61,8 +61,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of completedAppointments" class="row bg-light rounded">
-            <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.appointmentId}}</th>
+          <tr *ngFor="let item of completedAppointments; let i=index" class="row bg-light rounded">
+            <th scope="row" class=" d-none d-md-inline col-lg-1">{{i+1}}</th>
             <td class="col-5 col-lg-2">{{item.date}}</td>
             <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
             <td class="col-4">{{item.patientName}}</td>
@@ -88,8 +88,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of cancelledAppointments" class="row bg-light rounded">
-            <th scope="row" class=" d-none d-md-inline col-lg-1">{{item.appointmentId}}</th>
+          <tr *ngFor="let item of cancelledAppointments; let i=index" class="row bg-light rounded">
+            <th scope="row" class=" d-none d-md-inline col-lg-1">{{i+1}}</th>
             <td class="col-5 col-lg-2">{{item.date}}</td>
             <td class="d-none d-lg-inline col-lg-2">{{item.time}}</td>
             <td class="col-4">{{item.patientName}}</td>
