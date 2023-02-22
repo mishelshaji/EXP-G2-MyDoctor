@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { RegisterationService } from '../services/registeration.service';
 
 @Component({
@@ -20,11 +21,11 @@ export class OtpPageComponent {
     this.RegisterService.registerUser(otp).subscribe({
       next: (res: any) => {
         if (res.isValid) {
-          alert("Your OTP Verification has been successful. Please login using your credentials.")
+          Swal.fire("Your OTP Verification has been successful. Please login using your credentials.")
           this.Router.navigateByUrl("")
         }
         else
-          alert("Error in OTP Verification!");
+          Swal.fire("Error in OTP Verification!");
         console.log(res);
       }
     })

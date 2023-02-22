@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PatientService } from 'src/app/services/patient.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-patient-profile',
@@ -19,12 +20,12 @@ export class PatientProfileComponent {
     relationship: '',
     bloodgroup: ''
   }
-  
+
   constructor(private patientServices: PatientService) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.patientServices.getPatientProfile().subscribe({
       next: (res: any) => {
         this.model = res.result;
@@ -35,8 +36,15 @@ export class PatientProfileComponent {
   saveData() {
     this.patientServices.updateProfile(this.model).subscribe({
       next: (res: any) => {
-        console.log(res);
-        
+        if (res.isValid) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your profile updated successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
       }
     });
   }

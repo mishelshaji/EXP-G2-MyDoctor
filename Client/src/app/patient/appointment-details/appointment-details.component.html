@@ -24,9 +24,6 @@
             <p>Appointment Fee:
                 <span class="content">{{appointmentDetails.fee}}</span>
             </p>
-            <p>Status:
-                <span class="content">{{appointmentDetails.status}}</span>
-            </p>
             <div *ngIf="appointmentDetails.status=='1'">
                 <button (click)="cancelAppointment(appointmentDetails.appointmentId)" >Cancel Appointment</button>
             </div>
