@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
 })
 export class DepartmentSectionComponent {
   masterId: number;
-  i: any = 0;
   model = {
     departmentName: '',
     description: ''
@@ -28,11 +27,6 @@ export class DepartmentSectionComponent {
         this.departments = res.result;
       }
     })
-  }
-
-  getNextNumber() {
-    var k = this.i + 1
-    return k;
   }
 
   addDepartment() {

@@ -15,7 +15,7 @@
         <table class="table ps-3 ms-5 w-75">
             <thead>
               <tr class="row bg-dark text-light rounded">
-                <th scope="col" class=" d-none d-md-inline col-1 col-md-1">Id</th>
+                <th scope="col" class=" d-none d-md-inline col-1 col-md-1">S.No.</th>
                 <th scope="col" class="col-4 col-md-2">Date</th>
                 <th scope="col" class="d-none d-md-inline col-md-2">Time</th>
                 <th scope="col" class="col-4">Patient's Name</th>
@@ -23,8 +23,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of appointments" class="row bg-light rounded">
-                <th scope="row" class=" d-none d-md-inline col-md-1">{{item.id}}</th>
+              <tr *ngFor="let item of appointments; let i=index" class="row bg-light rounded">
+                <th scope="row" class=" d-none d-md-inline col-md-1">{{i+1}}</th>
                 <td class="col-4 col-md-2">{{item.date}}</td>
                 <td class="d-none d-md-inline col-md-2">{{item.time}}</td>
                 <td class="col-4">{{item.patientName}}</td>
