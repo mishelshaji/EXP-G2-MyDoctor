@@ -67,10 +67,10 @@ namespace MyDoctor.Service.Services
                 var doctor = _db.DoctorMaster.FirstOrDefault(m => m.Id == dto.DoctorMasterId);
                 double actualFee = Convert.ToDouble(doctor.Fee);
                 double appointmentFee;
-                if(dto.FromTime == "9:00" || dto.FromTime == "9:30" || dto.FromTime == "10:00" 
+                if(dto.FromTime == "09:00" || dto.FromTime == "09:30" || dto.FromTime == "10:00" 
                     || dto.FromTime == "10:30" || dto.FromTime == "11:00")
                 {
-                    appointmentFee = actualFee +(actualFee * 0.05 * 0.10);
+                    appointmentFee = actualFee +(actualFee * 0.05) +(actualFee * 0.10);
                 }
                 else
                 {

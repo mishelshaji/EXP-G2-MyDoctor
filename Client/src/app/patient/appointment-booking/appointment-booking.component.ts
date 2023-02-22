@@ -70,7 +70,7 @@ export class AppointmentBookingComponent implements OnInit {
     this.appointmentService.getBookingData(doctId).subscribe({
       next: (res: any) => {
         this.doctorData = res.result[0]
-        this.feeInPeekTime = this.doctorData.fee + (this.doctorData.fee * 0.10);
+        this.feeInPeekTime = this.doctorData.fee + (this.doctorData.fee * 0.10) + (this.doctorData.fee * 0.05);
         this.feeWithTax = this.doctorData.fee + (this.doctorData.fee * 0.05);
       },
       error: (res: any) => {

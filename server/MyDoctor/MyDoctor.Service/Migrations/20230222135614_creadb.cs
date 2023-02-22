@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDoctor.Service.Migrations
 {
-    public partial class CreateTable : Migration
+    public partial class creadb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

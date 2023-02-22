@@ -23,7 +23,7 @@
             <div class="inputdiv">
                 <label for="lastname" class="me-lg-5">Last Name :</label>
                 <input type="text" name="lastname" placeholder="Enter last name" class="form-control" id="lastname"
-                    #lname="ngModel" [(ngModel)]="model.lastName" required minlength="3" maxlength="25"
+                    #lname="ngModel" [(ngModel)]="model.lastName" required minlength="1" maxlength="25"
                     pattern="[a-zA-Z][a-zA-Z ]+">
                 <div class="text-danger" *ngIf="lname.invalid && lname.touched">
                     <div *ngIf="lname.errors?.['minlength']">Last Name is too short.</div>

@@ -9,36 +9,6 @@ export class AppointmentsService {
 
   url = 'https://localhost:7238/api/Patient/Appointment'
   
-  doctorDetails = {
-    name: 'Dr.Raj Kumar',
-    department: 'Dentistry',
-    email: 'rajkumar@gmail.com',
-    phone: '8905XXXXXX'
-  }
-
-  appointmentDetails = {
-    appointmentno: '123',
-    date: '24-02-2023',
-    time: '2:30',
-    status: 'true',
-    fee: '300'
-  }
-
-  prescription = {
-    disease: 'Influenza',
-    description1: 'Difficulty breathing',
-    description2: 'Chest pain',
-    description3: 'Seizures',
-    description4: 'Dizziness',
-    medicine1: 'Expectorant - 1 tablet',
-    medicine2: 'Paracetamol-1 tablet',
-    medicine3: 'Vitamin C - 500g',
-    prefer1: '2 times per day (after food)',
-    prefer2: '2 times per day(after food)',
-    pefer3: 'Once per day(after food)'
-
-  }
-
   constructor(private http: HttpClient,
     private tokenHandler: TokenHandler) {
 
@@ -84,5 +54,17 @@ export class AppointmentsService {
   AddBookings(model: any) {
     model.patientMasterId = parseInt(this.tokenHandler.getMasterId());
     return this.http.post(this.url, model);
+  }
+
+  timeConvert (time: any) {
+    // Check correct time format and split into components
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { // If time format correct
+      time = time.slice (1);  // Remove full string match value
+      time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join (''); // return adjusted time or original string
   }
 }

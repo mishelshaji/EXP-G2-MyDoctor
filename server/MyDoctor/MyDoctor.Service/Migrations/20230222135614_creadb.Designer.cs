@@ -12,8 +12,8 @@ using MyDoctor.Service.Data;
 namespace MyDoctor.Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230222044009_CreateTable")]
-    partial class CreateTable
+    [Migration("20230222135614_creadb")]
+    partial class creadb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

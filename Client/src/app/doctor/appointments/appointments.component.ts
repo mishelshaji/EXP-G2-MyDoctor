@@ -61,9 +61,10 @@ export class AppointmentsComponent {
           const element = res.result[index];
           if (element.status == 1)
             this.upcomingAppointments.push(element);
-          console.log(element);
-
         }
+        this.upcomingAppointments.forEach((element: any) => {
+          element.time = this.AppointmentsService.timeConvert(element.time)
+        });
       },
       error: (res: any) => {
         this.router.navigateByUrl('/error-page');
@@ -77,6 +78,9 @@ export class AppointmentsComponent {
           if (element.status == 2)
             this.completedAppointments.push(element);
         }
+        this.completedAppointments.forEach((element: any) => {
+          element.time = this.AppointmentsService.timeConvert(element.time)
+        });
       },
       error: (res: any) => {
         this.router.navigateByUrl('/error-page');
@@ -90,6 +94,9 @@ export class AppointmentsComponent {
           if (element.status == 0)
             this.cancelledAppointments.push(element);
         }
+        this.cancelledAppointments.forEach((element: any) => {
+          element.time = this.AppointmentsService.timeConvert(element.time)
+        });
       },
       error: (res: any) => {
         this.router.navigateByUrl('/error-page');

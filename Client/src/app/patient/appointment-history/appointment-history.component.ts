@@ -59,7 +59,10 @@ export class AppointmentHistoryComponent {
           if (element.status == 1) {
             this.upcomingAppointments.push(element);
           }
-        });
+        })
+        this.upcomingAppointments.forEach((elemenet: any) => {
+          elemenet.time = this.AppointmentsService.timeConvert(elemenet.time)
+        })
       },
       error: (res: any) => {
         this.router.navigateByUrl('/error-page');
@@ -73,6 +76,9 @@ export class AppointmentHistoryComponent {
             this.previousAppointments.push(element);
           }
         });
+        this.previousAppointments.forEach((elemenet: any) => {
+          elemenet.time = this.AppointmentsService.timeConvert(elemenet.time)         
+        })
       },
       error: (res: any) => {
         this.router.navigateByUrl('/error-page');
@@ -86,6 +92,9 @@ export class AppointmentHistoryComponent {
             this.cancelledAppointments.push(element);
           }
         });
+        this.cancelledAppointments.forEach((elemenet: any) => {
+          elemenet.time = this.AppointmentsService.timeConvert(elemenet.time)          
+        })
       },
       error: (res: any) => {
         this.router.navigateByUrl('/error-page');
