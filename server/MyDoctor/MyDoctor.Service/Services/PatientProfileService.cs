@@ -27,9 +27,7 @@ namespace MyDoctor.Service.Services
         {
             var response = new ServiceResponse<bool>();
             var patientsMaster = _db.PatientsMaster.FirstOrDefault(m => m.Id == id);
-            Console.WriteLine(patientsMaster);
             var applicationUser = await _userManager.FindByIdAsync(patientsMaster.ApplicationUserId);
-            Console.WriteLine("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" + applicationUser);
             applicationUser.FirstName = dto.FirstName;
             applicationUser.LastName = dto.LastName;
             patientsMaster.Address = dto.Address;

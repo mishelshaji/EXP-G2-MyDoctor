@@ -26,5 +26,7 @@ namespace MyDoctor.Service.Dto
 
         public string? Relationship { get; set; }
 
+        public string? Email { get; set; }
+
     }
 }

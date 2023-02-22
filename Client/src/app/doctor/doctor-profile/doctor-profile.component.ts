@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -38,8 +39,13 @@ export class DoctorProfileComponent {
   saveData() {
     this.doctorServices.updateProfile(this.model).subscribe({
       next: (res: any) => {
-        console.log(res.result);
-        
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
       },
       error: (res: any) => {
         console.log(res.error);
