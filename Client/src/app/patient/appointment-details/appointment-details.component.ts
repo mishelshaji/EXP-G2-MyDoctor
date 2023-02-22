@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 
 export class AppointmentDetailsComponent implements OnInit {
 
+  displayTime: any;
   doctorId: number;
   appointmentId: any;
   doctorDetails = {
@@ -40,7 +41,8 @@ export class AppointmentDetailsComponent implements OnInit {
   constructor(private patientService: PatientService,
     private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private appointmentService: AppointmentsService) {
 
   }
 
@@ -60,9 +62,11 @@ export class AppointmentDetailsComponent implements OnInit {
     this.appointmentId = parseInt(this.route.snapshot.params['appointmentId'])
     this.patientService.consultationAppointmentDetails(this.appointmentId).subscribe({
       next: (res: any) => {
-        if (res.isValid) {
-          this.appointmentDetails = res.result[0]
+        if (res.isValid) {          
+          this.appointmentDetails = res.result[0];
           console.log(this.appointmentDetails);
+          
+          this.displayTime = this.appointmentService.timeConvert(this.appointmentDetails.fromTime);
         }
       },
       error: (res: any) => {
@@ -116,8 +120,6 @@ export class AppointmentDetailsComponent implements OnInit {
         })
       }
     })
-
-
   }
 }
 

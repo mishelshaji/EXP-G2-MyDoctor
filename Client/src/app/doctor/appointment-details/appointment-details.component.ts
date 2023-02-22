@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppointmentsService } from 'src/app/services/appointments.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import Swal from 'sweetalert2';
 
@@ -10,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class AppointmentDetailsComponent {
 
+  displayTime: any;
   patientId: number;
   appointmentId: number;
   patientDetails = {
@@ -34,7 +36,8 @@ export class AppointmentDetailsComponent {
 
   constructor(private doctorService: DoctorService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private appointmentServe: AppointmentsService) {
 
   }
   ngOnInit() {
@@ -55,7 +58,7 @@ export class AppointmentDetailsComponent {
       next: (res: any) => {
         if (res.isValid) {
           this.appointmentDetails = res.result[0]
-          console.log(this.appointmentDetails);
+          this.displayTime = this.appointmentServe.timeConvert(this.appointmentDetails.fromTime)
         }
       },
       error: (res: any) => {

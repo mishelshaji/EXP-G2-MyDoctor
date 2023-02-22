@@ -46,9 +46,12 @@ button {
     box-shadow: 10px 5px 5px rgb(151, 143, 143);
 }
 
-h4 {
+h3 {
     text-decoration: 1px solid underline;
     margin: 20px 0 20px 0;
+    color:#07bc92;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
 }
 
 h2 {
@@ -57,6 +60,10 @@ h2 {
 
 p {
     margin-bottom: 10px;
+}
+
+#details-header {
+    color:#E64A7A;
 }
 
 .completed {
@@ -86,11 +93,11 @@ p {
         font-size: 12px;
     }
 
-    h4 {
+    h3 {
         font-size: large;
     }
 
-    h5 {
+    h4 {
         font-size: medium;
     }
 

@@ -39,8 +39,8 @@ export class RegistrationApprovalComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
+          'success!',
+          'Doctor has been approved successfully',
           'success'
         )
         this.adminService.approveDoctor(this.masterId).subscribe({

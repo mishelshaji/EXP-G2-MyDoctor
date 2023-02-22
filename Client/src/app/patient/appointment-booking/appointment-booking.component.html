@@ -5,9 +5,9 @@
         <p>{{doctorData.departmentName}}</p><br>
         <p>Email Address:</p>
         <p>{{doctorData.email}}</p>
-        <p>Actual Fee: {{doctorData.fee}}.RS</p><br>
-        <p>Fee including tax(5%): {{feeWithTax}}.RS</p><br>;
-        <p>Fee in peak hours(9:00AM - 11PM): {{feeInPeekTime}}.RS</p><br>
+        <p>Actual Fee: {{doctorData.fee | currency:'INR'}}</p><br>
+        <p>Fee including tax(5%): {{feeWithTax | currency:'INR'}}</p><br>
+        <p>Fee in peak hours(9:00AM - 11PM): {{feeInPeekTime | currency:'INR'}}</p><br>
     </div>
     <div class="col-lg-8">
         <br>
@@ -52,9 +52,9 @@
         </div>
         <br>
         <div *ngIf="timeSlot==0" class="time-slots-area row row-cols-4">
-            <button class="time-slot col-lg-3 p-1 m-1" value="9:00" id="9:00" (click)="timeSelected($event)">9:00 AM to
+            <button class="time-slot col-lg-3 p-1 m-1" value="09:00" id="09:00" (click)="timeSelected($event)">9:00 AM to
                 9:30AM</button>
-            <button class="time-slot col-lg-3 p-1 m-1" value="9:30" id="9:30" (click)="timeSelected($event)">9:30 AM to
+            <button class="time-slot col-lg-3 p-1 m-1" value="09:30" id="09:30" (click)="timeSelected($event)">9:30 AM to
                 10:00AM</button>
             <button class="time-slot col-lg-3 p-1 m-1" value="10:00" id="10:00" (click)="timeSelected($event)">10:00 AM
                 to 10:30AM</button>

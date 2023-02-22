@@ -1,12 +1,16 @@
 <div class="main row">
     <div class="mt-5 mb-3 doctor col-10 col-lg-3">
         <h4>Doctor Details</h4>
-        <img src="./assets/images/doctor1png.png" alt="">
-        <h5>{{doctorDetails.name}}</h5>
+        <img src="./../../../assets/images/doctor-avatar.png" alt="">
+        <h5>Dr. {{doctorDetails.name}}</h5>
         <p>{{doctorDetails.departmentName}}</p>
-        <br>
+        <hr>
         <p>Email:</p>
         <p>{{doctorDetails.email}}</p>
+        <hr>
+        <p>Phone Number:</p>
+        <p *ngIf="doctorDetails.phoneNumber">{{doctorDetails.phoneNumber}}</p>
+        <p *ngIf="!doctorDetails.phoneNumber">Not Updated</p>
         <br>
     </div>
     <div class="container col-10 col-lg-8">
@@ -19,10 +23,10 @@
                 <span class="content">{{appointmentDetails.date}}</span>
             </p>
             <p>Time:
-                <span class="content">{{appointmentDetails.fromTime}}</span>
+                <span class="content">{{displayTime}}</span>
             </p>
             <p>Appointment Fee:
-                <span class="content">{{appointmentDetails.fee}}</span>
+                <span class="content">{{appointmentDetails.fee | currency: 'INR'}}</span>
             </p>
             <div *ngIf="appointmentDetails.status=='1'">
                 <button (click)="cancelAppointment(appointmentDetails.appointmentId)" >Cancel Appointment</button>
@@ -32,13 +36,13 @@
             <h3>Prescription details</h3>
             <form class="my-4">
                 <label for="disease">Disease:</label>
-                <input type="text" name="disease" class="form-control" [(ngModel)]="appointmentDetails.diseases">
+                <input type="text" name="disease" class="form-control" [(ngModel)]="appointmentDetails.diseases" disabled>
                 <label for="disease">Elaboration:</label>
                 <textarea name="elaboration" cols="30" rows="4" class="form-control" name="elaboration"
-                    value="{{appointmentDetails.elaboration}}" [(ngModel)]="appointmentDetails.elaboration"></textarea>
+                    value="{{appointmentDetails.elaboration}}" [(ngModel)]="appointmentDetails.elaboration" disabled></textarea>
                 <label for="disease">Medication:</label>
                 <textarea name="elaboration" cols="30" rows="6" class="form-control" name="medication"
-                    [(ngModel)]="appointmentDetails.medication"></textarea>
+                    [(ngModel)]="appointmentDetails.medication" disabled></textarea>
             </form>
         </div>
     </div>

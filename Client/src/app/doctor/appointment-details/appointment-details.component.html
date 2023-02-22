@@ -1,15 +1,14 @@
 <div class="container-fluid">
     <div class="main row">
         <div class="mt-5 mb-3 patient-details col-lg-3">
-            <h4>Patient Details</h4>
-            <h5>{{patientDetails.name}}</h5>
+            <h3>Patient Details</h3>
+            <h4>{{patientDetails.name}}</h4>
             <br>
-            <p class="pt-2">Email Address:</p>
+            <p id="details-header" class="pt-2">Email Address:</p>
             <p>{{patientDetails.email}}</p>
-            <p class="pt-2">Contact Number:</p>
-            <p>{{patientDetails.phoneNumber}}</p>
-            <p class="pt-2">Emergency Contact:</p>
-            <p>{{patientDetails.emergencyPhoneNumber}}</p>
+            <p id="details-header" class="pt-2">Contact Number:</p>
+            <p *ngIf="patientDetails.phoneNumber">{{patientDetails.phoneNumber}}</p>
+            <p *ngIf="!patientDetails.phoneNumber">Not updated</p>
         </div>
         <div class="container row col-12 col-lg-6">
             <div class="details mb-3 col-10">
@@ -21,7 +20,7 @@
                     <span class="content">{{appointmentDetails.date}}</span>
                 </p>
                 <p>Time:
-                    <span class="content">{{appointmentDetails.fromTime}}</span>
+                    <span class="content">{{displayTime}}</span>
                 </p>
             </div>
             <div class="completed col-10">
@@ -29,11 +28,11 @@
                     <h4>Edit Prescription</h4>
                     <form (ngSubmit)="saveData()">
                         <label for="disease">Disease:</label>
-                        <input type="text" name="disease" class="form-control" [(ngModel)]="appointmentDetails.diseases">
+                        <input type="text" name="disease" class="form-control" [(ngModel)]="appointmentDetails.diseases" [disabled]="appointmentDetails.status != '1'">
                         <label for="disease">Elaboration:</label>
-                        <textarea name="elaboration" cols="30" rows="4" class="form-control" name="elaboration" value="{{appointmentDetails.elaboration}}" [(ngModel)]="appointmentDetails.elaboration" ></textarea>
+                        <textarea name="elaboration" cols="30" rows="4" class="form-control" name="elaboration" value="{{appointmentDetails.elaboration}}" [(ngModel)]="appointmentDetails.elaboration" [disabled]="appointmentDetails.status != '1'" ></textarea>
                         <label for="disease">Medication:</label>
-                        <textarea name="elaboration" cols="30" rows="6" class="form-control" name="medication" [(ngModel)]="appointmentDetails.medication"></textarea>
+                        <textarea name="elaboration" cols="30" rows="6" class="form-control" name="medication" [(ngModel)]="appointmentDetails.medication" [disabled]="appointmentDetails.status != '1'"></textarea>
                         <button type="submit" class="mt-4 ms-5"  *ngIf="appointmentDetails.status=='1'" >Submit</button>
                     </form>
                 </div>
